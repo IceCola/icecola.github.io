@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://www.anycola.com/2015/10/05/Octopress安装和部署/index.html">
 <meta property="og:site_name" content="火力全開">
 <meta property="og:description" content="安装Octopress步骤12345678910111213141516171819202122232425git config --global user.name &quot;name&quot;git config --global user.email &quot;emailaddress&quot;cd ~mkdir gitcd gitgit clone git@github.com:name/name.github.io.g">
-<meta property="og:updated_time" content="2015-10-05T09:26:52.000Z">
+<meta property="og:updated_time" content="2015-10-05T09:31:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Octopress安装和部署">
 <meta name="twitter:description" content="安装Octopress步骤12345678910111213141516171819202122232425git config --global user.name &quot;name&quot;git config --global user.email &quot;emailaddress&quot;cd ~mkdir gitcd gitgit clone git@github.com:name/name.github.io.g">
@@ -139,7 +139,7 @@
   
     <div class="article-meta">
       <a href="/2015/10/05/Octopress安装和部署/" class="article-date">
-  	<time datetime="2015-10-05T09:26:52.000Z" itemprop="datePublished">2015-10-05</time>
+  	<time datetime="2015-10-05T09:31:39.000Z" itemprop="datePublished">2015-10-05</time>
 </a>
     </div>
   
@@ -268,17 +268,19 @@
 <p>编辑完成markdown内容后，发布：  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rake generate</span><br><span class="line">git add .</span><br><span class="line">git commit -am <span class="string">"Some comment here."</span> </span><br><span class="line">git push origin <span class="built_in">source</span></span><br><span class="line">rake deploy</span><br></pre></td></tr></table></figure>
 <h3 id="8-Octopress的一些常见问题">8.Octopress的一些常见问题</h3><ul>
-<li><p>不能在ZSH中输入命令的问题  </p>
-<p>Octopress提供了许多Rake任务，可以方便地完成一些操作。常用的命令是<code>rake new_post[“title”]</code>。但是在ZSH下，输入这样的命令，会提示错误：  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">zsh: no matches found: new_post[...]</span><br><span class="line">```  </span><br><span class="line">原因是诸如[]之类的不是正确的命令字符。当然，我们也可以使用转义符来解决这一问题。但每次都需要敲入转义符，实在是太麻烦了。解决方案是在~/.zshrc文件下，加入这样一行内容：  </span><br><span class="line"></span><br><span class="line"> ```bash</span><br><span class="line"><span class="built_in">alias</span> rake=<span class="string">"noglob rake"</span></span><br></pre></td></tr></table></figure>
+<li><p>不能在ZSH中输入命令的问题<br>Octopress提供了许多Rake任务，可以方便地完成一些操作。常用的命令是<code>rake new_post[“title”]</code>。但是在ZSH下，输入这样的命令，会提示错误：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zsh: no matches found: new_post[...]</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>解决中文乱码问题  </p>
-<p>Octopress要创建一篇博客，可以直接运行<code>rake new_post[“title”]</code>，它会在source/_post下创建一个markdown文件。同时，它会将你输入的title作为blog的链接URL。我们可以通过一些工具，例如EMacs或者MouApp（在Mac OS下）打开该文件进行编辑。但是，当我将markdown文件打开，修改title为中文，且输入中文博客时，再运行rake generate生成博客页面时，会报告编码错误。信息为：  </p>
+</ul>
+<p>原因是诸如[]之类的不是正确的命令字符。当然，我们也可以使用转义符来解决这一问题。但每次都需要敲入转义符，实在是太麻烦了。解决方案是在~/.zshrc文件下，加入这样一行内容：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> rake=<span class="string">"noglob rake"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>解决中文乱码问题<br>Octopress要创建一篇博客，可以直接运行<code>rake new_post[“title”]</code>，它会在source/_post下创建一个markdown文件。同时，它会将你输入的title作为blog的链接URL。我们可以通过一些工具，例如EMacs或者MouApp（在Mac OS下）打开该文件进行编辑。但是，当我将markdown文件打开，修改title为中文，且输入中文博客时，再运行rake generate生成博客页面时，会报告编码错误。信息为：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gems/ruby-<span class="number">1.9</span>.<span class="number">2</span>-p290/gems/jekyll-<span class="number">0.11</span>.<span class="number">0</span>/lib/jekyll/convertible.rb:<span class="number">32</span>:<span class="keyword">in</span> <span class="string">'read_yaml'</span>: invalid byte sequence <span class="keyword">in</span> US-ASCII (ArgumentError)</span><br><span class="line">```  </span><br><span class="line">这是因为jekyll代码没有很好地支持多种编码的缘故。解决办法是找到提示信息中的convertible.rb文件，将第<span class="number">29</span>行的如下代码：   </span><br><span class="line"></span><br><span class="line"> ```bash</span><br><span class="line">self.content = File.read(File.join(base, name))</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>修改为：  </p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">self.content = File.read(File.join(base, name), :encoding =&gt; <span class="string">"utf-8"</span>)</span><br><span class="line">```  </span><br><span class="line">有的 博客 还提到ruby环境的问题。我并没有碰到。我使用的版本是ruby <span class="number">1.9</span>.<span class="number">3</span>。如果遇到类似问题，根据这篇博客的讲解，可以修改ruby环境下的setup_environment.bat文件，在文件最后加入<span class="number">2</span>行：  </span><br><span class="line"></span><br><span class="line"> ```bash</span><br><span class="line"><span class="built_in">set</span> LC_ALL=en_US.UTF-<span class="number">8</span>  </span><br><span class="line"><span class="built_in">set</span> LANG=en_US.UTF-<span class="number">8</span></span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">self.content = File.read(File.join(base, name), :encoding =&gt; <span class="string">"utf-8"</span>)</span><br><span class="line">```  </span><br><span class="line">有的 博客 还提到ruby环境的问题。我并没有碰到。我使用的版本是ruby <span class="number">1.9</span>.<span class="number">3</span>。如果遇到类似问题，根据这篇博客的讲解，可以修改ruby环境下的setup_environment.bat文件，在文件最后加入<span class="number">2</span>行：</span><br><span class="line"></span><br><span class="line"> ```bash</span><br><span class="line"><span class="built_in">set</span> LC_ALL=en_US.UTF-<span class="number">8</span>  </span><br><span class="line"><span class="built_in">set</span> LANG=en_US.UTF-<span class="number">8</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>中文博客名称的问题<br>前面已经提到，<code>rake new_post[“”]</code>命令会将双引号引起来的标题作为blog链接的一部分。这就必然导致一个问题，就是我们无法在<code>new_post[“”]</code>命令中直接使用中文作为博客的标题。带来的问题是，我们每次都需要在创建了博客之后，再打开markdown文件，去修改文件前方的title内容为中文。这无疑增加了工作量。解决的办法很简单，因为new_post就是一个rake任务而已，我们可以参照该任务，创建一个自己的任务，添加一个新的参数alias，将它作为我们需要的中文标题。  </p>
 <p>打开在octopress根目录下的Rakefile文件，在文件末尾增加如下代码  </p>
