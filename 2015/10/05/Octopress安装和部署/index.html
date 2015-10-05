@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://www.anycola.com/2015/10/05/Octopress安装和部署/index.html">
 <meta property="og:site_name" content="火力全開">
 <meta property="og:description" content="安装Octopress步骤12345678910111213141516171819202122232425git config --global user.name &quot;name&quot;git config --global user.email &quot;emailaddress&quot;cd ~mkdir gitcd gitgit clone git@github.com:name/name.github.io.g">
-<meta property="og:updated_time" content="2015-10-05T09:24:23.000Z">
+<meta property="og:updated_time" content="2015-10-05T09:26:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Octopress安装和部署">
 <meta name="twitter:description" content="安装Octopress步骤12345678910111213141516171819202122232425git config --global user.name &quot;name&quot;git config --global user.email &quot;emailaddress&quot;cd ~mkdir gitcd gitgit clone git@github.com:name/name.github.io.g">
@@ -139,7 +139,7 @@
   
     <div class="article-meta">
       <a href="/2015/10/05/Octopress安装和部署/" class="article-date">
-  	<time datetime="2015-10-05T09:24:23.000Z" itemprop="datePublished">2015-10-05</time>
+  	<time datetime="2015-10-05T09:26:52.000Z" itemprop="datePublished">2015-10-05</time>
 </a>
     </div>
   
@@ -202,7 +202,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> <span class="string">"http://ruby.taobao.org"</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>然后执行命令bundle install就会自动安装所有octopress及其所有依赖。<br>注意： 如果上面的命令执行失败，提示下面的错误：  </p>
+<p>然后执行命令<code>bundle install</code>就会自动安装所有octopress及其所有依赖。<br>注意： 如果上面的命令执行失败，提示下面的错误：  </p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Gem::Installer::ExtensionBuildError: ERROR: Failed to build gem native extension.</span><br><span class="line">/usr/bin/ruby1.<span class="number">9.1</span> extconf.rb </span><br><span class="line">/usr/lib/ruby/<span class="number">1.9</span>.<span class="number">1</span>/rubygems/custom_require.rb:<span class="number">36</span>:<span class="keyword">in</span> <span class="string">'require'</span>: cannot load such file -- mkmf   (LoadError)</span><br></pre></td></tr></table></figure>
 <p>请执行下面的命令安装ruby1.9.1-dev  </p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ruby1.<span class="number">9.1</span>-dev</span><br></pre></td></tr></table></figure>
