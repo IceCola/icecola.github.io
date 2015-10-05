@@ -45,7 +45,7 @@ Xcode装好之后要启动一次，接受软件声明，否则后面步骤会失
 GitMac自带，查看下版本。 
 1git --version
 TextMate装完之后，如下配置，在命令行下输入m">
-<meta property="og:updated_time" content="2015-10-05T03:34:17.000Z">
+<meta property="og:updated_time" content="2015-10-05T03:37:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发环境配置">
 <meta name="twitter:description" content="软件安装
@@ -246,7 +246,7 @@ TextMate装完之后，如下配置，在命令行下输入m">
   
     <div class="article-meta">
       <a href="/2015/10/05/开发环境配置/" class="article-date">
-  	<time datetime="2015-10-05T03:34:17.000Z" itemprop="datePublished">2015-10-05</time>
+  	<time datetime="2015-10-05T03:37:11.000Z" itemprop="datePublished">2015-10-05</time>
 </a>
     </div>
   
@@ -301,8 +301,34 @@ TextMate装完之后，如下配置，在命令行下输入m">
 <p>紧接着，我们需要做一件事让通过 Hombrew 安装的程序的启动链接 (在 /usr/local/bin中）可以直接运行，无需将完整路径写出。通过以下命令将 /usr/local/bin 添加至 $PATH 环境变量中:  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'export PATH="/usr/local/bin:$PATH"'</span> &gt;&gt; ~/.bash_profile</span><br></pre></td></tr></table></figure>
 <p>Cmd+T 打开一个新的 terminal 标签页，运行以下命令，确保 brew 运行正常。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">brew doctor  </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">- 命令操作</span><br><span class="line"></span><br><span class="line">安装一个包,比如widget，可以简单的运行：  </span><br><span class="line">	</span><br><span class="line">``` bash  </span><br><span class="line">brew install widget  </span><br><span class="line">```  </span><br><span class="line">更新 Homebrew 在服务器端上的包目录：  </span><br><span class="line"></span><br><span class="line">``` bash  </span><br><span class="line">brew update  </span><br><span class="line">```  </span><br><span class="line">查看你的包是否需要更新：  </span><br><span class="line">	</span><br><span class="line">``` bash  </span><br><span class="line">brew outdated  </span><br><span class="line">```  </span><br><span class="line">更新包：  </span><br><span class="line">	</span><br><span class="line">``` bash  </span><br><span class="line">brew upgrade &lt;package_name&gt;  </span><br><span class="line">```  </span><br><span class="line">Homebrew 将会把老版本的包缓存下来，以便当你想回滚至旧版本时使用。但这是比较少使用的情况，当你想清理旧版本的包缓存时，可以运行：  </span><br><span class="line">	</span><br><span class="line">``` bash  </span><br><span class="line">brew cleanup  </span><br><span class="line">```  </span><br><span class="line">查看你安装过的包列表（包括版本号）：  </span><br><span class="line">	</span><br><span class="line">``` bash  </span><br><span class="line">brew list --versions  </span><br><span class="line">```  </span><br><span class="line">	</span><br><span class="line"><span class="comment">### Homebrew Cask</span></span><br><span class="line"></span><br><span class="line">Homebrew Cask可以优雅、简单、快速的安装和管理 OS X 图形界面程序，比如 Google Chrome 和 Dropbox。</span><br><span class="line"></span><br><span class="line">- 安装  </span><br><span class="line">运行以下命令即可完成：  </span><br><span class="line">brew tap caskroom/cask  // 添加 Github 上的 caskroom/cask库  </span><br><span class="line">brew install brew-cask  // 安装 brew-cask  </span><br><span class="line"></span><br><span class="line">- 搜索  </span><br><span class="line">brew cask search</span><br><span class="line"></span><br><span class="line">- 文件预览插件  </span><br><span class="line">有些插件可以让 Mac 上的文件预览更有效，比如语法高亮、markdown 渲染、json 预览等等。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	``` bash</span><br><span class="line">brew cask install qlcolorcode  </span><br><span class="line">brew cask install qlstephen  </span><br><span class="line">brew cask install qlmarkdown  </span><br><span class="line">brew cask install quicklook-json  </span><br><span class="line">brew cask install qlprettypatch  </span><br><span class="line">brew cask install quicklook-csv  </span><br><span class="line">brew cask install betterzipql  </span><br><span class="line">brew cask install webp-quicklook  </span><br><span class="line">brew cask install suspicious-package</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew doctor</span><br></pre></td></tr></table></figure>
 <ul>
+<li>命令操作</li>
+</ul>
+<p>安装一个包,比如widget，可以简单的运行：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install widget</span><br></pre></td></tr></table></figure>
+<p>更新 Homebrew 在服务器端上的包目录：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br></pre></td></tr></table></figure>
+<p>查看你的包是否需要更新：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew outdated</span><br></pre></td></tr></table></figure>
+<p>更新包：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew upgrade &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
+<p>Homebrew 将会把老版本的包缓存下来，以便当你想回滚至旧版本时使用。但这是比较少使用的情况，当你想清理旧版本的包缓存时，可以运行：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cleanup</span><br></pre></td></tr></table></figure>
+<p>查看你安装过的包列表（包括版本号）：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew list --versions</span><br></pre></td></tr></table></figure>
+<h3 id="Homebrew_Cask">Homebrew Cask</h3><p>Homebrew Cask可以优雅、简单、快速的安装和管理 OS X 图形界面程序，比如 Google Chrome 和 Dropbox。</p>
+<ul>
+<li><p>安装<br>运行以下命令即可完成：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew tap caskroom/cask  <span class="comment"># 添加 Github 上的 caskroom/cask库  </span></span><br><span class="line">brew install brew-cask  <span class="comment"># 安装 brew-cask</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>搜索<br>brew cask search</p>
+</li>
+<li><p>文件预览插件<br>有些插件可以让 Mac 上的文件预览更有效，比如语法高亮、markdown 渲染、json 预览等等。</p>
+</li>
+</ul>
+<pre><code><span class="comment"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">brew cask install qlcolorcode  </span><br><span class="line">brew cask install qlstephen  </span><br><span class="line">brew cask install qlmarkdown  </span><br><span class="line">brew cask install quicklook-json  </span><br><span class="line">brew cask install qlprettypatch  </span><br><span class="line">brew cask install quicklook-csv  </span><br><span class="line">brew cask install betterzipql  </span><br><span class="line">brew cask install webp-quicklook  </span><br><span class="line">brew cask install suspicious-package</span><br></pre></td></tr></table></figure></span>
+</code></pre><ul>
 <li><p>一些推荐安装的程序<br>都是些常用的app，没见过的可自行百度，不多做介绍  </p>
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">brew cask install alfred  </span><br><span class="line">brew cask install appcleaner  </span><br><span class="line">brew cask install cheatsheet  </span><br><span class="line">brew cask install dropbox  </span><br><span class="line">brew cask install google-chrome  </span><br><span class="line">brew cask install sublime-text  </span><br><span class="line">brew cask install mou</span><br></pre></td></tr></table></figure>
 </li>
