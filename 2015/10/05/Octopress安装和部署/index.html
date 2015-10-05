@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://www.anycola.com/2015/10/05/Octopress安装和部署/index.html">
 <meta property="og:site_name" content="火力全開">
 <meta property="og:description" content="安装Octopress步骤12345678910111213141516171819202122232425git config --global user.name &quot;name&quot;git config --global user.email &quot;emailaddress&quot;cd ~mkdir gitcd gitgit clone git@github.com:name/name.github.io.g">
-<meta property="og:updated_time" content="2015-10-05T10:05:06.000Z">
+<meta property="og:updated_time" content="2015-10-05T10:07:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Octopress安装和部署">
 <meta name="twitter:description" content="安装Octopress步骤12345678910111213141516171819202122232425git config --global user.name &quot;name&quot;git config --global user.email &quot;emailaddress&quot;cd ~mkdir gitcd gitgit clone git@github.com:name/name.github.io.g">
@@ -139,7 +139,7 @@
   
     <div class="article-meta">
       <a href="/2015/10/05/Octopress安装和部署/" class="article-date">
-  	<time datetime="2015-10-05T10:05:06.000Z" itemprop="datePublished">2015-10-05</time>
+  	<time datetime="2015-10-05T10:07:24.000Z" itemprop="datePublished">2015-10-05</time>
 </a>
     </div>
   
@@ -391,33 +391,33 @@
 <p>我喜欢用 三个反引号 直接嵌入代码，比 codeblock 要简洁。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ``` bash</span></span><br><span class="line"><span class="comment"># #code here</span></span><br><span class="line"><span class="comment">#</span></span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<pre><code>
-- 启用MathJax   
-
- 在 source/_includes/custom/footer.html 的第一行加入如下代码：  
-
- ```bash
-<span class="comment">&lt;!-- mathjax config similar to math.stackexchange --&gt;</span>
-<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/x-mathjax-config"</span>&gt;</span><span class="actionscript">
+<li><p>启用MathJax   </p>
+<p>在 source/_includes/custom/footer.html 的第一行加入如下代码：  </p>
+<pre><code class="bash">&lt;!-- mathjax config similar to math.stackexchange --&gt;
+&lt;script <span class="built_in">type</span>=<span class="string">"text/x-mathjax-config"</span>&gt;
 MathJax.Hub.Config({
-  jax: [<span class="string">"input/TeX"</span>, <span class="string">"output/HTML-CSS"</span>],
-  tex2jax: {
-    inlineMath: [ [<span class="string">'$'</span>, <span class="string">'$'</span>] ],
-    displayMath: [ [<span class="string">'$$'</span>, <span class="string">'$$'</span>]],
-    processEscapes: <span class="literal">true</span>,
-    skipTags: [<span class="string">'script'</span>, <span class="string">'noscript'</span>, <span class="string">'style'</span>, <span class="string">'textarea'</span>, <span class="string">'pre'</span>, <span class="string">'code'</span>]
-  },
-  messageStyle: <span class="string">"none"</span>,
-  <span class="string">"HTML-CSS"</span>: { preferredFont: <span class="string">"TeX"</span>, availableFonts: [<span class="string">"STIX"</span>,<span class="string">"TeX"</span>] }
+jax: [<span class="string">"input/TeX"</span>, <span class="string">"output/HTML-CSS"</span>],
+tex2jax: {
+  inlineMath: [ [<span class="string">'$'</span>, <span class="string">'$'</span>] ],
+  displayMath: [ [<span class="string">'$$'</span>, <span class="string">'$$'</span>]],
+  processEscapes: <span class="literal">true</span>,
+  skipTags: [<span class="string">'script'</span>, <span class="string">'noscript'</span>, <span class="string">'style'</span>, <span class="string">'textarea'</span>, <span class="string">'pre'</span>, <span class="string">'code'</span>]
+},
+messageStyle: <span class="string">"none"</span>,
+<span class="string">"HTML-CSS"</span>: { preferredFont: <span class="string">"TeX"</span>, availableFonts: [<span class="string">"STIX"</span>,<span class="string">"TeX"</span>] }
 });
-</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"</span></span>
-</code></pre><p>这样就引入了MathJax的JS包，可以直接在markdown文件里直接写公式了，例如 <code>$\dfrac {\pi}{2}$</code>。  </p>
-<p> 上面的代码也可以在 source/_includes/custom/header.html 里添加，不过这样会使得页面的加载速度变慢。还可以在 source/_layouts/default.html里添加。  </p>
-<p> 有一个问题，rdiscount这个解析器，对 mathjax 大部分支持，某些细节处理的不好，举个例子，它会在动把公式中的 ^n 转换成 <sup>n</sup> ，例如 $2^n$ 会解析成 $2<sup>n</sup>$ ，这样就破坏了整个公式，导致公式无法解析。参考这里一段话： </p>
-<pre><code>&gt; <span class="keyword">as</span> discount <span class="keyword">for</span> example automatically replaces x^<span class="number">2</span> withx&lt;sup&gt;<span class="number">2</span>&lt;/sup&gt; which interrupts <span class="operator">the</span> MathJax rendering.  
-</code></pre><p> 因此要换一个解析器， Maruku 和 Kramdown 都可以，由于Maruku主页PR=4，Kramdown的主页PR=5，因此选择Kramdown。  </p>
+&lt;/script&gt;
+&lt;script src=<span class="string">"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"</span>
+</code></pre>
+<p>这样就引入了MathJax的JS包，可以直接在markdown文件里直接写公式了，例如 <code>$\dfrac {\pi}{2}$</code>。  </p>
+<p>上面的代码也可以在 source/_includes/custom/header.html 里添加，不过这样会使得页面的加载速度变慢。还可以在 source/_layouts/default.html里添加。  </p>
+<p>有一个问题，rdiscount这个解析器，对 mathjax 大部分支持，某些细节处理的不好，举个例子，它会在动把公式中的 ^n 转换成 <sup>n</sup> ，例如 $2^n$ 会解析成 $2<sup>n</sup>$ ，这样就破坏了整个公式，导致公式无法解析。参考这里一段话： </p>
+<blockquote>
+<p>as discount for example automatically replaces x^2 withx<sup>2</sup> which interrupts the MathJax rendering.  </p>
+</blockquote>
+<p>因此要换一个解析器， Maruku 和 Kramdown 都可以，由于Maruku主页PR=4，Kramdown的主页PR=5，因此选择Kramdown。  </p>
+</li>
+</ul>
 
       
     </div>
