@@ -10,8 +10,7 @@ github
   12brew install git         #Mac电脑使用brew安装sudo apt-get install git #Ubuntu系统使用这条命令安装
   然后设置好git账户  使用Github Page搭建博客, 需要在github建立仓库,仓库名为username.github.io  
 
-gitcafe  
-  因为github速度">
+gitcafe因为github速度稍微慢一点">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo安装和配置">
 <meta property="og:url" content="http://www.anycola.com/2015/10/05/Hexo安装和配置/index.html">
@@ -21,9 +20,8 @@ github
   12brew install git         #Mac电脑使用brew安装sudo apt-get install git #Ubuntu系统使用这条命令安装
   然后设置好git账户  使用Github Page搭建博客, 需要在github建立仓库,仓库名为username.github.io  
 
-gitcafe  
-  因为github速度">
-<meta property="og:updated_time" content="2015-10-05T04:56:36.000Z">
+gitcafe因为github速度稍微慢一点">
+<meta property="og:updated_time" content="2015-10-05T08:42:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo安装和配置">
 <meta name="twitter:description" content="1. Git安装和设置
@@ -31,8 +29,7 @@ github
   12brew install git         #Mac电脑使用brew安装sudo apt-get install git #Ubuntu系统使用这条命令安装
   然后设置好git账户  使用Github Page搭建博客, 需要在github建立仓库,仓库名为username.github.io  
 
-gitcafe  
-  因为github速度">
+gitcafe因为github速度稍微慢一点">
   
   
     <link rel="icon" href="/favicon.png">
@@ -161,7 +158,7 @@ gitcafe
   
     <div class="article-meta">
       <a href="/2015/10/05/Hexo安装和配置/" class="article-date">
-  	<time datetime="2015-10-05T04:56:36.000Z" itemprop="datePublished">2015-10-05</time>
+  	<time datetime="2015-10-05T08:42:17.000Z" itemprop="datePublished">2015-10-05</time>
 </a>
     </div>
   
@@ -195,25 +192,23 @@ gitcafe
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install git         <span class="comment">#Mac电脑使用brew安装</span></span><br><span class="line">sudo apt-get install git <span class="comment">#Ubuntu系统使用这条命令安装</span></span><br></pre></td></tr></table></figure>
 <p>  然后设置好git账户<br>  使用Github Page搭建博客, 需要在github建立仓库,仓库名为username.github.io  </p>
 </li>
-<li><p><strong>gitcafe</strong>  </p>
-<p>  因为github速度稍微慢一点，所以用作备份站，主站用国内的gitcafe。  </p>
-<ol>
-<li>先到<a href="https://gitcafe.com/projects/new" target="_blank" rel="external">https://gitcafe.com/projects/new</a>页面注册一个新的项目，<strong>项目名需要与你的用户名相同</strong>，默认分支选择gitcafe-pages,项目主页也是相同的 <a href="http://username.gitcafe.com" target="_blank" rel="external">http://username.gitcafe.com</a>  </li>
-<li>采用和github同样的key文件，在  ~/.ssh/id_rsa.pub</li>
-<li><p>如果没有，单独生成一个ssh-key</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"emailaddress"</span> <span class="operator">-f</span> ~/.ssh/gitcafe</span><br></pre></td></tr></table></figure>
-<p> 在SSH的文件夹下，可以看到gitcafe私钥和公钥文件：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitcafe</span><br><span class="line">gitcafe.pub</span><br></pre></td></tr></table></figure>
-<p> 生成配置文件：  </p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch ~/.ssh/config</span><br></pre></td></tr></table></figure>
-<p> 添加以下内容：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Host gitcafe.com www.gitcafe.com</span><br><span class="line">IdentityFile ~/.ssh/gitcafe</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">	<span class="number">3</span>. 登录[网站](https://gitcafe.com/account/public_keys)，将SSH文件夹下的 GitCafe.pub 中的内容复制到公钥框中即可。  </span><br><span class="line">	<span class="number">4</span>. 测试是否连上，共用的key，输入：</span><br><span class="line"></span><br><span class="line">		``` bash</span><br><span class="line">ssh -T git@gitcafe.com -i ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-<p> 单独的key，输入：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@gitcafe.com -i ~/.ssh/gitcafe</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<li><p><strong>gitcafe</strong><br>因为github速度稍微慢一点，所以用作备份站，主站用国内的gitcafe。  </p>
+<p>1) 先到<a href="https://gitcafe.com/projects/new" target="_blank" rel="external">https://gitcafe.com/projects/new</a>页面注册一个新的项目，<strong>项目名需要与你的用户名相同</strong>，默认分支选择gitcafe-pages,项目主页也是相同的 <a href="http://username.gitcafe.com" target="_blank" rel="external">http://username.gitcafe.com</a>  </p>
+<p>2) 采用和github同样的key文件，在  ~/.ssh/id_rsa.pub<br>如果没有，单独生成一个ssh-key</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"emailaddress"</span> <span class="operator">-f</span> ~/.ssh/gitcafe</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<p>在SSH的文件夹下，可以看到gitcafe私钥和公钥文件：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitcafe</span><br><span class="line">gitcafe.pub</span><br></pre></td></tr></table></figure>
+<p>生成配置文件：  </p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch ~/.ssh/config</span><br></pre></td></tr></table></figure>
+<p>添加以下内容：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Host gitcafe.com www.gitcafe.com</span><br><span class="line">IdentityFile ~/.ssh/gitcafe</span><br></pre></td></tr></table></figure>
+<p> 3) 登录<a href="https://gitcafe.com/account/public_keys" target="_blank" rel="external">网站</a>，将SSH文件夹下的 GitCafe.pub 中的内容复制到公钥框中即可。</p>
+<p> 4) 测试是否连上，共用的key，输入：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@gitcafe.com -i ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+<p>单独的key，输入：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@gitcafe.com -i ~/.ssh/gitcafe</span><br></pre></td></tr></table></figure>
 <p>###2. Node.js安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node  <span class="comment">#最新版的node.js的包中已经集成了npm包管理工具</span></span><br></pre></td></tr></table></figure>
 <p>使用以下命令验证是否安装成功</p>
@@ -235,13 +230,9 @@ gitcafe
 <p>如果不想博文在首页全部显示, 并能出现阅读全文按钮效果, 需要在你想在首页显示的部分下添加  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--more--&gt;</span><br></pre></td></tr></table></figure>
 <p>###5. 主题更改</p>
-<pre><code>cd <span class="regexp">~/git/</span>hexo
-git clone git<span class="annotation">@github</span>.<span class="string">com:</span>litten<span class="regexp">/hexo-theme-yilia.git themes/</span>yilia
-</code></pre><p>在./_config.yml，修改主题为yilia  </p>
-<pre><code><span class="attribute">theme</span>: <span class="string">yilia</span>
-</code></pre><p>另外推荐几个主题:<br><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">iissnan/hexo-theme-next</a><br><a href="https://github.com/TryGhost/Casper" target="_blank" rel="external">TryGhost/Casper</a><br><a href="https://github.com/kywk/hexo-theme-casper" target="_blank" rel="external">kywk/hexo-theme-casper</a> #基于Casper<br><a href="https://github.com/daleanthony/uno" target="_blank" rel="external">daleanthony/uno</a><br><a href="https://github.com/A-limon/pacman" target="_blank" rel="external">A-limon/pacman</a><br><a href="https://github.com/AlxMedia/hueman" target="_blank" rel="external">AlxMedia/hueman</a><br><a href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="external">ppoffice/hexo-theme-hueman</a> #基于Hueman<br><a href="https://github.com/xiangming/landscape-plus" target="_blank" rel="external">xiangming/landscape-plus</a> #基于官方<br><a href="https://github.com/hexojs/hexo-theme-landscape" target="_blank" rel="external">hexojs/hexo-theme-landscape</a>  </p>
-<p>查看本地效果  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">hexo g       <span class="comment">#hexo generate简写</span></span><br><span class="line">hexo s       <span class="comment">#hexo server简写</span></span><br><span class="line">```	</span><br><span class="line"><span class="comment">###6. 部署到Git</span></span><br><span class="line"></span><br><span class="line">以上内容都是在本地进行查看, 现在将博客部署到github或gitcafe上</span><br><span class="line">  </span><br><span class="line"><span class="comment">#### gitcafe </span></span><br><span class="line">打开./_config.yml，修改如下信息：</span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line"><span class="built_in">type</span>: git</span><br><span class="line">repository: git@gitcafe.com:yourname/yourname.git</span><br><span class="line">branch: gitcafe-pages</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/git/hexo</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
+<p>在./_config.yml，修改主题为yilia  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">theme: yilia</span><br><span class="line">```	</span><br><span class="line">另外推荐几个主题:  </span><br><span class="line">[iissnan/hexo-theme-next](https://github.com/iissnan/hexo-theme-next)  </span><br><span class="line">[TryGhost/Casper](https://github.com/TryGhost/Casper)  </span><br><span class="line">[kywk/hexo-theme-casper](https://github.com/kywk/hexo-theme-casper) <span class="comment">#基于Casper  </span></span><br><span class="line">[daleanthony/uno](https://github.com/daleanthony/uno) </span><br><span class="line">[A-limon/pacman](https://github.com/A-limon/pacman)  </span><br><span class="line">[AlxMedia/hueman](https://github.com/AlxMedia/hueman)  </span><br><span class="line">[ppoffice/hexo-theme-hueman](https://github.com/ppoffice/hexo-theme-hueman) <span class="comment">#基于Hueman  </span></span><br><span class="line">[xiangming/landscape-plus](https://github.com/xiangming/landscape-plus) <span class="comment">#基于官方  </span></span><br><span class="line">[hexojs/hexo-theme-landscape](https://github.com/hexojs/hexo-theme-landscape)  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">查看本地效果  </span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">hexo g       <span class="comment">#hexo generate简写</span></span><br><span class="line">hexo s       <span class="comment">#hexo server简写</span></span><br><span class="line">```	</span><br><span class="line"><span class="comment">###6. 部署到Git</span></span><br><span class="line"></span><br><span class="line">以上内容都是在本地进行查看, 现在将博客部署到github或gitcafe上</span><br><span class="line">  </span><br><span class="line"><span class="comment">#### gitcafe </span></span><br><span class="line">打开./_config.yml，修改如下信息：</span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line"><span class="built_in">type</span>: git</span><br><span class="line">repository: git@gitcafe.com:yourname/yourname.git</span><br><span class="line">branch: gitcafe-pages</span><br></pre></td></tr></table></figure>
 <p>branch要提交到gitcafe-pages，然后才能在username.gitcafe.io中看到提交的页面。</p>
 <h4 id="Github">Github</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: github</span><br><span class="line">  repo: https://github.com/lmintlcx/lmintlcx.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 <p>项目主页需要把 branch 设置为 gh-pages</p>

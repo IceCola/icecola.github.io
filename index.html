@@ -144,7 +144,7 @@
   
     <div class="article-meta">
       <a href="/2015/10/05/Hexo安装和配置/" class="article-date">
-  	<time datetime="2015-10-05T04:56:36.000Z" itemprop="datePublished">2015-10-05</time>
+  	<time datetime="2015-10-05T08:42:17.000Z" itemprop="datePublished">2015-10-05</time>
 </a>
     </div>
   
@@ -171,25 +171,23 @@
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install git         <span class="comment">#Mac电脑使用brew安装</span></span><br><span class="line">sudo apt-get install git <span class="comment">#Ubuntu系统使用这条命令安装</span></span><br></pre></td></tr></table></figure>
 <p>  然后设置好git账户<br>  使用Github Page搭建博客, 需要在github建立仓库,仓库名为username.github.io  </p>
 </li>
-<li><p><strong>gitcafe</strong>  </p>
-<p>  因为github速度稍微慢一点，所以用作备份站，主站用国内的gitcafe。  </p>
-<ol>
-<li>先到<a href="https://gitcafe.com/projects/new">https://gitcafe.com/projects/new</a>页面注册一个新的项目，<strong>项目名需要与你的用户名相同</strong>，默认分支选择gitcafe-pages,项目主页也是相同的 <a href="http://username.gitcafe.com">http://username.gitcafe.com</a>  </li>
-<li>采用和github同样的key文件，在  ~/.ssh/id_rsa.pub</li>
-<li><p>如果没有，单独生成一个ssh-key</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"emailaddress"</span> <span class="operator">-f</span> ~/.ssh/gitcafe</span><br></pre></td></tr></table></figure>
-<p> 在SSH的文件夹下，可以看到gitcafe私钥和公钥文件：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitcafe</span><br><span class="line">gitcafe.pub</span><br></pre></td></tr></table></figure>
-<p> 生成配置文件：  </p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch ~/.ssh/config</span><br></pre></td></tr></table></figure>
-<p> 添加以下内容：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Host gitcafe.com www.gitcafe.com</span><br><span class="line">IdentityFile ~/.ssh/gitcafe</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">	<span class="number">3</span>. 登录[网站](https://gitcafe.com/account/public_keys)，将SSH文件夹下的 GitCafe.pub 中的内容复制到公钥框中即可。  </span><br><span class="line">	<span class="number">4</span>. 测试是否连上，共用的key，输入：</span><br><span class="line"></span><br><span class="line">		``` bash</span><br><span class="line">ssh -T git@gitcafe.com -i ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-<p> 单独的key，输入：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@gitcafe.com -i ~/.ssh/gitcafe</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<li><p><strong>gitcafe</strong><br>因为github速度稍微慢一点，所以用作备份站，主站用国内的gitcafe。  </p>
+<p>1) 先到<a href="https://gitcafe.com/projects/new">https://gitcafe.com/projects/new</a>页面注册一个新的项目，<strong>项目名需要与你的用户名相同</strong>，默认分支选择gitcafe-pages,项目主页也是相同的 <a href="http://username.gitcafe.com">http://username.gitcafe.com</a>  </p>
+<p>2) 采用和github同样的key文件，在  ~/.ssh/id_rsa.pub<br>如果没有，单独生成一个ssh-key</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"emailaddress"</span> <span class="operator">-f</span> ~/.ssh/gitcafe</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<p>在SSH的文件夹下，可以看到gitcafe私钥和公钥文件：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitcafe</span><br><span class="line">gitcafe.pub</span><br></pre></td></tr></table></figure>
+<p>生成配置文件：  </p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch ~/.ssh/config</span><br></pre></td></tr></table></figure>
+<p>添加以下内容：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Host gitcafe.com www.gitcafe.com</span><br><span class="line">IdentityFile ~/.ssh/gitcafe</span><br></pre></td></tr></table></figure>
+<p> 3) 登录<a href="https://gitcafe.com/account/public_keys">网站</a>，将SSH文件夹下的 GitCafe.pub 中的内容复制到公钥框中即可。</p>
+<p> 4) 测试是否连上，共用的key，输入：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@gitcafe.com -i ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+<p>单独的key，输入：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@gitcafe.com -i ~/.ssh/gitcafe</span><br></pre></td></tr></table></figure>
 <p>###2. Node.js安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node  <span class="comment">#最新版的node.js的包中已经集成了npm包管理工具</span></span><br></pre></td></tr></table></figure>
 <p>使用以下命令验证是否安装成功</p>
