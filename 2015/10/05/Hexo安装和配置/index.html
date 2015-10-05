@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo安装和配置 | Hola Ola！</title>
+  <title>Hexo安装和配置 | Ola | Homepage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1. Git安装和设置
 github
@@ -14,14 +14,14 @@ gitcafe因为github速度稍微慢一点，所以用作备">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo安装和配置">
 <meta property="og:url" content="http://www.anycola.com/2015/10/05/Hexo安装和配置/index.html">
-<meta property="og:site_name" content="Hola Ola！">
+<meta property="og:site_name" content="Ola | Homepage">
 <meta property="og:description" content="1. Git安装和设置
 github
 12brew install git         #Mac电脑使用brew安装sudo apt-get install git #Ubuntu系统使用这条命令安装
 然后设置好git账户使用Github Page搭建博客, 需要在github建立仓库,仓库名为username.github.io  
 
 gitcafe因为github速度稍微慢一点，所以用作备">
-<meta property="og:updated_time" content="2015-10-05T09:19:33.000Z">
+<meta property="og:updated_time" content="2015-10-05T13:40:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo安装和配置">
 <meta name="twitter:description" content="1. Git安装和设置
@@ -32,7 +32,7 @@ github
 gitcafe因为github速度稍微慢一点，所以用作备">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
@@ -44,7 +44,7 @@ gitcafe因为github速度稍微慢一点，所以用作备">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="null" class="js-avatar">
+			<img lazy-src="/img/avatar.png" class="js-avatar">
 			
 		</a>
 
@@ -128,7 +128,7 @@ gitcafe因为github速度稍微慢一点，所以用作备">
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img lazy-src="null" class="js-avatar">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author">Ola</h1>
@@ -158,7 +158,7 @@ gitcafe因为github速度稍微慢一点，所以用作备">
   
     <div class="article-meta">
       <a href="/2015/10/05/Hexo安装和配置/" class="article-date">
-  	<time datetime="2015-10-05T09:19:33.000Z" itemprop="datePublished">2015-10-05</time>
+  	<time datetime="2015-10-05T13:40:04.000Z" itemprop="datePublished">2015-10-05</time>
 </a>
     </div>
   
@@ -228,6 +228,7 @@ gitcafe因为github速度稍微慢一点，所以用作备">
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--more--&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="5-_主题更改">5. 主题更改</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/git/hexo</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
 <p>在./_config.yml，修改主题为yilia<br><code>theme: yilia</code></p>
+<p>Hexo<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">主题列表</a>  </p>
 <p>另外推荐几个主题:<br><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">iissnan/hexo-theme-next</a><br><a href="https://github.com/TryGhost/Casper" target="_blank" rel="external">TryGhost/Casper</a><br><a href="https://github.com/kywk/hexo-theme-casper" target="_blank" rel="external">kywk/hexo-theme-casper</a> #基于Casper<br><a href="https://github.com/daleanthony/uno" target="_blank" rel="external">daleanthony/uno</a><br><a href="https://github.com/A-limon/pacman" target="_blank" rel="external">A-limon/pacman</a><br><a href="https://github.com/AlxMedia/hueman" target="_blank" rel="external">AlxMedia/hueman</a><br><a href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="external">ppoffice/hexo-theme-hueman</a> #基于Hueman<br><a href="https://github.com/xiangming/landscape-plus" target="_blank" rel="external">xiangming/landscape-plus</a> #基于官方<br><a href="https://github.com/hexojs/hexo-theme-landscape" target="_blank" rel="external">hexojs/hexo-theme-landscape</a>  </p>
 <p>查看本地效果  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
@@ -245,6 +246,55 @@ gitcafe因为github速度稍微慢一点，所以用作备">
 <p>完整配置信息如下：    </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site #站点信息</span></span><br><span class="line">title: blog Name <span class="comment">#标题</span></span><br><span class="line">subtitle: Subtitle <span class="comment">#副标题</span></span><br><span class="line">description: my blog desc <span class="comment">#描述</span></span><br><span class="line">author: me <span class="comment">#作者</span></span><br><span class="line">language: zh-CN <span class="comment">#语言</span></span><br><span class="line">timezone: Asia/Shanghai <span class="comment">#时区</span></span><br><span class="line">	</span><br><span class="line"><span class="comment"># URL</span></span><br><span class="line">url: http://yoururl.com   <span class="comment">#用于绑定域名, 其他的不需要配置</span></span><br><span class="line">root: /</span><br><span class="line"><span class="comment">#permalink: :year/:month/:day/:title/</span></span><br><span class="line">permalink: posts/title.html</span><br><span class="line">permalink_defaults:</span><br><span class="line">	</span><br><span class="line"><span class="comment"># Directory #目录</span></span><br><span class="line"><span class="built_in">source</span>_dir: <span class="built_in">source</span> <span class="comment">#源文件</span></span><br><span class="line">public_dir: public <span class="comment">#生成的网页文件</span></span><br><span class="line">tag_dir: tags <span class="comment">#标签</span></span><br><span class="line">archive_dir: archives <span class="comment">#归档</span></span><br><span class="line">category_dir: categories <span class="comment">#分类</span></span><br><span class="line">code_dir: downloads/code</span><br><span class="line">i18n_dir: :lang <span class="comment">#国际化</span></span><br><span class="line">skip_render:</span><br><span class="line"></span><br><span class="line"><span class="comment"># Writing #写作</span></span><br><span class="line">new_post_name: :title.md <span class="comment">#新文章标题</span></span><br><span class="line">default_layout: post <span class="comment">#默认模板(post page photo draft)</span></span><br><span class="line">titlecase: <span class="literal">false</span> <span class="comment">#标题转换成大写</span></span><br><span class="line">external_link: <span class="literal">true</span> <span class="comment">#新标签页里打开连接</span></span><br><span class="line">filename_<span class="keyword">case</span>: <span class="number">0</span></span><br><span class="line">render_drafts: <span class="literal">false</span></span><br><span class="line">post_asset_folder: <span class="literal">false</span></span><br><span class="line">relative_link: <span class="literal">false</span></span><br><span class="line">future: <span class="literal">true</span></span><br><span class="line">highlight: <span class="comment">#语法高亮</span></span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  line_number: <span class="literal">true</span> <span class="comment">#显示行号</span></span><br><span class="line">  auto_detect: <span class="literal">true</span></span><br><span class="line">  tab_replace:</span><br><span class="line"></span><br><span class="line"><span class="comment"># Category &amp; Tag #分类和标签</span></span><br><span class="line">default_category: uncategorized <span class="comment">#默认分类</span></span><br><span class="line">category_map:</span><br><span class="line">tag_map:</span><br><span class="line"></span><br><span class="line"><span class="comment"># Date / Time format #日期时间格式</span></span><br><span class="line"><span class="comment">## http://momentjs.com/docs/#/displaying/format/</span></span><br><span class="line">date_format: YYYY-MM-DD</span><br><span class="line">time_format: HH:mm:ss</span><br><span class="line"></span><br><span class="line"><span class="comment"># Pagination #分页</span></span><br><span class="line">per_page: <span class="number">10</span> <span class="comment">#每页文章数, 设置成 0 禁用分页</span></span><br><span class="line">pagination_dir: page</span><br><span class="line"></span><br><span class="line"><span class="comment"># Extensions #插件和主题</span></span><br><span class="line"><span class="comment">## 插件: http://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## 主题: http://hexo.io/themes/</span></span><br><span class="line">theme: next</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment #部署, 同时发布在 GitHub 和 GitCafe 上面</span></span><br><span class="line">deploy:</span><br><span class="line">- <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@gitcafe.com:username/username.git,gitcafe-pages</span><br><span class="line">- <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@github.com:username/username.github.io.git,master</span><br><span class="line"></span><br><span class="line"><span class="comment"># Disqus #Disqus评论系统</span></span><br><span class="line">disqus_shortname: </span><br><span class="line"></span><br><span class="line">plugins: <span class="comment">#插件，例如生成 RSS 和站点地图的</span></span><br><span class="line">- hexo-generator-feed</span><br><span class="line">- hexo-generator-sitemap</span><br></pre></td></tr></table></figure>
 <p>保存之后，便可以使用<code>hexo d</code>上传到GitCafe。<br>部署成功,使用username.gitcafe.com进行访问, 或者设置个性域名，参考<a href="https://gitcafe.com/GitCafe/Help/wiki/Pages-%E7%9B%B8%E5%85%B3%E5%B8%AE%E5%8A%A9" target="_blank" rel="external">官方Wiki</a>。</p>
+<h3 id="7-域名">7.域名</h3><ul>
+<li><p>绑定域名<br>不绑定域名的话只能通过 your_user_name.github.io 访问<br>申请域名推荐 <a href="https://www.godaddy.com/" target="_blank" rel="external">GoDaddy</a>, 域名解析推荐 <a href="https://www.dnspod.cn/Domain" target="_blank" rel="external">DNSPod</a></p>
+</li>
+<li><p>绑定顶级域名<br>新建文件 CNAME, 无后缀, 纯文本文件, 内容为要绑定的域名 blogname.com<br>如果要使用 www.blogname.com 的形式, 文件内容改为 www.blogname.com</p>
+<p>DNS设置<br>主机记录@, 类型A, 记录值192.30.252.153<br>主机记录www, 类型A, 记录值192.30.252.153<br>参考 <a href="https://help.github.com/articles/tips-for-configuring-an-a-record-with-your-dns-provider" target="_blank" rel="external">Tips for configuring an A record with your DNS provider</a></p>
+</li>
+<li><p>绑定子域名</p>
+<p>比如使用域名blogname.com的子域名blog.blogname.com<br>CNAME文件内容为blog.blogname.com</p>
+<p>DNS设置<br>主机记录blog, 类型CNAME, 记录值blogname.github.io<br>参考 <a href="https://help.github.com/articles/tips-for-configuring-a-cname-record-with-your-dns-provider" target="_blank" rel="external">Tips for configuring a CNAME record with your DNS provider</a></p>
+</li>
+<li><p>Gitcafe 绑定域名</p>
+<p>项目管理界面, 左侧的导航栏中有自定义域名设置</p>
+</li>
+</ul>
+<h3 id="8-其他配置">8.其他配置</h3><p><strong>站点建立时间</strong><br>例如 © 2014 - 2015</p>
+<p>站点配置文件新增字段 since<br><code>since: 2014</code></p>
+<p><strong>侧栏设置</strong><br>post - 默认行为, 在文章页面(拥有目录列表)时显示<br>always - 在所有页面中都显示<br>hide - 在所有页面中都隐藏(可以手动展开)</p>
+<p><code>sidebar: post</code></p>
+<p><strong>头像设置</strong><br>编辑站点配置文件, 新增字段 avatar, 头像的链接地址可以是:</p>
+<p>网络地址<br><code>https://avatars2.githubusercontent.com/u/4962914?v=3&amp;s=460</code></p>
+<p>站点内的地址<br><code>/images/avatar.jpg #头像图片放置在主题的 source/images/</code></p>
+<p><code>avatar: /images/avatar.png</code></p>
+<p><strong>菜单设置</strong><br>编辑主题配置文件的 menu<br>若站点运行在子目录中, 将链接前缀的 / 去掉</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /</span><br><span class="line">  archives: /archives</span><br><span class="line">  categories: /categories</span><br><span class="line">  tags: /tags</span><br><span class="line">  commonweal: /<span class="number">404</span>.html</span><br><span class="line">  about: /about</span><br></pre></td></tr></table></figure>
+<p><strong>标签云页面</strong><br>添加一个标签云页面, 并在菜单中显示页面链接</p>
+<p>新建tags页面<br><code>hexo new page “tags”</code></p>
+<p>将页面的类型设置为 tags</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: tags</span><br><span class="line">date: <span class="number">2015</span>-<span class="number">09</span>-<span class="number">19</span> <span class="number">22</span>:<span class="number">37</span>:<span class="number">08</span></span><br><span class="line"><span class="built_in">type</span>: <span class="string">"tags"</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>关闭评论</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: tags</span><br><span class="line">date: <span class="number">2015</span>-<span class="number">09</span>-<span class="number">19</span> <span class="number">22</span>:<span class="number">37</span>:<span class="number">08</span></span><br><span class="line"><span class="built_in">type</span>: <span class="string">"tags"</span></span><br><span class="line">comments: <span class="literal">false</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>在菜单中添加链接. 编辑主题配置文件, 添加 tags 到 menu 中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  tags: /tags</span><br></pre></td></tr></table></figure>
+<p><strong>分类页面</strong><br>添加一个分类页面, 并在菜单中显示页面链接</p>
+<p>新建 categories 页面<br><code>hexo new page categories</code></p>
+<p>将页面的类型设置为categories</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: categories</span><br><span class="line">date: <span class="number">2015</span>-<span class="number">09</span>-<span class="number">19</span> <span class="number">22</span>:<span class="number">38</span>:<span class="number">00</span></span><br><span class="line"><span class="built_in">type</span>: <span class="string">"categories"</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>关闭评论</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: categories</span><br><span class="line">date: <span class="number">2015</span>-<span class="number">09</span>-<span class="number">19</span> <span class="number">22</span>:<span class="number">38</span>:<span class="number">00</span></span><br><span class="line"><span class="built_in">type</span>: <span class="string">"categories"</span></span><br><span class="line">comments: <span class="literal">false</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>在菜单中添加链接. 编辑主题配置文件, 添加 categories 到 menu 中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  categories: /categories</span><br></pre></td></tr></table></figure>
+<p><strong>RSS 链接</strong><br>编辑主题配置文件 rss 字段</p>
+<p><code>rss: false</code><br>禁用Feed链接</p>
+<p><code>rss:</code><br>默认使用站点的 Feed 链接, 需要安装 hexo-generator-feed 插件<br>浏览<a href="http://localhost:4000/atom.xml查看是否生效" target="_blank" rel="external">http://localhost:4000/atom.xml查看是否生效</a></p>
+<p><code>rss: http://your-feed-url</code><br>指定特定的链接地址, 适用于已经烧制过 Feed 的情形</p>
+<p><strong>自定义页面</strong><br>以关于页面为例<br>新建一个 about 页面<br><code>hexo new page &quot;about&quot;</code>  </p>
+<p>编辑 source/about/index.md：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: About</span><br><span class="line">date: <span class="number">2014</span>-<span class="number">11</span>-<span class="number">1</span> <span class="number">11</span>:<span class="number">11</span>:<span class="number">11</span></span><br><span class="line">---</span><br><span class="line">About Me</span><br></pre></td></tr></table></figure>
+<p>菜单显示 about 链接, 主题配置文件中将 menu 中 about 前面的注释去掉</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  about: /about</span><br></pre></td></tr></table></figure>
 <h4 id="参考">参考</h4><p><a href="http://blog.lmintlcx.com/post/blog-with-hexo.html" target="_blank" rel="external">使用Hexo搭建博客</a><br><a href="http://www.jianshu.com/p/858ecf233db9" target="_blank" rel="external">通过Hexo在Github上搭建博客教程</a><br><a href="http://www.zhihu.com/question/24422335/answer/46357100" target="_blank" rel="external">有那些好看的hexo主题?</a>  </p>
 
       
@@ -255,18 +305,9 @@ gitcafe因为github速度稍微慢一点，所以用作备">
     
 <nav id="article-nav">
   
-    <a href="/2015/10/05/Octopress安装和部署/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Octopress安装和部署
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/10/05/Mac开发环境配置/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Mac开发环境配置</div>
+    <a href="/2015/10/05/Octopress安装和部署/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Octopress安装和部署</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
