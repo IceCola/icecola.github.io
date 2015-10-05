@@ -8,7 +8,7 @@
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ola">
-<meta property="og:url" content="http://icecola.gitcafe.io/index.html">
+<meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="Ola">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -143,8 +143,8 @@
     <article id="post-Hexo安装和配置" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/05/Hexo安装和配置/" class="article-date">
-  	<time datetime="2015-10-05T13:40:04.000Z" itemprop="datePublished">2015-10-05</time>
+      <a href="/2015/10/06/Hexo安装和配置/" class="article-date">
+  	<time datetime="2015-10-05T17:26:45.000Z" itemprop="datePublished">2015-10-06</time>
 </a>
     </div>
   
@@ -157,7 +157,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/05/Hexo安装和配置/">Hexo安装和配置</a>
+      <a class="article-title" href="/2015/10/06/Hexo安装和配置/">Hexo安装和配置</a>
     </h1>
   
 
@@ -191,8 +191,21 @@
 <h3 id="2-_Node-js安装">2. Node.js安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node  <span class="comment">#最新版的node.js的包中已经集成了npm包管理工具</span></span><br></pre></td></tr></table></figure>
 <p>使用以下命令验证是否安装成功</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<p>如果运行hexo命令时，发现错误:  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-bash: hexo: <span class="built_in">command</span> not found</span><br></pre></td></tr></table></figure>
+<p>是没有指定nodejs所致。可以使用下面方法解决：</p>
+<p>如果机器没有安装过node，那么首先<code>brew install nvm</code>安装nvm。</p>
+<p>其次需要在shell的配置文件(~/.bashrc, ~/.profile, or ~/.zshrc)中添加如下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=~/.nvm</span><br><span class="line"><span class="built_in">source</span> $(brew --prefix nvm)/nvm.sh</span><br></pre></td></tr></table></figure>
+<p>然后设置别名</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">nvm ls</span><br><span class="line"><span class="comment">#v0.12.7</span></span><br><span class="line"></span><br><span class="line">nvm use <span class="number">0.12</span>.<span class="number">7</span></span><br><span class="line"><span class="comment">#Now using node v0.12.7</span></span><br><span class="line"></span><br><span class="line">nvm <span class="built_in">alias</span> default <span class="number">0.12</span>.<span class="number">7</span></span><br><span class="line"><span class="comment">#default -&gt; 0.12.7 (-&gt; v0.12.7)</span></span><br></pre></td></tr></table></figure>
+<p>如果之前通过<code>brew install node</code>方式安装过node，那么需要先删除系统中存在的node：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">brew remove --force node</span><br><span class="line">sudo rm -r /usr/<span class="built_in">local</span>/lib/node_modules</span><br><span class="line"></span><br><span class="line">brew prune</span><br><span class="line">sudo rm -r /usr/<span class="built_in">local</span>/include/node</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查brew是否正常</span></span><br><span class="line">brew doctor</span><br></pre></td></tr></table></figure>
 <h3 id="3-_Hexo安装与设置">3. Hexo安装与设置</h3><p>Node, npm和Git都安装成功, 开始安装hexo</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g  <span class="comment">#-g表示全局安装, npm默认为当前项目安装</span></span><br><span class="line">hexo version</span><br></pre></td></tr></table></figure>
+<p>如果遇到报错</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; [Error: Cannot find module <span class="string">'./build/Release/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br><span class="line">&#123; [Error: Cannot find module <span class="string">'./build/default/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br><span class="line">&#123; [Error: Cannot find module <span class="string">'./build/Debug/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>则用下列语句安装<br><code>npm install hexo --no-optional</code></p>
 <p>Hexo使用命令:  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/git</span><br><span class="line">hexo init hexo  <span class="comment">#执行init命令初始化到你指定的hexo目录</span></span><br><span class="line"><span class="built_in">cd</span> hexo</span><br><span class="line">npm install    <span class="comment">#install before start blogging</span></span><br><span class="line">hexo generate       <span class="comment">#自动根据当前目录下文件,生成静态网页</span></span><br><span class="line">hexo server         <span class="comment">#运行本地服务</span></span><br></pre></td></tr></table></figure>
 <p>浏览器输入<a href="http://localhost:4000就可以看到效果。">http://localhost:4000就可以看到效果。</a></p>
@@ -206,7 +219,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015/10/05/Hexo安装和配置/#more">查看更多 >></a>
+          <a  href="/2015/10/06/Hexo安装和配置/#more">查看更多 >></a>
         </p>
       
       <div class="clearfix"></div>
