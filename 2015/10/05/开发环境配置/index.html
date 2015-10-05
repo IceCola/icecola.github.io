@@ -45,7 +45,7 @@ Xcode装好之后要启动一次，接受软件声明，否则后面步骤会失
 GitMac自带，查看下版本。 
 1git --version
 TextMate装完之后，如下配置，在命令行下输入m">
-<meta property="og:updated_time" content="2015-10-05T03:47:12.000Z">
+<meta property="og:updated_time" content="2015-10-05T03:50:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发环境配置">
 <meta name="twitter:description" content="软件安装
@@ -246,7 +246,7 @@ TextMate装完之后，如下配置，在命令行下输入m">
   
     <div class="article-meta">
       <a href="/2015/10/05/开发环境配置/" class="article-date">
-  	<time datetime="2015-10-05T03:47:12.000Z" itemprop="datePublished">2015-10-05</time>
+  	<time datetime="2015-10-05T03:50:53.000Z" itemprop="datePublished">2015-10-05</time>
 </a>
     </div>
   
@@ -322,7 +322,8 @@ TextMate装完之后，如下配置，在命令行下输入m">
 <li><p>安装<br>运行以下命令即可完成：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew tap caskroom/cask  <span class="comment"># 添加 Github 上的 caskroom/cask库  </span></span><br><span class="line">brew install brew-cask  <span class="comment"># 安装 brew-cask</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>搜索<br>brew cask search</p>
+<li><p>搜索  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask search</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>文件预览插件<br>有些插件可以让 Mac 上的文件预览更有效，比如语法高亮、markdown 渲染、json 预览等等。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">brew cask install qlcolorcode  </span><br><span class="line">brew cask install qlstephen  </span><br><span class="line">brew cask install qlmarkdown  </span><br><span class="line">brew cask install quicklook-json  </span><br><span class="line">brew cask install qlprettypatch  </span><br><span class="line">brew cask install quicklook-csv  </span><br><span class="line">brew cask install betterzipql  </span><br><span class="line">brew cask install webp-quicklook  </span><br><span class="line">brew cask install suspicious-package</span><br></pre></td></tr></table></figure>
@@ -370,27 +371,20 @@ TextMate装完之后，如下配置，在命令行下输入m">
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins=(git textmate ruby autojump osx mvn gradle)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>下面简单介绍几个：</p>
-<pre><code><span class="keyword">*</span><span class="keyword">*</span>git<span class="keyword">*</span><span class="keyword">*</span>：当你处于一个 git 受控的目录下时，Shell 会明确显示 「git」和 branch，如上图所示，另外对 git 很多命令进行了简化，例如
-</code></pre> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gco=’git checkout’</span><br><span class="line">gd=’git diff’</span><br><span class="line">gst=’git status’</span><br><span class="line">g=’git’</span><br></pre></td></tr></table></figure>
+<p>下面简单介绍几个：<br> <strong>git</strong>：当你处于一个 git 受控的目录下时，Shell 会明确显示 「git」和 branch，如上图所示，另外对 git 很多命令进行了简化，例如</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gco=’git checkout’</span><br><span class="line">gd=’git diff’</span><br><span class="line">gst=’git status’</span><br><span class="line">g=’git’</span><br></pre></td></tr></table></figure>
 <p>等等，熟练使用可以大大减少 git 的命令长度，命令内容可以参考~/.oh-my-zsh/plugins/git/git.plugin.zsh  </p>
-<pre><code><span class="keyword">*</span><span class="keyword">*</span>textmate<span class="keyword">*</span><span class="keyword">*</span>：mr可以创建 ruby 的框架项目，`tm finename` 可以用 textmate 打开指定文件。
-
-<span class="keyword">*</span><span class="keyword">*</span>osx<span class="keyword">*</span><span class="keyword">*</span>：tab 增强，`quick-look filename`可以直接预览文件，man-preview grep 可以生成 grep手册 的pdf 版本等。
-
-<span class="keyword">*</span><span class="keyword">*</span>autojump<span class="keyword">*</span><span class="keyword">*</span>：zsh 和 autojump 的组合形成了 zsh 下最强悍的插件，今天我们主要说说这货。
-
-  首先安装autojump，如果你用 Mac，可以使用 brew 安装：
-
-<span class="variable"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">brew install autojump  </span><br><span class="line">```	  </span><br><span class="line">如果是 Linux，去下载 autojump 的最新版本,比如：</span><br><span class="line">	  </span><br><span class="line">	``` bash</span><br><span class="line">wget https://github.com/downloads/joelthelion/autojump/autojump_v21.<span class="number">1.2</span>.tar.gz</span><br></pre></td></tr></table></figure></span>
-</code></pre><p>解压缩后进入目录，执行</p>
-<pre><code><span class="escape">``</span><span class="escape">` </span>bash
-</code></pre><p>./install.sh  </p>
-<pre><code>最后把以下代码加入.zshrc：
-
-    ``` bash
-<span class="string">[[ -s ~/.autojump/etc/profile.d/autojump.sh ]]</span> &amp;&amp; . ~/.autojump/etc/profile.d/autojump.sh
-</code></pre><p>至此，安装、配置、插件三位一体，终极 Shell 全面登场。退出终端会话重新登录，开始感受 zsh 的训疾如风！</p>
+<p> <strong>textmate</strong>：mr可以创建 ruby 的框架项目，<code>tm finename</code> 可以用 textmate 打开指定文件。  </p>
+<p> <strong>osx</strong>：tab 增强，<code>quick-look filename</code>可以直接预览文件，man-preview grep 可以生成 grep手册 的pdf 版本等。  </p>
+<p> <strong>autojump</strong>：zsh 和 autojump 的组合形成了 zsh 下最强悍的插件，今天我们主要说说这货。<br> 首先安装autojump，如果你用 Mac，可以使用 brew 安装：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">brew install autojump  </span><br><span class="line">```	  </span><br><span class="line">如果是 Linux，去下载 autojump 的最新版本,比如：</span><br><span class="line"></span><br><span class="line"> ``` bash</span><br><span class="line">wget https://github.com/downloads/joelthelion/autojump/autojump_v21.<span class="number">1.2</span>.tar.gz</span><br></pre></td></tr></table></figure>
+<p>解压缩后进入目录，执行</p>
+<pre><code class="bash">./install.sh
+</code></pre>
+<p>最后把以下代码加入.zshrc：</p>
+<pre><code class="bash">[[ <span class="operator">-s</span> ~/.autojump/etc/profile.d/autojump.sh ]] &amp;&amp; . ~/.autojump/etc/profile.d/autojump.sh
+</code></pre>
+<p>至此，安装、配置、插件三位一体，终极 Shell 全面登场。退出终端会话重新登录，开始感受 zsh 的训疾如风！</p>
 <ul>
 <li><p>使用 zsh  </p>
 <ol>
