@@ -8,7 +8,7 @@
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="火力全開">
-<meta property="og:url" content="http://icecola.gitcafe.com/index.html">
+<meta property="og:url" content="http://www.anycola.com/index.html">
 <meta property="og:site_name" content="火力全開">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -140,10 +140,97 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Hexo安装和配置" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/title.html" class="article-date">
+  	<time datetime="2015-10-05T04:22:25.000Z" itemprop="datePublished">2015-10-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/title.html">Hexo安装和配置</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-_Git安装和设置">1. Git安装和设置</h3><ul>
+<li><p>github</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install git         <span class="comment">#Mac电脑使用brew安装</span></span><br><span class="line">sudo apt-get install git <span class="comment">#Ubuntu系统使用这条命令安装</span></span><br></pre></td></tr></table></figure>
+<p>  然后设置好git账户<br>  使用Github Page搭建博客, 需要在github建立仓库,仓库名为username.github.io  </p>
+</li>
+<li><p><strong>gitcafe</strong>  </p>
+<p>  因为github速度稍微慢一点，所以用作备份站，主站用国内的gitcafe。  </p>
+<ol>
+<li>先到<a href="https://gitcafe.com/projects/new">https://gitcafe.com/projects/new</a>页面注册一个新的项目，<strong>项目名需要与你的用户名相同</strong>，默认分支选择gitcafe-pages,项目主页也是相同的 <a href="http://username.gitcafe.com">http://username.gitcafe.com</a>  </li>
+<li>采用和github同样的key文件，在  ~/.ssh/id_rsa.pub</li>
+<li><p>如果没有，单独生成一个ssh-key</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"emailaddress"</span> <span class="operator">-f</span> ~/.ssh/gitcafe</span><br></pre></td></tr></table></figure>
+<p> 在SSH的文件夹下，可以看到gitcafe私钥和公钥文件：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitcafe</span><br><span class="line">gitcafe.pub</span><br></pre></td></tr></table></figure>
+<p> 生成配置文件：  </p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch ~/.ssh/config</span><br></pre></td></tr></table></figure>
+<p> 添加以下内容：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Host gitcafe.com www.gitcafe.com</span><br><span class="line">IdentityFile ~/.ssh/gitcafe</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">	<span class="number">3</span>. 登录[网站](https://gitcafe.com/account/public_keys)，将SSH文件夹下的 GitCafe.pub 中的内容复制到公钥框中即可。  </span><br><span class="line">	<span class="number">4</span>. 测试是否连上，共用的key，输入：</span><br><span class="line"></span><br><span class="line">		``` bash</span><br><span class="line">ssh -T git@gitcafe.com -i ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+<p> 单独的key，输入：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@gitcafe.com -i ~/.ssh/gitcafe</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<p>###2. Node.js安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node  <span class="comment">#最新版的node.js的包中已经集成了npm包管理工具</span></span><br></pre></td></tr></table></figure>
+<p>使用以下命令验证是否安装成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<p>###3. Hexo安装与设置</p>
+<p>Node, npm和Git都安装成功, 开始安装hexo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g  <span class="comment">#-g表示全局安装, npm默认为当前项目安装</span></span><br><span class="line">hexo version</span><br></pre></td></tr></table></figure>
+<p>Hexo使用命令:  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/git</span><br><span class="line">hexo init hexo  <span class="comment">#执行init命令初始化到你指定的hexo目录</span></span><br><span class="line"><span class="built_in">cd</span> hexo</span><br><span class="line">npm install    <span class="comment">#install before start blogging</span></span><br><span class="line">hexo generate       <span class="comment">#自动根据当前目录下文件,生成静态网页</span></span><br><span class="line">hexo server         <span class="comment">#运行本地服务</span></span><br></pre></td></tr></table></figure>
+<p>浏览器输入<a href="http://localhost:4000就可以看到效果。">http://localhost:4000就可以看到效果。</a></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/posts/title.html#more">查看更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-Mac开发环境配置" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/05/Mac开发环境配置/" class="article-date">
+      <a href="/posts/title.html" class="article-date">
   	<time datetime="2015-10-05T03:53:21.000Z" itemprop="datePublished">2015-10-05</time>
 </a>
     </div>
@@ -157,7 +244,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/05/Mac开发环境配置/">开发环境配置</a>
+      <a class="article-title" href="/posts/title.html">开发环境配置</a>
     </h1>
   
 
@@ -197,7 +284,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015/10/05/Mac开发环境配置/#more">查看更多 >></a>
+          <a  href="/posts/title.html#more">查看更多 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -217,7 +304,7 @@
     <article id="post-Octopress安装和部署" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/05/Octopress安装和部署/" class="article-date">
+      <a href="/posts/title.html" class="article-date">
   	<time datetime="2015-10-05T03:15:44.000Z" itemprop="datePublished">2015-10-05</time>
 </a>
     </div>
@@ -231,7 +318,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/05/Octopress安装和部署/">Octopress安装和部署</a>
+      <a class="article-title" href="/posts/title.html">Octopress安装和部署</a>
     </h1>
   
 
@@ -266,94 +353,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015/10/05/Octopress安装和部署/#more">查看更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Hexo安装和配置" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/05/Hexo安装和配置/" class="article-date">
-  	<time datetime="2015-10-05T02:48:36.000Z" itemprop="datePublished">2015-10-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/05/Hexo安装和配置/">Hexo安装和配置</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-_Git安装和设置">1. Git安装和设置</h3><ul>
-<li><p>github</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install git         <span class="comment">#Mac电脑使用brew安装</span></span><br><span class="line">sudo apt-get install git <span class="comment">#Ubuntu系统使用这条命令安装</span></span><br></pre></td></tr></table></figure>
-<p>  然后设置好git账户<br>  使用Github Page搭建博客, 需要在github建立仓库,仓库名为username.github.io  </p>
-</li>
-<li><p><strong>gitcafe</strong>  </p>
-<p>  因为github速度稍微慢一点，所以用作备份站，主站用国内的gitcafe。  </p>
-<ol>
-<li>先到<a href="https://gitcafe.com/projects/new">https://gitcafe.com/projects/new</a>页面注册一个新的项目，<strong>项目名需要与你的用户名相同</strong>，默认分支选择gitcafe-pages,项目主页也是相同的 <a href="http://username.gitcafe.com">http://username.gitcafe.com</a>  </li>
-<li>采用和github同样的key文件，在  ~/.ssh/id_rsa.pub</li>
-<li><p>如果没有，单独生成一个ssh-key</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"emailaddress"</span> <span class="operator">-f</span> ~/.ssh/gitcafe</span><br></pre></td></tr></table></figure>
-<p> 在SSH的文件夹下，可以看到gitcafe私钥和公钥文件：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitcafe</span><br><span class="line">gitcafe.pub</span><br></pre></td></tr></table></figure>
-<p> 生成配置文件：  </p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch ~/.ssh/config</span><br></pre></td></tr></table></figure>
-<p> 添加以下内容：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Host gitcafe.com www.gitcafe.com</span><br><span class="line">IdentityFile ~/.ssh/gitcafe</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">	<span class="number">3</span>. 登录[网站](https://gitcafe.com/account/public_keys)，将SSH文件夹下的 GitCafe.pub 中的内容复制到公钥框中即可。  </span><br><span class="line">	<span class="number">4</span>. 测试是否连上，共用的key，输入：</span><br><span class="line"></span><br><span class="line">		``` bash</span><br><span class="line">ssh -T git@gitcafe.com -i ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-<p> 单独的key，输入：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@gitcafe.com -i ~/.ssh/gitcafe</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-</ul>
-<p>###2. Node.js安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node  <span class="comment">#最新版的node.js的包中应该已经集成了npm包管理工具</span></span><br></pre></td></tr></table></figure>
-<p>使用以下命令验证是否安装成功</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-<p>###3. Hexo安装与设置</p>
-<p>Node, npm和Git都安装成功, 开始安装hexo</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g  <span class="comment">#-g表示全局安装, npm默认为当前项目安装</span></span><br></pre></td></tr></table></figure>
-<p>Hexo使用命令:  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/git</span><br><span class="line">hexo init hexo  <span class="comment">#执行init命令初始化到你指定的hexo目录</span></span><br><span class="line"><span class="built_in">cd</span> hexo</span><br><span class="line">npm install    <span class="comment">#install before start blogging</span></span><br><span class="line">hexo generate       <span class="comment">#自动根据当前目录下文件,生成静态网页</span></span><br><span class="line">hexo server         <span class="comment">#运行本地服务</span></span><br></pre></td></tr></table></figure>
-<p>浏览器输入<a href="http://localhost:4000就可以看到效果。">http://localhost:4000就可以看到效果。</a></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/10/05/Hexo安装和配置/#more">查看更多 >></a>
+          <a  href="/posts/title.html#more">查看更多 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -373,7 +373,7 @@
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/04/hello-world/" class="article-date">
+      <a href="/posts/title.html" class="article-date">
   	<time datetime="2015-10-04T15:35:34.000Z" itemprop="datePublished">2015-10-04</time>
 </a>
     </div>
@@ -387,7 +387,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/04/hello-world/">Hello World</a>
+      <a class="article-title" href="/posts/title.html">Hello World</a>
     </h1>
   
 
