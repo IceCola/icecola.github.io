@@ -21,7 +21,7 @@ github
   然后设置好git账户  使用Github Page搭建博客, 需要在github建立仓库,仓库名为username.github.io  
 
 gitcafe因为github速度稍微慢一点">
-<meta property="og:updated_time" content="2015-10-05T08:55:03.000Z">
+<meta property="og:updated_time" content="2015-10-05T08:56:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo安装和配置">
 <meta name="twitter:description" content="1. Git安装和设置
@@ -158,7 +158,7 @@ gitcafe因为github速度稍微慢一点">
   
     <div class="article-meta">
       <a href="/2015/10/05/Hexo安装和配置/" class="article-date">
-  	<time datetime="2015-10-05T08:55:03.000Z" itemprop="datePublished">2015-10-05</time>
+  	<time datetime="2015-10-05T08:56:23.000Z" itemprop="datePublished">2015-10-05</time>
 </a>
     </div>
   
@@ -230,7 +230,10 @@ gitcafe因为github速度稍微慢一点">
 <p>在./_config.yml，修改主题为yilia<br><code>theme: yilia</code></p>
 <p>另外推荐几个主题:<br><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">iissnan/hexo-theme-next</a><br><a href="https://github.com/TryGhost/Casper" target="_blank" rel="external">TryGhost/Casper</a><br><a href="https://github.com/kywk/hexo-theme-casper" target="_blank" rel="external">kywk/hexo-theme-casper</a> #基于Casper<br><a href="https://github.com/daleanthony/uno" target="_blank" rel="external">daleanthony/uno</a><br><a href="https://github.com/A-limon/pacman" target="_blank" rel="external">A-limon/pacman</a><br><a href="https://github.com/AlxMedia/hueman" target="_blank" rel="external">AlxMedia/hueman</a><br><a href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="external">ppoffice/hexo-theme-hueman</a> #基于Hueman<br><a href="https://github.com/xiangming/landscape-plus" target="_blank" rel="external">xiangming/landscape-plus</a> #基于官方<br><a href="https://github.com/hexojs/hexo-theme-landscape" target="_blank" rel="external">hexojs/hexo-theme-landscape</a>  </p>
 <p>查看本地效果  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">hexo g <span class="comment">#generate</span></span><br><span class="line">hexo s <span class="comment">#server</span></span><br><span class="line">```	</span><br><span class="line"><span class="comment">### 6. 部署到Git</span></span><br><span class="line"></span><br><span class="line">以上内容都是在本地进行查看, 现在将博客部署到github或gitcafe上</span><br><span class="line">  </span><br><span class="line"><span class="comment">#### gitcafe </span></span><br><span class="line">打开./_config.yml，修改如下信息：</span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line"><span class="built_in">type</span>: git</span><br><span class="line">repository: git@gitcafe.com:yourname/yourname.git</span><br><span class="line">branch: gitcafe-pages</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<h3 id="6-_部署到Git">6. 部署到Git</h3><p>以上内容都是在本地进行查看, 现在将博客部署到github或gitcafe上</p>
+<h4 id="gitcafe">gitcafe</h4><p>打开./_config.yml，修改如下信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>: git</span><br><span class="line">repository: git@gitcafe.com:yourname/yourname.git</span><br><span class="line">branch: gitcafe-pages</span><br></pre></td></tr></table></figure>
 <p>branch要提交到gitcafe-pages，然后才能在username.gitcafe.io中看到提交的页面。</p>
 <h4 id="Github">Github</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: github</span><br><span class="line">  repo: https://github.com/lmintlcx/lmintlcx.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 <p>项目主页需要把 branch 设置为 gh-pages</p>
