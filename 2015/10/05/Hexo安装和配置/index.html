@@ -3,42 +3,36 @@
 <head>
   <meta charset="utf-8">
   
-  <title>火力全開</title>
+  <title>Hexo安装和配置 | 火力全開</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hexo安装和配置###1. Git安装和设置
-
-
+  <meta name="description" content="1. Git安装和设置
 github
-brew install git         #Mac电脑使用brew安装
-sudo apt-get install git #Ubuntu系统使用这条命令安装 
+  12brew install git         #Mac电脑使用brew安装sudo apt-get install git #Ubuntu系统使用这条命令安装
   然后设置好git账户  使用Github Page搭建博客, 需要在github建立仓库,仓库名为username.github.io  
 
-gitcafe">
+gitcafe  
+  因为github速度">
 <meta property="og:type" content="article">
-<meta property="og:title" content="火力全開">
+<meta property="og:title" content="Hexo安装和配置">
 <meta property="og:url" content="http://icecola.gitcafe.com/2015/10/05/Hexo安装和配置/index.html">
 <meta property="og:site_name" content="火力全開">
-<meta property="og:description" content="Hexo安装和配置###1. Git安装和设置
-
-
+<meta property="og:description" content="1. Git安装和设置
 github
-brew install git         #Mac电脑使用brew安装
-sudo apt-get install git #Ubuntu系统使用这条命令安装 
+  12brew install git         #Mac电脑使用brew安装sudo apt-get install git #Ubuntu系统使用这条命令安装
   然后设置好git账户  使用Github Page搭建博客, 需要在github建立仓库,仓库名为username.github.io  
 
-gitcafe">
-<meta property="og:updated_time" content="2015-10-05T01:59:11.000Z">
+gitcafe  
+  因为github速度">
+<meta property="og:updated_time" content="2015-10-05T02:48:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="火力全開">
-<meta name="twitter:description" content="Hexo安装和配置###1. Git安装和设置
-
-
+<meta name="twitter:title" content="Hexo安装和配置">
+<meta name="twitter:description" content="1. Git安装和设置
 github
-brew install git         #Mac电脑使用brew安装
-sudo apt-get install git #Ubuntu系统使用这条命令安装 
+  12brew install git         #Mac电脑使用brew安装sudo apt-get install git #Ubuntu系统使用这条命令安装
   然后设置好git账户  使用Github Page搭建博客, 需要在github建立仓库,仓库名为username.github.io  
 
-gitcafe">
+gitcafe  
+  因为github速度">
   
     <link rel="alternative" href="/atom.xml" title="火力全開" type="application/atom+xml">
   
@@ -219,7 +213,7 @@ gitcafe">
   
     <div class="article-meta">
       <a href="/2015/10/05/Hexo安装和配置/" class="article-date">
-  	<time datetime="2015-10-05T01:59:11.000Z" itemprop="datePublished">2015-10-05</time>
+  	<time datetime="2015-10-05T02:48:36.000Z" itemprop="datePublished">2015-10-05</time>
 </a>
     </div>
   
@@ -228,189 +222,87 @@ gitcafe">
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hexo安装和配置
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Hexo安装和配置">Hexo安装和配置</h2><p>###1. Git安装和设置</p>
-<hr>
-<ul>
+        <h3 id="1-_Git安装和设置">1. Git安装和设置</h3><ul>
 <li><p>github</p>
-<pre><code>brew <span class="keyword">install</span> git         <span class="comment">#Mac电脑使用brew安装</span>
-sudo apt-get <span class="keyword">install</span> git <span class="comment">#Ubuntu系统使用这条命令安装 </span>
-</code></pre><p>  然后设置好git账户<br>  使用Github Page搭建博客, 需要在github建立仓库,仓库名为username.github.io  </p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install git         <span class="comment">#Mac电脑使用brew安装</span></span><br><span class="line">sudo apt-get install git <span class="comment">#Ubuntu系统使用这条命令安装</span></span><br></pre></td></tr></table></figure>
+<p>  然后设置好git账户<br>  使用Github Page搭建博客, 需要在github建立仓库,仓库名为username.github.io  </p>
 </li>
 <li><p><strong>gitcafe</strong>  </p>
-<p>  因为github速度稍微慢一点，所以用作备份站了，主站用国内的gitcafe。  </p>
+<p>  因为github速度稍微慢一点，所以用作备份站，主站用国内的gitcafe。  </p>
 <ol>
 <li>先到<a href="https://gitcafe.com/projects/new" target="_blank" rel="external">https://gitcafe.com/projects/new</a>页面注册一个新的项目，<strong>项目名需要与你的用户名相同</strong>，默认分支选择gitcafe-pages,项目主页也是相同的 <a href="http://username.gitcafe.com" target="_blank" rel="external">http://username.gitcafe.com</a>  </li>
 <li>采用和github同样的key文件，在  ~/.ssh/id_rsa.pub</li>
 <li><p>如果没有，单独生成一个ssh-key</p>
-<pre><code>ssh-keygen -t rsa -C <span class="string">"emailaddress"</span> <span class="operator">-f</span> ~/.ssh/gitcafe
-</code></pre><p> 在SSH的文件夹下，可以看到gitcafe私钥和公钥文件：</p>
-<pre><code>gitcafe
-gitcafe<span class="class">.pub</span>  
-</code></pre><p> 生成配置文件：  </p>
-<pre><code>touch ~<span class="regexp">/.ssh/config</span>  
-</code></pre><p> 添加以下内容：  </p>
-<pre><code>Host gitcafe<span class="class">.com</span> www<span class="class">.gitcafe</span><span class="class">.com</span>
-IdentityFile ~/.ssh/gitcafe
-</code></pre></li>
-<li>登录<a href="https://gitcafe.com/account/public_keys" target="_blank" rel="external">网站</a>，将SSH文件夹下的GitCafe.pub，中的内容复制到公钥框中即可。  </li>
-<li><p>测试是否连上，共用的key，输入：</p>
-<pre><code>ssh -T git@gitcafe<span class="class">.com</span> -<span class="tag">i</span> ~/.ssh/id_rsa
-</code></pre><p> 单独的key，输入：</p>
-<pre><code>ssh -T git@gitcafe<span class="class">.com</span> -<span class="tag">i</span> ~/.ssh/gitcafe
-</code></pre></li>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"emailaddress"</span> <span class="operator">-f</span> ~/.ssh/gitcafe</span><br></pre></td></tr></table></figure>
+<p> 在SSH的文件夹下，可以看到gitcafe私钥和公钥文件：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitcafe</span><br><span class="line">gitcafe.pub</span><br></pre></td></tr></table></figure>
+<p> 生成配置文件：  </p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch ~/.ssh/config</span><br></pre></td></tr></table></figure>
+<p> 添加以下内容：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Host gitcafe.com www.gitcafe.com</span><br><span class="line">IdentityFile ~/.ssh/gitcafe</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">	<span class="number">3</span>. 登录[网站](https://gitcafe.com/account/public_keys)，将SSH文件夹下的 GitCafe.pub 中的内容复制到公钥框中即可。  </span><br><span class="line">	<span class="number">4</span>. 测试是否连上，共用的key，输入：</span><br><span class="line"></span><br><span class="line">		``` bash</span><br><span class="line">ssh -T git@gitcafe.com -i ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+<p> 单独的key，输入：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@gitcafe.com -i ~/.ssh/gitcafe</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 </li>
 </ul>
 <p>###2. Node.js安装</p>
-<hr>
-<pre><code>brew <span class="keyword">install</span> node  <span class="comment">#最新版的node.js的包中应该已经集成了npm包管理工具</span>
-</code></pre><p>使用以下命令验证是否安装成功</p>
-<pre><code>node -v
-<span class="built_in">npm</span> -v
-</code></pre><p>###3. Hexo安装与设置</p>
-<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node  <span class="comment">#最新版的node.js的包中应该已经集成了npm包管理工具</span></span><br></pre></td></tr></table></figure>
+<p>使用以下命令验证是否安装成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<p>###3. Hexo安装与设置</p>
 <p>Node, npm和Git都安装成功, 开始安装hexo</p>
-<pre><code>npm <span class="operator"><span class="keyword">install</span> hexo -<span class="keyword">g</span>  #-<span class="keyword">g</span>表示全局安装, npm默认为当前项目安装</span>
-</code></pre><p>Hexo使用命令:  </p>
-<pre><code><span class="built_in">cd</span> ~/git
-hexo init hexo  <span class="comment">#执行init命令初始化到你指定的hexo目录</span>
-<span class="built_in">cd</span> hexo
-npm install    <span class="comment">#install before start blogging</span>
-hexo generate       <span class="comment">#自动根据当前目录下文件,生成静态网页</span>
-hexo server         <span class="comment">#运行本地服务</span>
-</code></pre><p>浏览器输入<a href="http://localhost:4000就可以看到效果。" target="_blank" rel="external">http://localhost:4000就可以看到效果。</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g  <span class="comment">#-g表示全局安装, npm默认为当前项目安装</span></span><br></pre></td></tr></table></figure>
+<p>Hexo使用命令:  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/git</span><br><span class="line">hexo init hexo  <span class="comment">#执行init命令初始化到你指定的hexo目录</span></span><br><span class="line"><span class="built_in">cd</span> hexo</span><br><span class="line">npm install    <span class="comment">#install before start blogging</span></span><br><span class="line">hexo generate       <span class="comment">#自动根据当前目录下文件,生成静态网页</span></span><br><span class="line">hexo server         <span class="comment">#运行本地服务</span></span><br></pre></td></tr></table></figure>
+<p>浏览器输入<a href="http://localhost:4000就可以看到效果。" target="_blank" rel="external">http://localhost:4000就可以看到效果。</a></p>
+<a id="more"></a>
 <p>###4. 添加博文  </p>
-<hr>
-<pre><code>hexo <span class="keyword">new</span> <span class="string">"postName"</span>  <span class="preprocessor">#新建博文,其中postName是博文题目</span>
-</code></pre><p>博文会自动生成在博客目录下source/_posts\postName.md  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"postName"</span>  <span class="comment">#新建博文,其中postName是博文题目</span></span><br></pre></td></tr></table></figure>
+<p>博文会自动生成在博客目录下<code>source/_posts\postName.md</code>  </p>
 <p>文件自动生成格式:  </p>
-<pre><code>title: <span class="string">"It Starts with iGaze: Visual Attention Driven Networkingwith Smart Glasses"</span>  <span class="preprocessor">#博文题目</span>
-date: <span class="number">2014</span>-<span class="number">11</span>-<span class="number">21</span> <span class="number">11</span>:<span class="number">25</span>:<span class="number">38</span>      <span class="preprocessor">#生成时间</span>
-tags: Paper                    <span class="preprocessor">#标签, 多个标签使用格式[Paper1, Paper2, Paper3,...]</span>
----
-</code></pre><p>如果不想博文在首页全部显示, 并能出现阅读全文按钮效果, 需要在你想在首页显示的部分下添加  </p>
-<pre><code><span class="comment">&lt;!--more--&gt;</span>
-</code></pre><p>###5. 主题更改</p>
-<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: <span class="string">"It Starts with iGaze: Visual Attention Driven Networkingwith Smart Glasses"</span>  <span class="comment">#博文题目</span></span><br><span class="line">date: <span class="number">2014</span>-<span class="number">11</span>-<span class="number">21</span> <span class="number">11</span>:<span class="number">25</span>:<span class="number">38</span>      <span class="comment">#生成时间</span></span><br><span class="line">tags: Paper                    <span class="comment">#标签, 多个标签使用格式[Paper1, Paper2, Paper3,...]</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>如果不想博文在首页全部显示, 并能出现阅读全文按钮效果, 需要在你想在首页显示的部分下添加  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--more--&gt;</span><br></pre></td></tr></table></figure>
+<p>###5. 主题更改</p>
 <pre><code>cd <span class="regexp">~/git/</span>hexo
 git clone git<span class="annotation">@github</span>.<span class="string">com:</span>litten<span class="regexp">/hexo-theme-yilia.git themes/</span>yilia
 </code></pre><p>在./_config.yml，修改主题为yilia  </p>
 <pre><code><span class="attribute">theme</span>: <span class="string">yilia</span>
 </code></pre><p>另外推荐几个主题:<br><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">iissnan/hexo-theme-next</a><br><a href="https://github.com/TryGhost/Casper" target="_blank" rel="external">TryGhost/Casper</a><br><a href="https://github.com/kywk/hexo-theme-casper" target="_blank" rel="external">kywk/hexo-theme-casper</a> #基于Casper<br><a href="https://github.com/daleanthony/uno" target="_blank" rel="external">daleanthony/uno</a><br><a href="https://github.com/A-limon/pacman" target="_blank" rel="external">A-limon/pacman</a><br><a href="https://github.com/AlxMedia/hueman" target="_blank" rel="external">AlxMedia/hueman</a><br><a href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="external">ppoffice/hexo-theme-hueman</a> #基于Hueman<br><a href="https://github.com/xiangming/landscape-plus" target="_blank" rel="external">xiangming/landscape-plus</a> #基于官方<br><a href="https://github.com/hexojs/hexo-theme-landscape" target="_blank" rel="external">hexojs/hexo-theme-landscape</a>  </p>
 <p>查看本地效果  </p>
-<pre><code>hexo g       <span class="id">#hexo</span> generate简写
-hexo s       <span class="id">#hexo</span> server简写
-</code></pre><p>###6. 部署到GitCafe</p>
-<hr>
-<p>以上内容都是在本地进行查看, 现在将博客部署到github上<br>打开./_config.yml，修改如下信息：</p>
-<pre><code><span class="attribute">type</span>: github
-<span class="attribute">repository</span>: git<span class="variable">@gitcafe</span>.<span class="attribute">com</span>:yourname/yourname.git
-<span class="attribute">branch</span>: master
-</code></pre><p>这里还一定要注意：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">hexo g       <span class="comment">#hexo generate简写</span></span><br><span class="line">hexo s       <span class="comment">#hexo server简写</span></span><br><span class="line">```	</span><br><span class="line"><span class="comment">###6. 部署到GitCafe</span></span><br><span class="line"></span><br><span class="line">以上内容都是在本地进行查看, 现在将博客部署到github上  </span><br><span class="line">打开./_config.yml，修改如下信息：</span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line"><span class="built_in">type</span>: github</span><br><span class="line">repository: git@gitcafe.com:yourname/yourname.git</span><br><span class="line">branch: gitcafe-pages</span><br></pre></td></tr></table></figure>
+<p>branch要提交到gitcafe-pages，然后才能在username.gitcafe.io中看到提交的页面。</p>
+<p>这里还一定要注意：</p>
 <ul>
 <li><strong>所有键的冒号后面留一个空格，如<code>language: zh-CN</code></strong>  </li>
 <li><strong>url不能为空,否则报错</strong>   </li>
-<li><code>type: github</code>报错<code>hexo ERROR Deployer not found: github</code>的解决方法：  <pre><code>先运行 <span class="escape">`n</span>pm install hexo-deployer-git --save<span class="escape">` </span> 
-<span class="label">再改为 `type:</span> git<span class="escape">` </span> 
-</code></pre></li>
+<li><code>type: github</code>报错<code>hexo ERROR Deployer not found: github</code>的解决方法：<br>先运行 <code>npm install hexo-deployer-git --save</code><br>再改为 <code>type: git</code>  </li>
 </ul>
 <p>完整配置信息如下：    </p>
-<pre><code><span class="preprocessor"># Hexo Configuration</span>
-<span class="preprocessor">## Docs: http://hexo.io/docs/configuration.html</span>
-<span class="preprocessor">## Source: https://github.com/hexojs/hexo/</span>
-
-<span class="preprocessor"># Site</span>
-<span class="label">title:</span> Blog Name    <span class="preprocessor">#博客名</span>
-<span class="label">subtitle:</span> Subtitle  <span class="preprocessor">#博客副标题</span>
-<span class="label">description:</span>          <span class="preprocessor">#网站描述, 用于爬虫抓取的关键词</span>
-<span class="label">author:</span> author    <span class="preprocessor">#作者名称</span>
-<span class="label">email:</span> mail@box.com  <span class="preprocessor">#作者邮箱</span>
-<span class="label">language:</span> <span class="built_in">zh</span>-CN       <span class="preprocessor">#网页编码,中文</span>
-
-<span class="preprocessor"># URL</span>
-<span class="preprocessor">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span>
-<span class="label">url:</span> http://url.com   <span class="preprocessor">#用于绑定域名, 其他的不需要配置</span>
-<span class="label">root:</span> /
-<span class="label">permalink:</span> :year/:month/:day/:title/
-<span class="label">tag_dir:</span> tags
-<span class="label">archive_dir:</span> archives
-<span class="label">category_dir:</span> categories
-<span class="label">code_dir:</span> downloads/code
-<span class="label">permalink_defaults:</span>
-
-<span class="preprocessor"># Directory</span>
-<span class="label">source_dir:</span> source  
-<span class="label">public_dir:</span> public
-
-<span class="preprocessor"># Writing, 设置生成博文的默认格式,不修改</span>
-<span class="label">new_post_name:</span> :title.md <span class="preprocessor"># File name of new posts</span>
-<span class="label">default_layout:</span> post
-<span class="label">titlecase:</span> false <span class="preprocessor"># Transform title into titlecase</span>
-<span class="label">external_link:</span> true <span class="preprocessor"># Open external links in new tab</span>
-<span class="label">filename_case:</span> <span class="number">0</span>
-<span class="label">render_drafts:</span> false
-<span class="label">post_asset_folder:</span> false
-<span class="label">relative_link:</span> false
-<span class="label">highlight:</span>
-  enable: true
-  line_number: true
-  tab_replace:
-
-<span class="preprocessor"># Category &amp; Tag</span>
-<span class="label">default_category:</span> uncategorized
-<span class="label">category_map:</span>
-<span class="label">tag_map:</span>
-
-<span class="preprocessor"># Archives</span>
-<span class="preprocessor">#Archives 默认值为2,修改为1,Archives页面就只会列出标题,而非全文</span>
-<span class="preprocessor">## 2: Enable pagination</span>
-<span class="preprocessor">## 1: Disable pagination</span>
-<span class="preprocessor">## 0: Fully Disable</span>
-<span class="label">archive:</span> <span class="number">1</span>
-<span class="label">category:</span> <span class="number">1</span>
-<span class="label">tag:</span> <span class="number">1</span>
-
-<span class="preprocessor"># Server服务器设置, 不修改</span>
-<span class="preprocessor">## Hexo uses Connect as a server</span>
-<span class="preprocessor">## You can customize the logger format as defined in</span>
-<span class="preprocessor">## http://www.senchalabs.org/connect/logger.html</span>
-<span class="label">port:</span> <span class="number">4000</span>
-<span class="label">server_ip:</span> localhost
-<span class="label">logger:</span> false
-<span class="label">logger_format:</span> dev
-
-<span class="preprocessor"># Date / Time format 日期格式</span>
-<span class="preprocessor">## Hexo uses Moment.js to parse and display date</span>
-<span class="preprocessor">## You can customize the date format as defined in</span>
-<span class="preprocessor">## http://momentjs.com/docs/#/displaying/format/</span>
-<span class="label">date_format:</span> MMM D YYYY
-<span class="label">time_format:</span> H:mm:ss
-
-<span class="preprocessor"># Pagination 分页, 设置每页显示多少篇博文</span>
-<span class="preprocessor">## Set per_page to 0 to disable pagination</span>
-<span class="label">per_page:</span> <span class="number">10</span>
-<span class="label">pagination_dir:</span> page
-
-<span class="preprocessor"># Disqus  disqus评论,  与多说类似, 国内一般使用多说</span>
-<span class="label">disqus_shortname:</span> 
-
-<span class="preprocessor"># Extensions</span>
-<span class="preprocessor">## Plugins: https://github.com/hexojs/hexo/wiki/Plugins</span>
-<span class="preprocessor">## Themes: https://github.com/hexojs/hexo/wiki/Themes</span>
-<span class="label">theme:</span> yilia    <span class="preprocessor">#主题设置</span>
-<span class="label">exclude_generator:</span>
-
-<span class="preprocessor"># Deployment  站点部署到github要配置这里, 非常重要</span>
-<span class="preprocessor">## Docs: http://hexo.io/docs/deployment.html</span>
-<span class="label">deploy:</span>
-  type: git    <span class="preprocessor">#部署类型, 本文使用Github</span>
-  repository: git@github.com:username/username.github.io.git  <span class="preprocessor">#部署的仓库的SSH</span>
-  branch: master   <span class="preprocessor">#部署分支,一般使用master主分支</span>
-</code></pre><p>保存之后，便可以使用<code>hexo d</code>上传到GitCafe。<br>部署成功,使用username.gitcafe.com进行访问, 或者设置个性域名，参考<a href="https://gitcafe.com/GitCafe/Help/wiki/Pages-%E7%9B%B8%E5%85%B3%E5%B8%AE%E5%8A%A9" target="_blank" rel="external">官方Wiki</a>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Hexo Configuration</span></span><br><span class="line"><span class="comment">## Docs: http://hexo.io/docs/configuration.html</span></span><br><span class="line"><span class="comment">## Source: https://github.com/hexojs/hexo/</span></span><br><span class="line">	</span><br><span class="line"><span class="comment"># Site</span></span><br><span class="line">title: B<span class="built_in">log</span> Name    <span class="comment">#博客名</span></span><br><span class="line">subtitle: Subtitle  <span class="comment">#博客副标题</span></span><br><span class="line">description:          <span class="comment">#网站描述, 用于爬虫抓取的关键词</span></span><br><span class="line">author: author    <span class="comment">#作者名称</span></span><br><span class="line">email: mail@box.com  <span class="comment">#作者邮箱</span></span><br><span class="line">language: zh-CN       <span class="comment">#网页编码,中文</span></span><br><span class="line">timezone: Asia/Shanghai</span><br><span class="line">	</span><br><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></span><br><span class="line">url: http://yoururl.com   <span class="comment">#用于绑定域名, 其他的不需要配置</span></span><br><span class="line">root: /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">tag_dir: tags</span><br><span class="line">archive_dir: archives</span><br><span class="line">category_dir: categories</span><br><span class="line">code_dir: downloads/code</span><br><span class="line">permalink_defaults:</span><br><span class="line">	</span><br><span class="line"><span class="comment"># Directory</span></span><br><span class="line"><span class="built_in">source</span>_dir: <span class="built_in">source</span>  </span><br><span class="line">public_dir: public</span><br><span class="line">	</span><br><span class="line"><span class="comment"># Writing, 设置生成博文的默认格式,不修改</span></span><br><span class="line">new_post_name: :title.md <span class="comment"># File name of new posts</span></span><br><span class="line">default_layout: post</span><br><span class="line">titlecase: <span class="literal">false</span> <span class="comment"># Transform title into titlecase</span></span><br><span class="line">external_link: <span class="literal">true</span> <span class="comment"># Open external links in new tab</span></span><br><span class="line">filename_<span class="keyword">case</span>: <span class="number">0</span></span><br><span class="line">render_drafts: <span class="literal">false</span></span><br><span class="line">post_asset_folder: <span class="literal">false</span></span><br><span class="line">relative_link: <span class="literal">false</span></span><br><span class="line">highlight:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  line_number: <span class="literal">true</span></span><br><span class="line">  tab_replace:</span><br><span class="line">	</span><br><span class="line"><span class="comment"># Category &amp; Tag</span></span><br><span class="line">default_category: uncategorized</span><br><span class="line">category_map:</span><br><span class="line">tag_map:</span><br><span class="line">	</span><br><span class="line"><span class="comment"># Archives</span></span><br><span class="line"><span class="comment">#Archives 默认值为2,修改为1,Archives页面就只会列出标题,而非全文</span></span><br><span class="line"><span class="comment">## 2: Enable pagination</span></span><br><span class="line"><span class="comment">## 1: Disable pagination</span></span><br><span class="line"><span class="comment">## 0: Fully Disable</span></span><br><span class="line">archive: <span class="number">1</span></span><br><span class="line">category: <span class="number">1</span></span><br><span class="line">tag: <span class="number">1</span></span><br><span class="line">	</span><br><span class="line"><span class="comment"># Server服务器设置, 不修改</span></span><br><span class="line"><span class="comment">## Hexo uses Connect as a server</span></span><br><span class="line"><span class="comment">## You can customize the logger format as defined in</span></span><br><span class="line"><span class="comment">## http://www.senchalabs.org/connect/logger.html</span></span><br><span class="line">port: <span class="number">4000</span></span><br><span class="line">server_ip: localhost</span><br><span class="line">logger: <span class="literal">false</span></span><br><span class="line">logger_format: dev</span><br><span class="line">	</span><br><span class="line"><span class="comment"># Date / Time format 日期格式</span></span><br><span class="line"><span class="comment">## Hexo uses Moment.js to parse and display date</span></span><br><span class="line"><span class="comment">## You can customize the date format as defined in</span></span><br><span class="line"><span class="comment">## http://momentjs.com/docs/#/displaying/format/</span></span><br><span class="line">date_format: MMM D YYYY</span><br><span class="line">time_format: H:mm:ss</span><br><span class="line">	</span><br><span class="line"><span class="comment"># Pagination 分页, 设置每页显示多少篇博文</span></span><br><span class="line"><span class="comment">## Set per_page to 0 to disable pagination</span></span><br><span class="line">per_page: <span class="number">10</span></span><br><span class="line">pagination_dir: page</span><br><span class="line">	</span><br><span class="line"><span class="comment"># Disqus  disqus评论,  与多说类似, 国内一般使用多说</span></span><br><span class="line">disqus_shortname: </span><br><span class="line">	</span><br><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://github.com/hexojs/hexo/wiki/Plugins</span></span><br><span class="line"><span class="comment">## Themes: https://github.com/hexojs/hexo/wiki/Themes</span></span><br><span class="line">theme: yilia    <span class="comment">#主题设置</span></span><br><span class="line">exclude_generator:</span><br><span class="line">	</span><br><span class="line"><span class="comment"># Deployment  站点部署到github要配置这里, 非常重要</span></span><br><span class="line"><span class="comment">## Docs: http://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git    <span class="comment">#部署类型, 本文使用Github</span></span><br><span class="line">  repository: git@github.com:username/username.github.io.git  <span class="comment">#部署的仓库的SSH</span></span><br><span class="line">  branch: master   <span class="comment">#部署分支,一般使用master主分支</span></span><br></pre></td></tr></table></figure>
+<p>保存之后，便可以使用<code>hexo d</code>上传到GitCafe。<br>部署成功,使用username.gitcafe.com进行访问, 或者设置个性域名，参考<a href="https://gitcafe.com/GitCafe/Help/wiki/Pages-%E7%9B%B8%E5%85%B3%E5%B8%AE%E5%8A%A9" target="_blank" rel="external">官方Wiki</a>。</p>
 <p>####参考</p>
-<hr>
 <p><a href="http://www.jianshu.com/p/858ecf233db9" target="_blank" rel="external">通过Hexo在Github上搭建博客教程</a><br><a href="http://www.zhihu.com/question/24422335/answer/46357100" target="_blank" rel="external">有那些好看的hexo主题?</a>  </p>
 
       
@@ -421,18 +313,18 @@ hexo s       <span class="id">#hexo</span> server简写
     
 <nav id="article-nav">
   
-    <a href="/2015/10/05/开发环境配置/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/10/05/Octopress安装和部署/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          开发环境配置
+          Octopress安装和部署
         
       </div>
     </a>
   
   
-    <a href="/2015/10/05/Octopress安装和部署/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Octopress安装和部署</div>
+    <a href="/2015/10/05/开发环境配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">开发环境配置</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -461,7 +353,7 @@ hexo s       <span class="id">#hexo</span> server简写
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Hexo安装和配置" data-title="" data-url="http://icecola.gitcafe.com/2015/10/05/Hexo安装和配置/"></div>
+	<div class="ds-thread" data-thread-key="Hexo安装和配置" data-title="Hexo安装和配置" data-url="http://icecola.gitcafe.com/2015/10/05/Hexo安装和配置/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

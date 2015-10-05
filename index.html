@@ -192,461 +192,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-开发环境配置" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/05/开发环境配置/" class="article-date">
-  	<time datetime="2015-10-05T02:28:35.000Z" itemprop="datePublished">2015-10-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/05/开发环境配置/">开发环境配置</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="软件安装">软件安装</h3><hr>
-<ul>
-<li>Xcode  </li>
-<li>Git</li>
-<li>iTerm2</li>
-<li>zsh</li>
-<li>Sublime3</li>
-<li>TextMate</li>
-<li>MacDown</li>
-<li>IntelliJ IDEA</li>
-<li>MySQL</li>
-<li>0xED #编辑二进制文件</li>
-<li>Dash #API文档</li>
-<li>Alfred2</li>
-</ul>
-<h3 id="Xcode">Xcode</h3><hr>
-<p>装好之后要启动一次，接受软件声明，否则后面步骤会失败。</p>
-<h3 id="Git">Git</h3><hr>
-<p>Mac自带，查看下版本。 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
-<h3 id="TextMate">TextMate</h3><hr>
-<p>装完之后，如下配置，在命令行下输入mate filename，可以对文件编辑  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln <span class="operator">-s</span> /Applications/TextMate.app/Contents/Resources/mate /usr/<span class="built_in">local</span>/bin</span><br></pre></td></tr></table></figure>
-<h3 id="Homebrew">Homebrew</h3><hr>
-<p>Homebrew是一个包管理器，用于在Mac上安装一些OS X没有的UNIX工具（比如著名的wget）。</p>
-<p>在terminal中复制以下命令，跟随指引，将完成 Hombrew 安装。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
-<p>紧接着，我们需要做一件事让通过 Hombrew 安装的程序的启动链接 (在 /usr/local/bin中）可以直接运行，无需将完整路径写出。通过以下命令将 /usr/local/bin 添加至 $PATH 环境变量中:  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'export PATH="/usr/local/bin:$PATH"'</span> &gt;&gt; ~/.bash_profile</span><br></pre></td></tr></table></figure>
-<p>Cmd+T 打开一个新的 terminal 标签页，运行以下命令，确保 brew 运行正常。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew doctor</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>命令操作</p>
-<p>  安装一个包,比如widget，可以简单的运行：  </p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install widget</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<pre><code>更新 Homebrew 在服务器端上的包目录：  
-
-<span class="comment"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br></pre></td></tr></table></figure></span>
-
-
-查看你的包是否需要更新：  
-
-<span class="comment"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew outdated</span><br></pre></td></tr></table></figure></span>
-
-更新包：  
-
-<span class="comment"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew upgrade &lt;package_name&gt;</span><br></pre></td></tr></table></figure></span>
-
-Homebrew 将会把老版本的包缓存下来，以便当你想回滚至旧版本时使用。但这是比较少使用的情况，当你想清理旧版本的包缓存时，可以运行：  
-
-<span class="comment"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cleanup</span><br></pre></td></tr></table></figure></span>
-
-查看你安装过的包列表（包括版本号）：  
-
-<span class="comment"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew list --versions</span><br></pre></td></tr></table></figure></span>
-</code></pre><h3 id="Homebrew_Cask">Homebrew Cask</h3><p>Homebrew Cask可以优雅、简单、快速的安装和管理 OS X 图形界面程序，比如 Google Chrome 和 Dropbox。</p>
-<ul>
-<li><p>安装<br>运行以下命令即可完成：<br>brew tap caskroom/cask  // 添加 Github 上的 caskroom/cask库<br>brew install brew-cask  // 安装 brew-cask  </p>
-</li>
-<li><p>搜索<br>brew cask search</p>
-</li>
-<li><p>文件预览插件<br>有些插件可以让 Mac 上的文件预览更有效，比如语法高亮、markdown 渲染、json 预览等等。</p>
-</li>
-</ul>
-<pre><code><span class="comment"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">brew cask install qlcolorcode  </span><br><span class="line">brew cask install qlstephen  </span><br><span class="line">brew cask install qlmarkdown  </span><br><span class="line">brew cask install quicklook-json  </span><br><span class="line">brew cask install qlprettypatch  </span><br><span class="line">brew cask install quicklook-csv  </span><br><span class="line">brew cask install betterzipql  </span><br><span class="line">brew cask install webp-quicklook  </span><br><span class="line">brew cask install suspicious-package</span><br></pre></td></tr></table></figure></span>
-</code></pre><ul>
-<li><p>一些推荐安装的程序<br>都是些常用的app，没见过的可自行百度，不多做介绍  </p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">brew cask install alfred  </span><br><span class="line">brew cask install appcleaner  </span><br><span class="line">brew cask install cheatsheet  </span><br><span class="line">brew cask install dropbox  </span><br><span class="line">brew cask install google-chrome  </span><br><span class="line">brew cask install sublime-text  </span><br><span class="line">brew cask install mou</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>如果你经常使用 Alfred 启动程序，那么你会想 Alfred 可以搜索 brew cask 安装的程序，实现这些仅需运行：  </p>
-<pre><code><span class="comment"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask alfred link</span><br></pre></td></tr></table></figure></span>
-</code></pre><h3 id="iTerm2+zsh">iTerm2+zsh</h3><hr>
-<ul>
-<li>安装iTerm2</li>
-<li>颜色和字体设置<br>在 Keys -&gt; Hotkey 中设置 command + option + i 快速显示和隐藏 iTerm<br>在 Profiles -&gt; Default -&gt; Check silence bell<br>下载 Solarized dark iterm colors，在 Profiles -&gt; Default -&gt; Colors -&gt; Load Presets 将其导入，作为默认颜色。<br>安装</li>
-<li>zsh，mac自带</li>
-</ul>
-<h3 id="Oh-my-zsh">Oh-my-zsh</h3><hr>
-<ul>
-<li><p>安装oh-my-zsh</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | ZSH=~/.dotfiles/zsh sh</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p>创建一个zsh的配置文件<br>注意:如果你已经有一个~/.zshrc文件的话，建议你先做备份。使用以下命令  </p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp ~/.zshrc ~/.zshrc.orig</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>然后开始创建zsh的配置文件  </p>
-<pre><code><span class="comment"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</span><br></pre></td></tr></table></figure></span>
-
-设置zsh为你的默认的shell  
-
-<span class="comment"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh <span class="operator">-s</span> /bin/zsh</span><br></pre></td></tr></table></figure></span>
-
-安装完成之后退出当前会话重新打开一个终端窗口，你就可以见到彩色的提示了  
-</code></pre><ul>
-<li><p>配置<br>zsh 的配置主要集中在用户当前目录的.zshrc里，用 vim 或你喜欢的其他编辑器打开.zshrc，在最下面会发现这么一行字:  </p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Customize to your needs…</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>可以在此处定义自己的环境变量和别名，当然，oh my zsh 在安装时已经自动读取当前的环境变量并进行了设置，你可以继续追加其他环境变量。<br>接下来进行别名的设置，部分配置如下：  </p>
-<pre><code><span class="comment"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> cls=<span class="string">'clear'</span>  </span><br><span class="line"><span class="built_in">alias</span> ll=<span class="string">'ls -l'</span>    </span><br><span class="line"><span class="built_in">alias</span> la=<span class="string">'ls -a'</span>  </span><br><span class="line"><span class="built_in">alias</span> vi=<span class="string">'vim'</span>  </span><br><span class="line"><span class="built_in">alias</span> javac=<span class="string">"javac -J-Dfile.encoding=utf8"</span>   </span><br><span class="line"><span class="built_in">alias</span> grep=<span class="string">"grep --color=auto"</span>  </span><br><span class="line"><span class="built_in">alias</span> <span class="operator">-s</span> html=mate   <span class="comment"># 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开  </span></span><br><span class="line"><span class="built_in">alias</span> <span class="operator">-s</span> rb=mate     <span class="comment"># 在命令行直接输入 ruby 文件，会在 TextMate 中打开  </span></span><br><span class="line"><span class="built_in">alias</span> <span class="operator">-s</span> py=vi      <span class="comment"># 在命令行直接输入 python 文件，会用 vim 中打开，以下类似  </span></span><br><span class="line"><span class="built_in">alias</span> <span class="operator">-s</span> js=mate  </span><br><span class="line"><span class="built_in">alias</span> <span class="operator">-s</span> c=mate  </span><br><span class="line"><span class="built_in">alias</span> <span class="operator">-s</span> java=mate  </span><br><span class="line"><span class="built_in">alias</span> <span class="operator">-s</span> txt=vi  </span><br><span class="line"><span class="built_in">alias</span> <span class="operator">-s</span> gz=<span class="string">'tar -xzvf'</span>  </span><br><span class="line"><span class="built_in">alias</span> <span class="operator">-s</span> tgz=<span class="string">'tar -xzvf'</span>  </span><br><span class="line"><span class="built_in">alias</span> <span class="operator">-s</span> zip=<span class="string">'unzip'</span>  </span><br><span class="line"><span class="built_in">alias</span> <span class="operator">-s</span> bz2=<span class="string">'tar -xjvf'</span></span><br></pre></td></tr></table></figure></span>
-
-zsh不仅可以设置通用别名，还能针对文件类型设置对应的打开程序，比如：
-</code></pre><p><code>alias -s html=mate</code>，意思就是你在命令行输入 hello.html，zsh会为你自动打开 TextMat 并读取 hello.html； <code>alias -s gz=&#39;tar -xzvf&#39;</code>，表示自动解压后缀为 gz 的压缩包。  </p>
-<p>  如果你是个主题控，还可以玩玩 zsh 的主题。在 .zshrc 里找到ZSH_THEME，就可以设置主题了，默认主题是：<br><code>ZSH_THEME=”robbyrussell”</code> </p>
-<p>  oh my zsh 提供了数十种主题，你可以随意选择，也可以编辑主题满足自己的变态需求，我采用了默认主题robbyrussell，不过做了一点小小的改动，修改~/.dotfiles/zsh/themes/robbyrussell.zsh-theme文件内容：</p>
-<pre><code><span class="comment"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PROMPT=<span class="string">'%&#123;$fg_bold[red]%&#125;➜ %&#123;$fg_bold[green]%&#125;%p%&#123;$fg[cyan]%&#125;%d %&#123;$fg_bold[blue]%&#125;$(git_prompt_info)%&#123;$fg_bold[blue]%&#125;% %&#123;$reset_color%&#125;&gt;'</span></span><br><span class="line"><span class="comment">#PROMPT='%&#123;$fg_bold[red]%&#125;➜ %&#123;$fg_bold[green]%&#125;%p %&#123;$fg[cyan]%&#125;%c %&#123;$fg_bold[blue]%&#125;$(git_prompt_info)%&#123;$fg_bold[blue]%&#125; % %&#123;$reset_color%&#125;'</span></span><br></pre></td></tr></table></figure></span>
-</code></pre><p>  对照原来的版本，把 c 改为 d，c 表示当前目录，d 表示绝对路径，另外在末尾增加了一个「 &gt; 」.</p>
-<ul>
-<li><p>插件<br>oh my zsh 项目提供了完善的插件体系，相关的文件在~/.oh-my-zsh/plugins目录下，默认提供了100多种，大家可以根据自己的实际学习和工作环境采用，想了解每个插件的功能，只要打开相关目录下的 zsh 文件看一下就知道了。插件也是在.zshrc里配置，找到plugins关键字，你就可以加载自己的插件了，系统默认加载 git ，你可以在后面追加内容，如下：</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins=(git textmate ruby autojump osx mvn gradle)</span><br></pre></td></tr></table></figure>
-<p>  下面简单介绍几个：</p>
-<ol>
-<li>git：当你处于一个 git 受控的目录下时，Shell 会明确显示 「git」和 branch，如上图所示，另外对 git 很多命令进行了简化，例如 </li>
-<li><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gco=’git checkout’</span><br><span class="line">gd=’git diff’</span><br><span class="line">gst=’git status’</span><br><span class="line">g=’git’</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-</ul>
-<p>等等，熟练使用可以大大减少 git 的命令长度，命令内容可以参考~/.oh-my-zsh/plugins/git/git.plugin.zsh</p>
-<pre><code>2. textmate：mr可以创建 ruby 的框架项目，`tm finename` 可以用 textmate 打开指定文件。
-
-3. osx：tab 增强，`quick-look filename`可以直接预览文件，man-preview grep 可以生成 grep手册 的pdf 版本等。
-
-4. autojump：zsh 和 autojump 的组合形成了 zsh 下最强悍的插件，今天我们主要说说这货。
-
-  首先安装autojump，如果你用 Mac，可以使用 brew 安装：
-
-    <span class="comment"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">brew install autojump  </span><br><span class="line">```	  </span><br><span class="line">	  如果是 Linux，去下载 autojump 的最新版本,比如：</span><br><span class="line">	  </span><br><span class="line">		``` bash</span><br><span class="line">wget https://github.com/downloads/joelthelion/autojump/autojump_v21.<span class="number">1.2</span>.tar.gz</span><br></pre></td></tr></table></figure></span>
-
-
-  解压缩后进入目录，执行
-
-    ``` bash
-</code></pre><p>./install.sh  </p>
-<pre><code>      最后把以下代码加入.zshrc：
-
-
-        ``` bash
-<span class="string">[[ -s ~/.autojump/etc/profile.d/autojump.sh ]]</span> &amp;&amp; . ~/.autojump/etc/profile.d/autojump.sh
-</code></pre><pre><code>至此，安装、配置、插件三位一体，终极 <span class="keyword">Shell</span> 全面登场。退出终端会话重新登录，开始感受 zsh 的训疾如风！
-</code></pre><ul>
-<li><p>使用 zsh  </p>
-<ol>
-<li><p>兼容 bash。</p>
-</li>
-<li><p>强大的历史纪录功能，输入 grep 然后用上下箭头可以翻阅你执行的所有 grep 命令。</p>
-</li>
-<li><p>智能拼写纠正，输入gtep mactalk * -R，系统会提示：</p>
-<pre><code class="bash">zsh: correct ‘gtep’ to ‘grep’ [nyae]?
-</code></pre>
-</li>
-<li><p>各种补全：路径补全、命令补全，命令参数补全，插件内容补全等等。触发补全只需要按一下或两下 tab 键，补全项可以使用 <code>ctrl+n/p/f/b</code>上下左右切换。比如你想杀掉 java 的进程，只需要输入 <code>kill java + tab键</code>，如果只有一个 java 进程，zsh 会自动替换为进程的 pid，如果有多个则会出现选择项供你选择。<code>ssh + 空格 + 两个tab键</code>，zsh会列出所有访问过的主机和用户名进行补全</p>
-</li>
-<li><p>智能跳转，安装了autojump之后，zsh 会自动记录你访问过的目录，通过 <code>j + 目录名</code> 可以直接进行目录跳转，而且目录名支持模糊匹配和自动补全，例如你访问过hadoop-1.0.0目录，输入<code>j hado</code>即可正确跳转。<code>j –stat</code> 可以看你的历史路径库。</p>
-</li>
-<li><p>目录浏览和跳转：输入 d，即可列出你在这个会话里访问的目录列表，输入列表前的序号，即可直接跳转。</p>
-</li>
-<li><p>在当前目录下输入 .. 或 … ，或直接输入当前目录名都可以跳转，你甚至不再需要输入 cd 命令了。</p>
-</li>
-<li><p>通配符搜索：<code>ls -l **/*.sh</code>，可以递归显示当前目录下的 shell 文件，文件少时可以代替 find，文件太多就歇菜了。</p>
-</li>
-<li><p>更强的别名：请参考配置一节。</p>
-</li>
-<li><p>插件支持：请参考插件一节。</p>
-</li>
-</ol>
-</li>
-</ul>
-<h2 id="参考">参考</h2><hr>
-<ul>
-<li><a href="http://www.jianshu.com/p/77a4349bf67b" target="_blank" rel="external">我的Mac开发环境配置</a></li>
-<li><a href="http://zhuanlan.zhihu.com/mactalk/19556676" target="_blank" rel="external">终极Shell —— ZSH</a></li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Hexo安装和配置" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/05/Hexo安装和配置/" class="article-date">
-  	<time datetime="2015-10-05T01:59:11.000Z" itemprop="datePublished">2015-10-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Hexo安装和配置">Hexo安装和配置</h2><p>###1. Git安装和设置</p>
-<hr>
-<ul>
-<li><p>github</p>
-<pre><code>brew <span class="keyword">install</span> git         <span class="comment">#Mac电脑使用brew安装</span>
-sudo apt-get <span class="keyword">install</span> git <span class="comment">#Ubuntu系统使用这条命令安装 </span>
-</code></pre><p>  然后设置好git账户<br>  使用Github Page搭建博客, 需要在github建立仓库,仓库名为username.github.io  </p>
-</li>
-<li><p><strong>gitcafe</strong>  </p>
-<p>  因为github速度稍微慢一点，所以用作备份站了，主站用国内的gitcafe。  </p>
-<ol>
-<li>先到<a href="https://gitcafe.com/projects/new" target="_blank" rel="external">https://gitcafe.com/projects/new</a>页面注册一个新的项目，<strong>项目名需要与你的用户名相同</strong>，默认分支选择gitcafe-pages,项目主页也是相同的 <a href="http://username.gitcafe.com" target="_blank" rel="external">http://username.gitcafe.com</a>  </li>
-<li>采用和github同样的key文件，在  ~/.ssh/id_rsa.pub</li>
-<li><p>如果没有，单独生成一个ssh-key</p>
-<pre><code>ssh-keygen -t rsa -C <span class="string">"emailaddress"</span> <span class="operator">-f</span> ~/.ssh/gitcafe
-</code></pre><p> 在SSH的文件夹下，可以看到gitcafe私钥和公钥文件：</p>
-<pre><code>gitcafe
-gitcafe<span class="class">.pub</span>  
-</code></pre><p> 生成配置文件：  </p>
-<pre><code>touch ~<span class="regexp">/.ssh/config</span>  
-</code></pre><p> 添加以下内容：  </p>
-<pre><code>Host gitcafe<span class="class">.com</span> www<span class="class">.gitcafe</span><span class="class">.com</span>
-IdentityFile ~/.ssh/gitcafe
-</code></pre></li>
-<li>登录<a href="https://gitcafe.com/account/public_keys" target="_blank" rel="external">网站</a>，将SSH文件夹下的GitCafe.pub，中的内容复制到公钥框中即可。  </li>
-<li><p>测试是否连上，共用的key，输入：</p>
-<pre><code>ssh -T git@gitcafe<span class="class">.com</span> -<span class="tag">i</span> ~/.ssh/id_rsa
-</code></pre><p> 单独的key，输入：</p>
-<pre><code>ssh -T git@gitcafe<span class="class">.com</span> -<span class="tag">i</span> ~/.ssh/gitcafe
-</code></pre></li>
-</ol>
-</li>
-</ul>
-<p>###2. Node.js安装</p>
-<hr>
-<pre><code>brew <span class="keyword">install</span> node  <span class="comment">#最新版的node.js的包中应该已经集成了npm包管理工具</span>
-</code></pre><p>使用以下命令验证是否安装成功</p>
-<pre><code>node -v
-<span class="built_in">npm</span> -v
-</code></pre><p>###3. Hexo安装与设置</p>
-<hr>
-<p>Node, npm和Git都安装成功, 开始安装hexo</p>
-<pre><code>npm <span class="operator"><span class="keyword">install</span> hexo -<span class="keyword">g</span>  #-<span class="keyword">g</span>表示全局安装, npm默认为当前项目安装</span>
-</code></pre><p>Hexo使用命令:  </p>
-<pre><code><span class="built_in">cd</span> ~/git
-hexo init hexo  <span class="comment">#执行init命令初始化到你指定的hexo目录</span>
-<span class="built_in">cd</span> hexo
-npm install    <span class="comment">#install before start blogging</span>
-hexo generate       <span class="comment">#自动根据当前目录下文件,生成静态网页</span>
-hexo server         <span class="comment">#运行本地服务</span>
-</code></pre><p>浏览器输入<a href="http://localhost:4000就可以看到效果。" target="_blank" rel="external">http://localhost:4000就可以看到效果。</a></p>
-<p>###4. 添加博文  </p>
-<hr>
-<pre><code>hexo <span class="keyword">new</span> <span class="string">"postName"</span>  <span class="preprocessor">#新建博文,其中postName是博文题目</span>
-</code></pre><p>博文会自动生成在博客目录下source/_posts\postName.md  </p>
-<p>文件自动生成格式:  </p>
-<pre><code>title: <span class="string">"It Starts with iGaze: Visual Attention Driven Networkingwith Smart Glasses"</span>  <span class="preprocessor">#博文题目</span>
-date: <span class="number">2014</span>-<span class="number">11</span>-<span class="number">21</span> <span class="number">11</span>:<span class="number">25</span>:<span class="number">38</span>      <span class="preprocessor">#生成时间</span>
-tags: Paper                    <span class="preprocessor">#标签, 多个标签使用格式[Paper1, Paper2, Paper3,...]</span>
----
-</code></pre><p>如果不想博文在首页全部显示, 并能出现阅读全文按钮效果, 需要在你想在首页显示的部分下添加  </p>
-<pre><code><span class="comment">&lt;!--more--&gt;</span>
-</code></pre><p>###5. 主题更改</p>
-<hr>
-<pre><code>cd <span class="regexp">~/git/</span>hexo
-git clone git<span class="annotation">@github</span>.<span class="string">com:</span>litten<span class="regexp">/hexo-theme-yilia.git themes/</span>yilia
-</code></pre><p>在./_config.yml，修改主题为yilia  </p>
-<pre><code><span class="attribute">theme</span>: <span class="string">yilia</span>
-</code></pre><p>另外推荐几个主题:<br><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">iissnan/hexo-theme-next</a><br><a href="https://github.com/TryGhost/Casper" target="_blank" rel="external">TryGhost/Casper</a><br><a href="https://github.com/kywk/hexo-theme-casper" target="_blank" rel="external">kywk/hexo-theme-casper</a> #基于Casper<br><a href="https://github.com/daleanthony/uno" target="_blank" rel="external">daleanthony/uno</a><br><a href="https://github.com/A-limon/pacman" target="_blank" rel="external">A-limon/pacman</a><br><a href="https://github.com/AlxMedia/hueman" target="_blank" rel="external">AlxMedia/hueman</a><br><a href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="external">ppoffice/hexo-theme-hueman</a> #基于Hueman<br><a href="https://github.com/xiangming/landscape-plus" target="_blank" rel="external">xiangming/landscape-plus</a> #基于官方<br><a href="https://github.com/hexojs/hexo-theme-landscape" target="_blank" rel="external">hexojs/hexo-theme-landscape</a>  </p>
-<p>查看本地效果  </p>
-<pre><code>hexo g       <span class="id">#hexo</span> generate简写
-hexo s       <span class="id">#hexo</span> server简写
-</code></pre><p>###6. 部署到GitCafe</p>
-<hr>
-<p>以上内容都是在本地进行查看, 现在将博客部署到github上<br>打开./_config.yml，修改如下信息：</p>
-<pre><code><span class="attribute">type</span>: github
-<span class="attribute">repository</span>: git<span class="variable">@gitcafe</span>.<span class="attribute">com</span>:yourname/yourname.git
-<span class="attribute">branch</span>: master
-</code></pre><p>这里还一定要注意：  </p>
-<ul>
-<li><strong>所有键的冒号后面留一个空格，如<code>language: zh-CN</code></strong>  </li>
-<li><strong>url不能为空,否则报错</strong>   </li>
-<li><code>type: github</code>报错<code>hexo ERROR Deployer not found: github</code>的解决方法：  <pre><code>先运行 <span class="escape">`n</span>pm install hexo-deployer-git --save<span class="escape">` </span> 
-<span class="label">再改为 `type:</span> git<span class="escape">` </span> 
-</code></pre></li>
-</ul>
-<p>完整配置信息如下：    </p>
-<pre><code><span class="preprocessor"># Hexo Configuration</span>
-<span class="preprocessor">## Docs: http://hexo.io/docs/configuration.html</span>
-<span class="preprocessor">## Source: https://github.com/hexojs/hexo/</span>
-
-<span class="preprocessor"># Site</span>
-<span class="label">title:</span> Blog Name    <span class="preprocessor">#博客名</span>
-<span class="label">subtitle:</span> Subtitle  <span class="preprocessor">#博客副标题</span>
-<span class="label">description:</span>          <span class="preprocessor">#网站描述, 用于爬虫抓取的关键词</span>
-<span class="label">author:</span> author    <span class="preprocessor">#作者名称</span>
-<span class="label">email:</span> mail@box.com  <span class="preprocessor">#作者邮箱</span>
-<span class="label">language:</span> <span class="built_in">zh</span>-CN       <span class="preprocessor">#网页编码,中文</span>
-
-<span class="preprocessor"># URL</span>
-<span class="preprocessor">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span>
-<span class="label">url:</span> http://url.com   <span class="preprocessor">#用于绑定域名, 其他的不需要配置</span>
-<span class="label">root:</span> /
-<span class="label">permalink:</span> :year/:month/:day/:title/
-<span class="label">tag_dir:</span> tags
-<span class="label">archive_dir:</span> archives
-<span class="label">category_dir:</span> categories
-<span class="label">code_dir:</span> downloads/code
-<span class="label">permalink_defaults:</span>
-
-<span class="preprocessor"># Directory</span>
-<span class="label">source_dir:</span> source  
-<span class="label">public_dir:</span> public
-
-<span class="preprocessor"># Writing, 设置生成博文的默认格式,不修改</span>
-<span class="label">new_post_name:</span> :title.md <span class="preprocessor"># File name of new posts</span>
-<span class="label">default_layout:</span> post
-<span class="label">titlecase:</span> false <span class="preprocessor"># Transform title into titlecase</span>
-<span class="label">external_link:</span> true <span class="preprocessor"># Open external links in new tab</span>
-<span class="label">filename_case:</span> <span class="number">0</span>
-<span class="label">render_drafts:</span> false
-<span class="label">post_asset_folder:</span> false
-<span class="label">relative_link:</span> false
-<span class="label">highlight:</span>
-  enable: true
-  line_number: true
-  tab_replace:
-
-<span class="preprocessor"># Category &amp; Tag</span>
-<span class="label">default_category:</span> uncategorized
-<span class="label">category_map:</span>
-<span class="label">tag_map:</span>
-
-<span class="preprocessor"># Archives</span>
-<span class="preprocessor">#Archives 默认值为2,修改为1,Archives页面就只会列出标题,而非全文</span>
-<span class="preprocessor">## 2: Enable pagination</span>
-<span class="preprocessor">## 1: Disable pagination</span>
-<span class="preprocessor">## 0: Fully Disable</span>
-<span class="label">archive:</span> <span class="number">1</span>
-<span class="label">category:</span> <span class="number">1</span>
-<span class="label">tag:</span> <span class="number">1</span>
-
-<span class="preprocessor"># Server服务器设置, 不修改</span>
-<span class="preprocessor">## Hexo uses Connect as a server</span>
-<span class="preprocessor">## You can customize the logger format as defined in</span>
-<span class="preprocessor">## http://www.senchalabs.org/connect/logger.html</span>
-<span class="label">port:</span> <span class="number">4000</span>
-<span class="label">server_ip:</span> localhost
-<span class="label">logger:</span> false
-<span class="label">logger_format:</span> dev
-
-<span class="preprocessor"># Date / Time format 日期格式</span>
-<span class="preprocessor">## Hexo uses Moment.js to parse and display date</span>
-<span class="preprocessor">## You can customize the date format as defined in</span>
-<span class="preprocessor">## http://momentjs.com/docs/#/displaying/format/</span>
-<span class="label">date_format:</span> MMM D YYYY
-<span class="label">time_format:</span> H:mm:ss
-
-<span class="preprocessor"># Pagination 分页, 设置每页显示多少篇博文</span>
-<span class="preprocessor">## Set per_page to 0 to disable pagination</span>
-<span class="label">per_page:</span> <span class="number">10</span>
-<span class="label">pagination_dir:</span> page
-
-<span class="preprocessor"># Disqus  disqus评论,  与多说类似, 国内一般使用多说</span>
-<span class="label">disqus_shortname:</span> 
-
-<span class="preprocessor"># Extensions</span>
-<span class="preprocessor">## Plugins: https://github.com/hexojs/hexo/wiki/Plugins</span>
-<span class="preprocessor">## Themes: https://github.com/hexojs/hexo/wiki/Themes</span>
-<span class="label">theme:</span> yilia    <span class="preprocessor">#主题设置</span>
-<span class="label">exclude_generator:</span>
-
-<span class="preprocessor"># Deployment  站点部署到github要配置这里, 非常重要</span>
-<span class="preprocessor">## Docs: http://hexo.io/docs/deployment.html</span>
-<span class="label">deploy:</span>
-  type: git    <span class="preprocessor">#部署类型, 本文使用Github</span>
-  repository: git@github.com:username/username.github.io.git  <span class="preprocessor">#部署的仓库的SSH</span>
-  branch: master   <span class="preprocessor">#部署分支,一般使用master主分支</span>
-</code></pre><p>保存之后，便可以使用<code>hexo d</code>上传到GitCafe。<br>部署成功,使用username.gitcafe.com进行访问, 或者设置个性域名，参考<a href="https://gitcafe.com/GitCafe/Help/wiki/Pages-%E7%9B%B8%E5%85%B3%E5%B8%AE%E5%8A%A9" target="_blank" rel="external">官方Wiki</a>。</p>
-<p>####参考</p>
-<hr>
-<p><a href="http://www.jianshu.com/p/858ecf233db9" target="_blank" rel="external">通过Hexo在Github上搭建博客教程</a><br><a href="http://www.zhihu.com/question/24422335/answer/46357100" target="_blank" rel="external">有那些好看的hexo主题?</a>  </p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-Octopress安装和部署" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2015/10/05/Octopress安装和部署/" class="article-date">
-  	<time datetime="2015-10-05T01:58:05.000Z" itemprop="datePublished">2015-10-05</time>
+  	<time datetime="2015-10-05T03:15:44.000Z" itemprop="datePublished">2015-10-05</time>
 </a>
     </div>
   
@@ -668,405 +218,22 @@ hexo s       <span class="id">#hexo</span> server简写
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##安装Octopress步骤</p>
-<hr>
-<pre><code>git config --global user<span class="class">.name</span> <span class="string">"name"</span>
-git config --global user<span class="class">.email</span> <span class="string">"emailaddress"</span>
-cd ~
-mkdir git
-cd git
-git clone git@github<span class="class">.com</span>:name/name<span class="class">.github</span><span class="class">.io</span><span class="class">.git</span>
-cd ~/git
-git clone git:<span class="comment">//github.com/imathis/octopress.git octopress</span>
-cd octopress
-#修改Gemfile中源地址为ruby<span class="class">.taobao</span><span class="class">.org</span>
-bundle install
-rake install
-rake setup_github_pages 
-#输入github<span class="class">.io</span><span class="class">.git</span>地址
-rake generate
-rake preview    #在http:<span class="comment">//localhost:4000</span>
-cd source/_deploy
-git pull origin master  #先同步一次，否则deploy可能报错
-cd ..
-rake deploy #该命令首先清空_deploy目录，然后将public目录整个拷贝过来，然后commit到github。_deploy 目录对应着master分支。
-
-#备份source到github
-git add .`  
-git commit -m <span class="string">'your message'</span>
-git push origin source <span class="id">#source</span> 目录下保存了所有的markdown源文件，是博客的原始数据，以及一些模板文件。因此很有必要备份。用上述命令提交到github，这样就用git管理起来了，再也不用担心数据丢失了。
-</code></pre><p>###1.Ruby等依赖安装</p>
-<hr>
-<p>Ruby 需要1.9.3版本的，同时由于Jekyll和octopress都是ruby写的，会有诸多ruby依赖，建议切换ruby源为国内源。对于git版本没有太大要求。<br><code>Install Ruby</code><br>查看ruby版本方法如下<br><code>ruby --version</code><br>如果版本符合要求则进入下一步，否则请参照官方手册安装ruby或者使用RVM来安装。  </p>
+        <h2 id="安装Octopress步骤">安装Octopress步骤</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"name"</span></span><br><span class="line">git config --global user.email <span class="string">"emailaddress"</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">mkdir git</span><br><span class="line"><span class="built_in">cd</span> git</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:name/name.github.io.git</span><br><span class="line"><span class="built_in">cd</span> ~/git</span><br><span class="line">git <span class="built_in">clone</span> git://github.com/imathis/octopress.git octopress</span><br><span class="line"><span class="built_in">cd</span> octopress</span><br><span class="line"><span class="comment">#修改Gemfile中源地址为ruby.taobao.org</span></span><br><span class="line">bundle install</span><br><span class="line">rake install</span><br><span class="line">rake setup_github_pages </span><br><span class="line"><span class="comment">#输入github.io.git地址</span></span><br><span class="line">rake generate</span><br><span class="line">rake preview    <span class="comment">#在http://localhost:4000</span></span><br><span class="line"><span class="built_in">cd</span> <span class="built_in">source</span>/_deploy</span><br><span class="line">git pull origin master  <span class="comment">#先同步一次，否则deploy可能报错</span></span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">rake deploy <span class="comment">#该命令首先清空_deploy目录，然后将public目录整个拷贝过来，然后commit到github。_deploy 目录对应着master分支。</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">#备份source到github</span></span><br><span class="line">git add .  </span><br><span class="line">git commit -m <span class="string">'your message'</span></span><br><span class="line">git push origin <span class="built_in">source</span> <span class="comment">#source 目录下保存了所有的markdown源文件，是博客的原始数据，以及一些模板文件。因此很有必要备份。用上述命令提交到github，这样就用git管理起来了，再也不用担心数据丢失了。</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-Ruby等依赖安装">1.Ruby等依赖安装</h3><p>Ruby 需要1.9.3版本的，同时由于Jekyll和octopress都是ruby写的，会有诸多ruby依赖，建议切换ruby源为国内源。对于git版本没有太大要求。  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Install Ruby</span><br><span class="line">```  </span><br><span class="line">查看ruby版本方法如下  </span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">ruby --version</span><br></pre></td></tr></table></figure>
+<p>如果版本符合要求则进入下一步，否则请参照官方手册安装ruby或者使用RVM来安装。  </p>
 <ul>
-<li>安装bundler<br>bundle可以自动解决依赖，安装方法如下：<br><code>gem install bundler</code>  </li>
-</ul>
-<p>建议国内用户切换gem源为国内源，方法如下：<br><code>gem source -r https://rubygems.org/ #删除官方源</code><br><code>gem source -a http://ruby.taobao.org/  #添加淘宝源</code><br><code>gem source -l #查看当前源</code>  </p>
-<ul>
-<li>安装git<br>如果已经安装git，执行命令返回值为具体版本，否则请自行安装git<br><code>git --version</code><br><code>#git version 1.9.1</code>  </li>
-</ul>
-<p>###2.clone网站repo</p>
-<hr>
-<p>先设置git<br><code>git config --global user.name &quot;name&quot;</code><br><code>git config --global user.email &quot;emailaddress&quot;</code>  </p>
-<p>然后生成ssh key<br><code>$ ssh-keygen -t rsa -C &quot;emailaddress&quot;</code><br>按3个回车，密码为空。<br>复制~/.ssh/id_rsa.pub的内容，添加到github账户中  </p>
-<p>然后clone网站repo<br><code>cd ~</code><br><code>mkdir git</code><br><code>cd git</code><br><code>git clone git@github.com:name/name.github.io.git</code>  </p>
-<p>###3.octopress安装</p>
-<hr>
-<p>octopress的安装也比较简单，下载源码后会有Gemfile文件来指示所有依赖，使用bundle即可。  </p>
-<ul>
-<li><p>下载源码  </p>
-<pre><code><span class="keyword">cd</span> ~  
-<span class="keyword">cd</span> git  
-git clone gi<span class="variable">t:</span>//github.<span class="keyword">com</span>/imathis/octopress.git octopress  
-<span class="keyword">cd</span> octopress  
-</code></pre></li>
-</ul>
-<ul>
-<li><p>安装octopress<br>使用bundle自动安装，先修改Gemfile中的源地址<br><code>source &quot;http://ruby.taobao.org&quot;</code><br>然后执行命令bundle install就会自动安装所有octopress及其所有依赖。  </p>
-<p>  注意： 如果上面的命令执行失败，提示下面的错误：<br><code>Gem::Installer::ExtensionBuildError: ERROR: Failed to build gem native extension.
-/usr/bin/ruby1.9.1 extconf.rb 
-/usr/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in &#39;require&#39;: cannot load such file -- mkmf   (LoadError)</code>  </p>
-<p>  请执行下面的命令安装ruby1.9.1-dev<br><code>sudo apt-get install ruby1.9.1-dev</code>  </p>
+<li><p>安装bundler<br>bundle可以自动解决依赖，安装方法如下：  </p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install bundler</span><br></pre></td></tr></table></figure>
+<p>  建议国内用户切换gem源为国内源，方法如下：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="built_in">source</span> -r https://rubygems.org/ <span class="comment">#删除官方源  </span></span><br><span class="line">gem <span class="built_in">source</span> <span class="operator">-a</span> http://ruby.taobao.org/  <span class="comment">#添加淘宝源  </span></span><br><span class="line">gem <span class="built_in">source</span> <span class="operator">-l</span> <span class="comment">#查看当前源</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装octopress默认主题<br><code>rake install</code><br>在octopress根目录下的Rakefile定义了如何将octopress跟Jekyll连接起来，rake打包了一些常见的如发布博客主题、生成博客数据、发布博客等一系列命令来简化博主的操作。直接使用Jekyll每一个任务都需要不少命令和文件编辑。  </p>
-</li>
-<li><p>tips：保持Jekyll最新<br>由于Jekyll更新比较频繁，为了确保你在本地调试的时候看到的网站效果跟GitHub Pages上的一致，务必时常更新Jekyll，推荐使用bundle更新，命令如下：<br><code>bundle update</code>  </p>
+<li><p>安装git<br>如果已经安装git，执行命令返回值为具体版本，否则请自行安装git  </p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br><span class="line"><span class="comment">#git version 1.9.1</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>###4.部署到github</p>
-<hr>
-<p>github pages支持托管，地址为<a href="https://pages.github.com/" target="_blank" rel="external">https://pages.github.com/</a>,  在这个页面你只需要大概了解一下什么是github page，如何申请就行了。  </p>
-<p>新建一个仓库，这里以your_user_name.github.io为例(当然也可以是project，这个方法有点不一样)。<br>在octopress根目录执行<br><code>rake setup_github_pages</code><br>按照要求输入仓库地址等，这个命令会在跟目录下新建_deploy目录，这个会push到仓库的master分支，也就是访问博客的文件。<br>生成博客， <code>rake generate</code> 这个会按照既定规则生成静态文件的博客。<br>发布博客， <code>rake deploy</code> 将前一步生成的bo9ke拷贝到_deploy目录并push到github  </p>
-<ul>
-<li>注意：第一次执行 rake deploy 的时候会报错如下：<br><code>! [rejected]        master -&gt; master (non-fast-forward)
-error: failed to push some refs to &#39;https://github.com/yeesterbunny/yeesterbunny.github.com.git&#39;
-hint: Updates were rejected because the tip of your current branch is behind
-hint: its remote counterpart. Merge the remote changes (e.g. &#39;git pull&#39;)
-hint: before pushing again.
-hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.</code>  </li>
-</ul>
-<p>解决方法是手动进入_deploy目录手动强制push一次。  </p>
-<pre><code><span class="built_in">cd</span> octopress/_deploy
-git pull origin master
-<span class="built_in">cd</span> ..
-rake deploy 
-</code></pre><p>这样再次执行就不会报错了。  </p>
-<ul>
-<li><p>博客本地预览<br>如果在部署到仓库之前，需要先预览一下博客，可以在终端输入 <code>rake preview</code> 命令，然后就能在浏览器中进行本地预览访问了：<a href="http://127.0.0.1:4000/" target="_blank" rel="external">http://127.0.0.1:4000/</a>或<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>，效果跟仓库中的一样。  </p>
-</li>
-<li><p>提交源码用于备份<br>前面提到的deploy只是部署博客代码到github上面，整个octopress并没有提交，为了保证在任何地方随时发布博客，而无需再次详细配置以保证跟github上的最新代码一致，可以将当前octopress的源码存放到github的source分支下：  </p>
-<pre><code>git add .
-git <span class="operator"><span class="keyword">commit</span> -<span class="keyword">m</span> <span class="string">'Initial source commit'</span>
-git push origin <span class="keyword">source</span></span>
-</code></pre></li>
-</ul>
-<p>###5.安装主题</p>
-<hr>
-<pre><code>cd ~/git
-git clone git://github.com/bkutil/bootstrap-theme.git bootstrap-theme
-rake <span class="operator"><span class="keyword">install</span>[<span class="string">'bootstrap'</span>]
-#rake <span class="keyword">install</span>[bootstrap]/noglob rake <span class="keyword">install</span>[<span class="string">'bootstrap'</span>] ,<span class="keyword">using</span> zsh<span class="string">` 
-rake generate
-rake preview</span></span>
-</code></pre><p>###6.新建博文</p>
-<hr>
-<p>新建博文也非常简单，octopress已经预定义了脚本 <code>rake new_post[“title”]</code> 方便我们操作，因为Jekyll有一套固定的文档路径以及命名规范，需要按照它的规定来实现才能成功生成博文。博文必须存储在source/_posts目录下，并且需要按照Jekyll的命名规范对文章进行命名：YYYY-MM-DD-post-title.markdown。文章的名字会被当做url的一部分，而其中的日期用于对博文的区分和排序。  </p>
-<p>new_post执行后会自动新建博文，并在相应的markdown文件中写入yaml元数据。</p>
-<pre><code><span class="bullet">---
-</span>layout: post
-title: "title"
-date: 2013-08-03 16:36
-comments: true
-<span class="header">categories:
----</span>
-</code></pre><p>这里的categories是自定义的分类名，支持的定义方式如下：  </p>
-<pre><code><span class="preprocessor"># One category</span>
-<span class="label">categories:</span> Sass
-<span class="preprocessor"># Multiple categories example 1</span>
-<span class="label">categories:</span> [CSS3, Sass, Media Queries]
-<span class="preprocessor"># Multiple categories example 2</span>
-<span class="label">categories:</span>
-- CSS3
-- Sass
-- Media Queries
-</code></pre><p>除此之外，还支持 author: Your Name 来指明作者，支持 published: false 表明当前博文是草稿暂时不发布。  </p>
-<ul>
-<li><p>发布博文完整流程：  </p>
-<pre><code>rake new_post[<span class="string">"New Post"</span>]
-#edit the <span class="keyword">file</span> <span class="keyword">source</span><span class="regexp">/_posts/</span>{DATETIME}-<span class="keyword">New</span>-Post.markdown
-rake generate
-git add .
-git commit -am <span class="string">"Some comment here."</span> 
-git <span class="keyword">push</span> origin <span class="keyword">source</span>
-rake deploy
-</code></pre></li>
-<li><p>新建页面<br>  你可以在博客源目录下任意地方添加页面，Jekyll会自动拼接，对应的url地址也会根据页面路径自动生成 ，如果要添加about.markdown ，那么就会生成 site.com/about.html ，如果你想要的url地址是 site.com/about/ ,你需要新建的页面应该是 about/index.markdown .同样的，octopress也有脚本完成这个操作。 </p>
-<pre><code>rake new_page[<span class="keyword">super</span>-awesome]
-<span class="preprocessor"># creates /source/super-awesome/index.markdown</span>
-
- rake new_page[<span class="keyword">super</span>-awesome/page.html]
-<span class="preprocessor"># creates /source/super-awesome/page.html</span>
-</code></pre><p>像发布博文一样，默认后缀依然是markdown，但是你可以再Rakefile中修改这个默认配置；一个干净的页面文件如下：  </p>
-<pre><code><span class="bullet">---
-</span>layout: page
-title: "Super Awesome"
-date: 2011-07-03 5:59
-comments: true
-sharing: true
-<span class="header">footer: true
----</span>
-</code></pre><p>这里的title来自于文件名。你也可以手动修改。跟博文的一样，除了不包含分类 categories，对于 sharing 和 comments 你可以关闭，对于 footer 你可以删除，这样就不会添加默认的footer信息到该页面；如果你不像要再页面中显示日期，可以删除这里的 date。  </p>
-</li>
-<li><p>内容<br>页面和博文会调用markup 引擎渲染，默认引擎是再配置文件中；此外，你可以使用任何Jekyll docs中所介绍的模板特性。  </p>
-</li>
-</ul>
-<p>默认首页是显示全文，要想仅仅显示摘要，请在合适的地方插入下面的代码<br><code>&lt;!-- more --&gt;</code>  </p>
-<p>这个会生成一个”Continue →” 链接来指向完整博文，这个跟wordpress的一样。  </p>
-<p>###7.用alfred命令创建新的Octopress post</p>
-<hr>
-<p>在alfred的workflows里点+号，添加Templates-essentials-keyword to script，language选zsh，escaping里不要勾选space，在脚本里输入内容：</p>
-<pre><code><span class="shebang">#!/bin/bash</span>
-<span class="comment">#Path for your octopress installation</span>
-octopath=/Users/sia/git/octopress
-<span class="comment">#Editor to open the post in. (Exact name of the .app bundle in your Applications folder)</span>
-editorapp=MacDown
-
-<span class="keyword">if</span> [[ <span class="operator">-s</span> <span class="string">"<span class="variable">$HOME</span>/.rvm/scripts/rvm"</span> ]] ; <span class="keyword">then</span>
-
-<span class="built_in">source</span> <span class="string">"<span class="variable">$HOME</span>/.rvm/scripts/rvm"</span>
-<span class="keyword">fi</span>
-
-<span class="built_in">cd</span> <span class="variable">$octopath</span>
-rvm use <span class="number">1.9</span>.<span class="number">3</span>@octopress
-octopost=$(<span class="built_in">noglob</span> rake new_post[<span class="string">"{query}"</span>]| grep -o <span class="string">'source/_posts/.*'</span>)
-open <span class="operator">-a</span> <span class="string">"<span class="variable">$editorapp</span>"</span> <span class="variable">$octopath</span>/<span class="variable">$octopost</span>
-</code></pre><p>这里打开方式用了MacDown，由于zsh不支持中括号，<code>rake new_post</code>命令需要用<code>noglob rake new_post</code>。  </p>
-<p>编辑完成markdown内容后，发布：  </p>
-<pre><code>rake generate
-git <span class="built_in">add</span> .
-git commit -<span class="keyword">am</span> <span class="string">"Some comment here."</span> 
-git push origin <span class="keyword">source</span>
-rake deploy
-</code></pre><p>###8.Octopress的一些常见问题</p>
-<hr>
-<ul>
-<li><p>不能在ZSH中输入命令的问题  </p>
-<p>Octopress提供了许多Rake任务，可以方便地完成一些操作。常用的命令是<code>rake new_post[“title”]</code>。但是在ZSH下，输入这样的命令，会提示错误：  </p>
-<p><code>zsh: no matches found: new_post[...]</code><br>原因是诸如[]之类的不是正确的命令字符。当然，我们也可以使用转义符来解决这一问题。但每次都需要敲入转义符，实在是太麻烦了。解决方案是在~/.zshrc文件下，加入这样一行内容：<br><code>alias rake=&quot;noglob rake&quot;</code>  </p>
-</li>
-<li><p>解决中文乱码问题  </p>
-<p>Octopress要创建一篇博客，可以直接运行rake new_post[“title”]，它会在source/_post下创建一个markdown文件。同时，它会将你输入的title作为blog的链接URL。我们可以通过一些工具，例如EMacs或者MouApp（在Mac OS下）打开该文件进行编辑。但是，当我将markdown文件打开，修改title为中文，且输入中文博客时，再运行rake generate生成博客页面时，会报告编码错误。信息为：  </p>
-<p><code>gems/ruby-1.9.2-p290/gems/jekyll-0.11.0/lib/jekyll/convertible.rb:32:in &#39;read_yaml&#39;: invalid byte sequence in US-ASCII (ArgumentError)</code><br>这是因为jekyll代码没有很好地支持多种编码的缘故。解决办法是找到提示信息中的convertible.rb文件，将第29行的如下代码：<br><code>self.content = File.read(File.join(base, name))</code>  </p>
-<p>修改为：<br><code>self.content = File.read(File.join(base, name), :encoding =&gt; &quot;utf-8&quot;)</code><br>有的 博客 还提到ruby环境的问题。我并没有碰到。我使用的版本是ruby 1.9.3。如果遇到类似问题，根据这篇博客的讲解，可以修改ruby环境下的setup_environment.bat文件，在文件最后加入2行：<br><code>set LC_ALL=en_US.UTF-8</code><br><code>set LANG=en_US.UTF-8</code>  </p>
-</li>
-<li><p>中文博客名称的问题<br>前面已经提到，rake new_post[“”]命令会将双引号引起来的标题作为blog链接的一部分。这就必然导致一个问题，就是我们无法在new_post[“”]命令中直接使用中文作为博客的标题。带来的问题是，我们每次都需要在创建了博客之后，再打开markdown文件，去修改文件前方的title内容为中文。这无疑增加了工作量。解决的办法很简单，因为new_post就是一个rake任务而已，我们可以参照该任务，创建一个自己的任务，添加一个新的参数alias，将它作为我们需要的中文标题。  </p>
-<p>打开在octopress根目录下的Rakefile文件，在文件末尾增加如下代码  </p>
-<pre><code>desc <span class="string">"Begin a new post in <span class="subst">#{source_dir}</span>/<span class="subst">#{posts_dir}</span> with Alias"</span>
-task <span class="symbol">:post</span>, <span class="symbol">:title</span>, <span class="symbol">:title_alias</span> <span class="keyword">do</span> |t, args|
-  raise <span class="string">"### You haven't set anything up yet. First run `rake install` to set up an Octopress theme."</span> <span class="keyword">unless</span> <span class="constant">File</span>.directory?(source_dir)
-  mkdir_p <span class="string">"<span class="subst">#{source_dir}</span>/<span class="subst">#{posts_dir}</span>"</span>
-  args.with_defaults(<span class="symbol">:title</span> =&gt; <span class="string">'new-post'</span>)
-  title = args.title
-  title_alias = args.title_alias
-  filename = <span class="string">"<span class="subst">#{source_dir}</span>/<span class="subst">#{posts_dir}</span>/<span class="subst">#{<span class="constant">Time</span>.now.strftime(<span class="string">'%Y-%m-%d'</span>)}</span>-<span class="subst">#{title.to_url}</span>.<span class="subst">#{new_post_ext}</span>"</span>
-  <span class="keyword">if</span> <span class="constant">File</span>.exist?(filename)
-    abort(<span class="string">"rake aborted!"</span>) <span class="keyword">if</span> ask(<span class="string">"<span class="subst">#{filename}</span> already exists. Do you want to overwrite?"</span>, [<span class="string">'y'</span>, <span class="string">'n'</span>]) == <span class="string">'n'</span>
-  <span class="keyword">end</span>
-  puts <span class="string">"Creating new post: <span class="subst">#{filename}</span>"</span>
-  open(filename, <span class="string">'w'</span>) <span class="keyword">do</span> |post|
-    post.puts <span class="string">"---"</span>
-    post.puts <span class="string">"layout: post"</span>
-    post.puts <span class="string">"title: \"<span class="subst">#{title_alias}</span>\""</span>
-    post.puts <span class="string">"date: <span class="subst">#{<span class="constant">Time</span>.now.strftime(<span class="string">'%Y-%m-%d %H:%M'</span>)}</span>"</span>
-    post.puts <span class="string">"comments: true"</span>
-    post.puts <span class="string">"categories: "</span>
-    post.puts <span class="string">"---"</span>
-  <span class="keyword">end</span>
-<span class="keyword">end</span> 
-</code></pre><p>新的post任务接收两个参数，第一个参数与之前的new_post任务需要的参数完全相同，第二个参数alias就可以设置到markdown文件的title:中。例如我们要建立一个博客，标题为“如何建立Octopress博客”，则可以输入命令：<br><code>rake post[&quot;How to create octopress blog&quot;,&quot;如何建立Octopress博客&quot;]</code><br>注意，除了第二个参数引号内的内容可以用中文外，其他字符包括双引号、逗号和中括号都应该是Utf-8字符。此外，Title和Alias之间用“,”隔开，“,”后不能加空格。  </p>
-</li>
-<li><p>图片问题</p>
-<p>加入图片在Octopress中，支持的Markdown语法为：  </p>
-<p><code><img class="[position] [url] [width] [height]"></code><br>position可以设置为left，right或center。url可以是网上的图片url。如果是自己博客的图片，通常建议放在source/images目录下。为了将来更好地维护，建议按照年和月建立两层目录，如2012/12。因为rake generate命令会自动生成博客，放在source/images目录下的图片也会被复制过去。因而在markdown的img语法中，图片的url应该是/images/2012/12/picture.jpg。  </p>
-</li>
-<li><p>代码问题  </p>
-<p>Octopress支持的代码高亮有很多。我个人还是比较喜欢直接用codeblock标签。虽然每次敲入这个codeblock不太方便，但它胜在灵活见解。例如，粘贴的代码为ruby语言，就可以在代码片段前后分别加上：  </p>
-<p><code><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`  </span><br><span class="line">  `</span><span class="comment"># Here is ruby source code`  </span></span><br><span class="line">  <span class="string">`</span></span><br></pre></td></tr></table></figure></code>  </p>
-</li>
-<li><p>摘要问题  </p>
-<p>如果希望在首页只显示一部分内容，例如摘要，也非常简单。只需要在你希望首页显示的内容最后，输入：<br><code>&lt;!--more--&gt;</code>  </p>
-</li>
-</ul>
-<p>###9.octopress配置</p>
-<hr>
-<p>实际上octopress已经很好的隐藏了Jekyll的诸多配置，我们只需要简单操作几个文件。octopress就会自动生成相应的Jekyll配置。这里我们仅仅讲解一下_config.yml文件的部分配置项，具体请看官网Configuring Octopress。</p>
-<p>该文件的配置分为三大部分:Main config、Jekyll&amp;Plugin、3rd Party Settings。</p>
-<pre><code>Main config
-<span class="label">url:</span>                <span class="preprocessor"># For rewriting urls for RSS, etc  </span>
-<span class="label">title:</span>              <span class="preprocessor"># Used in the header and title tags</span>
-<span class="label">subtitle:</span>           <span class="preprocessor"># A description used in the header</span>
-<span class="label">author:</span>             <span class="preprocessor"># Your name, for RSS, Copyright, Metadata</span>
-<span class="label">simple_search:</span>      <span class="preprocessor"># Search engine for simple site search</span>
-<span class="label">description:</span>        <span class="preprocessor"># A default meta description for your site</span>
-<span class="label">date_format:</span>        <span class="preprocessor"># Format dates using Ruby's date strftime syntax</span>
-<span class="label">subscribe_rss:</span>      <span class="preprocessor"># Url for your blog's feed, defauts to /atom.xml</span>
-<span class="label">subscribe_email:</span>    <span class="preprocessor"># Url to subscribe by email (service required)</span>
-<span class="label">category_feeds:</span>     <span class="preprocessor"># Enable per category RSS feeds (defaults to false in 2.1)</span>
-<span class="label">email:</span>              <span class="preprocessor"># Email address for the RSS feed if you want it.</span>
-</code></pre><p>注释说明已经很详细了，有一点需要强调的是，如果你想启用自己的域名来访问，这里的url务必修改为你自己的域名，否则即便你添加了CNAME文件，使用rake部署的时候也不会部署该CNAME文件。  </p>
-<p>建议：  </p>
-<p>最好把里面的twitter相关的信息全部删掉，否则由于GFW的原因，将会造成页面load很慢。涉及到的文件比较多，小心删除，如果以发表博客，_deploy目录下无需手动删除，重新生成博客后会自动删除。<br>同理，修改定制文件/source/_includes/custom/head.html 把google的自定义字体去掉。   </p>
-<ul>
-<li><p>添加about me边栏</p>
-<p>编辑 source_includes\custom\asides\about.html，内容如下：</p>
-<pre><code><span class="tag">&lt;<span class="title">section</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">h1</span>&gt;</span>About Me<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">p</span>&gt;</span>一句话自我介绍.<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">p</span>&gt;</span>新浪微博: <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://weibo.com/soulmachine"</span>&gt;</span>@soulmachine<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;<span class="title">br</span>/&gt;</span>
-     Twitter: <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"https://twitter.com/#!/soulmachine"</span>&gt;</span>@soulmachine<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;<span class="title">br</span>/&gt;</span>
-     Other: <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"https://github.com/soulmachine"</span>&gt;</span>Github<span class="tag">&lt;/<span class="title">a</span>&gt;</span>, <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"https://plus.google.com/103519507226474510310"</span>&gt;</span>Google+<span class="tag">&lt;/<span class="title">a</span>&gt;</span>, <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://www.linkedin.com/in/soulmachine"</span>&gt;</span>LinkedIn<span class="tag">&lt;/<span class="title">a</span>&gt;</span>, <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://www.quora.com/Jason-Day-2"</span>&gt;</span>Quora<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">p</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">section</span>&gt;</span> 
-</code></pre><p>在 _config.yml 的 default_asides 里添加 custom/asides/about.html。  </p>
-</li>
-<li><p>添加about页面  </p>
-<p>  <code>rake new_page[about]</code><br>  会生成 source/about/index.markdown 文件。  </p>
-<p>  编辑该文件的内容。  </p>
-<p>  然后在头部导航菜单中添加页面的超链接。具体做法是编辑 /source/_includes/custom/navigation.html 文件。  </p>
-</li>
-<li><p>社会化分享  </p>
-<p>  使用addthis.com的分享按钮，在网站上获取代码，粘贴到source/_includes/post/sharing.html 中，例如我的代码如下：  </p>
-<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"sharing"</span>&gt;</span>
-  <span class="comment">&lt;!-- AddThis Button BEGIN --&gt;</span>
-  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"addthis_toolbox addthis_default_style addthis_32x32_style"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"addthis_button_sinaweibo"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"addthis_button_facebook"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"addthis_button_twitter"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"addthis_button_google_plusone_share"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"addthis_button_delicious"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"addthis_button_digg"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"addthis_button_reddit"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"addthis_button_compact"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"addthis_counter addthis_bubble_style"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-  <span class="comment">&lt;!-- AddThis Button END --&gt;</span>
-</code></pre><p>  在_config.yml 中，将twitter, google+ 和facebook like的按钮设置为false，取消显示，因为 AddThis 已经集成了这三者。  </p>
-</li>
-<li><p>社会化评论  </p>
-<p>  启用Disqus，填入 short name即可。 Disqus在国外流行，在国内的加载速度太慢，而且只有twitter, facebook, g+，没有照顾到国内的用户习惯，因此替换成国内的多说,如下：  </p>
-<pre><code><span class="comment">&lt;!-- Duoshuo Comment BEGIN --&gt;</span>
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ds-thread"</span> <span class="attribute">data-title</span>=<span class="value">"我的Octopress配置"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
-<span class="keyword">var</span> duoshuoQuery = {short_name:<span class="string">"yanjiuyanjiu"</span>};
-  (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-    <span class="keyword">var</span> ds = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);
-    ds.type = <span class="string">'text/javascript'</span>;ds.async = <span class="literal">true</span>;
-    ds.src = <span class="string">'http://static.duoshuo.com/embed.js'</span>;
-    ds.charset = <span class="string">'UTF-8'</span>;
-    (<span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>]
-    || <span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>]).appendChild(ds);
-  })();
-</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-<span class="comment">&lt;!-- Duoshuo Comment END --&gt;</span> 
-</code></pre><p>  _config.yml 中的配置也略有不同：  </p>
-<pre><code><span class="attribute">duoshuo_comments</span>: <span class="string">true</span>
-<span class="attribute">duoshuo_short_name</span>: <span class="string">yanjiuyanjiu</span>
-<span class="attribute">duoshuo_asides_num</span>: <span class="string">5      # 侧边栏评论显示条目数</span>
-<span class="attribute">duoshuo_asides_avatars</span>: <span class="string">1   # 侧边栏评论是否显示头像</span>
-<span class="attribute">duoshuo_asides_time</span>: <span class="string">1      # 侧边栏评论是否显示时间</span>
-<span class="attribute">duoshuo_asides_title</span>: <span class="string">1     # 侧边栏评论是否显示标题</span>
-<span class="attribute">duoshuo_asides_admin</span>: <span class="string">0     # 侧边栏评论是否显示作者评论</span>
-<span class="attribute">duoshuo_asides_length</span>: <span class="string">32   # 侧边栏评论截取的长度</span>
-</code></pre></li>
-<li><p>设置固定链接  </p>
-<p>  在 _config.yml 里，找到 permalink，设置如下：<br>  <code>permalink: /blog/:year:month:day/</code><br>  效果就是 www.example.com/blog/20130403/ 。模仿的是豆瓣的URL格式。  </p>
-<p>  参考官方文档 jekyll Permalinks。  </p>
-</li>
-<li><p>侧边栏显示分类目录<br>使用第三方插件 octopress-tagcloud。  </p>
-</li>
-<li><p>友情链接  </p>
-<p>  在 source_includes\custom\asides 目录下添加一个blogroll.html文件，模仿about.html，添加一些友情链接，例如：  </p>
-<pre><code><span class="tag">&lt;<span class="title">section</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">h1</span>&gt;</span>友情链接<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">ul</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">li</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://coolshell.cn/"</span>&gt;</span>酷壳CoolShell<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">li</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://mindhacks.cn/"</span>&gt;</span>刘未鹏MIND HACKS<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">li</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://blog.codingnow.com/"</span>&gt;</span>云风<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">li</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://www.cnblogs.com/Solstice/"</span>&gt;</span>陈硕<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">section</span>&gt;</span>
-</code></pre><p>  然后在 _config.yml 文件中，在 default_asides 的数组中添加custom/asides/blogroll.html  </p>
-</li>
-</ul>
-<ul>
-<li><p>修改字体  </p>
-<p>  Octopresss默认使用的是 google webfonts，见source/_includes/custom/head.html 里的两行代码。Google Webfonts是个好东西，但遗憾的是它没有中文字体。所以你用 粗体 ，发现并没有变粗，就是这个原因。  </p>
-<p>  首先，将head.html中的两行代码注释掉，省去了加载字体，加快网页加载速度。  </p>
-<pre><code><span class="comment">&lt;!--Fonts from Google"s Web font directory at http://google.com/webfonts --&gt;</span>
-<span class="comment">&lt;!-- &lt;link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"&gt; --&gt;</span>
-<span class="comment">&lt;!-- &lt;link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"&gt; --&gt;</span>
-</code></pre><p>  参考 这篇博客 最佳 Web 中文默认字体 ，在 sass/custom/_fonts.scss 中添加如下三行代码：  </p>
-<pre><code><span class="variable">$heading-font-family</span>: arial, sans-serif;
-<span class="variable">$header-title-font-family</span>: arial, sans-serif;
-<span class="variable">$header-subtitle-font-family</span>: arial, sans-serif;
-</code></pre><p>  刷新网页，可以看见中文的粗体变黑了。  </p>
-</li>
-<li><p>一些汉化工作</p>
-<p>  在 _config.yml中，把Read on改为“继续阅读”。在source/_includes/custom/asides目录下，将”Recent Comments”改为“最新评论”，”Categories”改为“分类目录”，将source/_includes/asides/recent_posts.html 中”Recent Posts”改为“最新文章”。  </p>
-</li>
-<li><p>添加统计代码</p>
-<p>  在_config.yml填入 Google Analytics Tracking ID，例如 UA-7583537-4。  </p>
-</li>
-<li><p>第三方主题和插件  </p>
-<p>  主题： 3rd Party Octopress Themes<br>  插件： 3rd party plugins  </p>
-</li>
-<li><p>在一台新电脑上恢复</p>
-<p>  如果换了一台电脑，怎样迅速恢复环境呢？参考 Clone Your Octopress to Blog From Two Places。   </p>
-<p>  注意，在windows上，要首先安装python，否则，虽然所有操作可以成功，不报错误，但是你发现打开后首页一篇空白，我当时百思不得其解，因为没有任何错误信息，最后去看生成的文件，所有index.html都是0字节，就猜测应该是编译出了问题。安装python就好了，linux默认是有Python的，就没有这个问题，windows真是坑爹！以后只在windows下做编辑类的工作，编译和运行都放到Linux下。  </p>
-</li>
-</ul>
-<ul>
-<li><p>嵌入代码块  </p>
-<p>  见官方文档 Sharing Code Snippets。  </p>
-<p>  Octopress是一款为hacker量身定制的博客系统，当然内置了代码高亮的功能！它的代码高亮功能是通过Pygments实现的，配色方案用的是Solarized，堪称完美。  </p>
-<p>  Octopress支持多种方式嵌入代码，可以直接嵌入代码，也可以引用github上的gist。  </p>
-<p>  我喜欢用 三个反引号 直接嵌入代码，比 codeblock 要简洁。  </p>
-</li>
-<li><p>启用MathJax   </p>
-<p>  在 source/_includes/custom/footer.html 的第一行加入如下代码：  </p>
-<pre><code> <span class="comment">&lt;!-- mathjax config similar to math.stackexchange --&gt;</span>
-<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/x-mathjax-config"</span>&gt;</span><span class="actionscript">
-MathJax.Hub.Config({
-  jax: [<span class="string">"input/TeX"</span>, <span class="string">"output/HTML-CSS"</span>],
-  tex2jax: {
-    inlineMath: [ [<span class="string">'$'</span>, <span class="string">'$'</span>] ],
-    displayMath: [ [<span class="string">'$$'</span>, <span class="string">'$$'</span>]],
-    processEscapes: <span class="literal">true</span>,
-    skipTags: [<span class="string">'script'</span>, <span class="string">'noscript'</span>, <span class="string">'style'</span>, <span class="string">'textarea'</span>, <span class="string">'pre'</span>, <span class="string">'code'</span>]
-  },
-  messageStyle: <span class="string">"none"</span>,
-  <span class="string">"HTML-CSS"</span>: { preferredFont: <span class="string">"TeX"</span>, availableFonts: [<span class="string">"STIX"</span>,<span class="string">"TeX"</span>] }
-});
-</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"</span></span>
-</code></pre><p>  这样就引入了MathJax的JS包，可以直接在markdown文件里直接写公式了，例如 $\dfrac {\pi}{2}$。  </p>
-<p>  上面的代码也可以在 source/_includes/custom/header.html 里添加，不过这样会使得页面的加载速度变慢。还可以在 source/_layouts/default.html里添加。  </p>
-<p>  有一个问题，rdiscount这个解析器，对 mathjax 大部分支持，某些细节处理的不好，举个例子，它会在动把公式中的 ^n 转换成 <sup>n</sup> ，例如 $2^n$ 会解析成 $2<sup>n</sup>$ ，这样就破坏了整个公式，导致公式无法解析。参考这里一段话： </p>
-<blockquote>
-<p>as discount for example automatically replaces x^2 withx<sup>2</sup> which interrupts the MathJax rendering.  </p>
-</blockquote>
-<p>  因此要换一个解析器， Maruku 和 Kramdown 都可以，由于Maruku主页PR=4，Kramdown的主页PR=5，我选择了Kramdown。  </p>
-</li>
-</ul>
-
+<h3 id="2-clone网站repo">2.clone网站repo</h3><p>先设置git  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"name"</span>  </span><br><span class="line">git config --global user.email <span class="string">"emailaddress"</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -1075,6 +242,171 @@ MathJax.Hub.Config({
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/05/Octopress安装和部署/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-Hexo安装和配置" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/05/Hexo安装和配置/" class="article-date">
+  	<time datetime="2015-10-05T02:48:36.000Z" itemprop="datePublished">2015-10-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/05/Hexo安装和配置/">Hexo安装和配置</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-_Git安装和设置">1. Git安装和设置</h3><ul>
+<li><p>github</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install git         <span class="comment">#Mac电脑使用brew安装</span></span><br><span class="line">sudo apt-get install git <span class="comment">#Ubuntu系统使用这条命令安装</span></span><br></pre></td></tr></table></figure>
+<p>  然后设置好git账户<br>  使用Github Page搭建博客, 需要在github建立仓库,仓库名为username.github.io  </p>
+</li>
+<li><p><strong>gitcafe</strong>  </p>
+<p>  因为github速度稍微慢一点，所以用作备份站，主站用国内的gitcafe。  </p>
+<ol>
+<li>先到<a href="https://gitcafe.com/projects/new">https://gitcafe.com/projects/new</a>页面注册一个新的项目，<strong>项目名需要与你的用户名相同</strong>，默认分支选择gitcafe-pages,项目主页也是相同的 <a href="http://username.gitcafe.com">http://username.gitcafe.com</a>  </li>
+<li>采用和github同样的key文件，在  ~/.ssh/id_rsa.pub</li>
+<li><p>如果没有，单独生成一个ssh-key</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"emailaddress"</span> <span class="operator">-f</span> ~/.ssh/gitcafe</span><br></pre></td></tr></table></figure>
+<p> 在SSH的文件夹下，可以看到gitcafe私钥和公钥文件：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitcafe</span><br><span class="line">gitcafe.pub</span><br></pre></td></tr></table></figure>
+<p> 生成配置文件：  </p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch ~/.ssh/config</span><br></pre></td></tr></table></figure>
+<p> 添加以下内容：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Host gitcafe.com www.gitcafe.com</span><br><span class="line">IdentityFile ~/.ssh/gitcafe</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">	<span class="number">3</span>. 登录[网站](https://gitcafe.com/account/public_keys)，将SSH文件夹下的 GitCafe.pub 中的内容复制到公钥框中即可。  </span><br><span class="line">	<span class="number">4</span>. 测试是否连上，共用的key，输入：</span><br><span class="line"></span><br><span class="line">		``` bash</span><br><span class="line">ssh -T git@gitcafe.com -i ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+<p> 单独的key，输入：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@gitcafe.com -i ~/.ssh/gitcafe</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<p>###2. Node.js安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node  <span class="comment">#最新版的node.js的包中应该已经集成了npm包管理工具</span></span><br></pre></td></tr></table></figure>
+<p>使用以下命令验证是否安装成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<p>###3. Hexo安装与设置</p>
+<p>Node, npm和Git都安装成功, 开始安装hexo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g  <span class="comment">#-g表示全局安装, npm默认为当前项目安装</span></span><br></pre></td></tr></table></figure>
+<p>Hexo使用命令:  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/git</span><br><span class="line">hexo init hexo  <span class="comment">#执行init命令初始化到你指定的hexo目录</span></span><br><span class="line"><span class="built_in">cd</span> hexo</span><br><span class="line">npm install    <span class="comment">#install before start blogging</span></span><br><span class="line">hexo generate       <span class="comment">#自动根据当前目录下文件,生成静态网页</span></span><br><span class="line">hexo server         <span class="comment">#运行本地服务</span></span><br></pre></td></tr></table></figure>
+<p>浏览器输入<a href="http://localhost:4000就可以看到效果。">http://localhost:4000就可以看到效果。</a></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/05/Hexo安装和配置/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-开发环境配置" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/05/开发环境配置/" class="article-date">
+  	<time datetime="2015-10-05T02:30:46.000Z" itemprop="datePublished">2015-10-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/05/开发环境配置/">开发环境配置</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="软件安装">软件安装</h3><ul>
+<li>Xcode  </li>
+<li>Git</li>
+<li>iTerm2</li>
+<li>zsh</li>
+<li>Sublime3</li>
+<li>TextMate</li>
+<li>MacDown</li>
+<li>IntelliJ IDEA</li>
+<li>MySQL</li>
+<li>0xED #编辑二进制文件</li>
+<li>Dash #API文档</li>
+<li>Alfred2</li>
+</ul>
+<h3 id="Xcode">Xcode</h3><p>装好之后要启动一次，接受软件声明，否则后面步骤会失败。</p>
+<h3 id="Git">Git</h3><p>Mac自带，查看下版本。 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+<h3 id="TextMate">TextMate</h3><p>装完之后，如下配置，在命令行下输入mate filename，可以对文件编辑  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln <span class="operator">-s</span> /Applications/TextMate.app/Contents/Resources/mate /usr/<span class="built_in">local</span>/bin</span><br></pre></td></tr></table></figure>
+<h3 id="Homebrew">Homebrew</h3><p>Homebrew是一个包管理器，用于在Mac上安装一些OS X没有的UNIX工具（比如著名的wget）。</p>
+<p>在terminal中复制以下命令，跟随指引，将完成 Hombrew 安装。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/05/开发环境配置/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
