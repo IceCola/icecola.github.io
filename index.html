@@ -179,7 +179,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>原帖:<strong><a href="http://zhihu.com/question/29581524/answer/44872235" target="_blank" rel="external">学习JAVA，有什么书籍推荐？学习的方法和过程是怎样的？(知乎)</a></strong></p>
+        <p>原帖:<strong><a href="http://zhihu.com/question/29581524/answer/44872235">学习JAVA，有什么书籍推荐？学习的方法和过程是怎样的？(知乎)</a></strong></p>
 <hr>
 <p>现在互联网上资源丰富，Java 学习并不难。贴个 Java 服务端入门和进阶指南，是给我们组新人入门用的，包括了学习目标、需要掌握的技能和参考资料，并规划了学习阶段和时间，希望帮助到题主。  </p>
 <h2 id="前言">前言</h2><p>这是一份针对实习生/毕业生的服务端开发入门与进阶指南。</p>
@@ -196,7 +196,7 @@
 <li>掌握 Java。经典的《Java 核心技术：卷1 基础知识》(或者《Java 编程思想》)必看，跳过其中的图形和 applet 章节。习惯查阅 Java API Doc。为了保证代码的质量，《Effective Java》、《Clean Code》和《重构》也需要至少通读一遍。</li>
 <li>熟悉 Linux 开发环境和 bash shell。Linux 是我们的开发和部署环境，你最好尽快熟练它。Linux 的基本使用可以通过《鸟哥的Linux私房菜：基础学习篇（第三版）》学习，开发 bash shell 脚本可以参考《Linux Shell脚本攻略》。</li>
 <li>掌握开发工具<br>· 熟练使用一种 IDE。Intellij IDEA或者 Eclipse 都可以，推荐使用前者。至少熟悉常用的快捷键，会 debug(包括远程 debug)项目。<br>· 熟悉一种编辑器。比如 Vim/Emacs/Sublime Text，至少学会搜索/替换/代码补全。</li>
-<li>掌握 JDK 以外的常用类库和工具包。JDK 原生 API 在很多场景下使用并不方便。你需要掌握社区贡献的优秀类库和工具包，比如 apache commons、google guava 等，具体可以翻阅 <a href="http://xielong.me/2015/04/17/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/" target="_blank" rel="external">服务端技术选型</a> 的Utility 篇。</li>
+<li>掌握 JDK 以外的常用类库和工具包。JDK 原生 API 在很多场景下使用并不方便。你需要掌握社区贡献的优秀类库和工具包，比如 apache commons、google guava 等，具体可以翻阅 <a href="http://xielong.me/2015/04/17/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/">服务端技术选型</a> 的Utility 篇。</li>
 <li>掌握 Web 开发框架。我们使用 Spring(或Rose) + Ibatis(或Jade) 开发 web 服务，你需要熟练掌握它们。</li>
 <li>学习代码规范。我们大致上遵循 oracle 的 Java 语言编码规范，你可以先阅读并熟悉它。Code Formatting 文件在 git@xxx/coding-standard.git，在编写代码之前，请把它导入到 IDE 中。另外，确认 IDE 已经安装 Findbugs 和 CheckStyle 插件。</li>
 <li>熟悉开发流程。我们的开发流程大致如下：功能开发-&gt;单元测试-&gt;功能测试-&gt;Code Review-&gt;集成测试-&gt;发布。确保你熟悉其中的每个环节。</li>
@@ -204,31 +204,6 @@
 </ul>
 </li>
 </ol>
-<h4 id="进阶（2-6_个月）">进阶（2-6 个月）</h4><ol>
-<li>目标：独立负责某个服务端项目。</li>
-<li>技能：<ul>
-<li>掌握 web 开发最佳实践，掌握 Restful API 设计，理解 Spring 原理。推荐阅读《Spring揭秘》。掌握项目分层、子模块划分。推荐阅读：《J2EE 核心模式》。</li>
-<li>掌握 web 架构设计。包括 Http 反向代理，数据缓存，负载均衡，水平扩展和垂直扩展。推荐阅读：《分布式 Java 应用：基础与实践》。</li>
-<li>掌握关系型数据库。包括设计 MySQL 表结构，根据业务特点分表分库，基于执行计划的 SQL 分析优化，以及数据库容量规划。推荐阅读：《MySQL 必知必会》、《高性能 MySQL》。</li>
-<li>了解 NoSQL。我们大规模使用 Hadoop、HBase、Hive，同时部分项目使用 Redis、Storm。你需要学会这些工具最基本的使用。</li>
-<li>学习 web 安全知识。了解 web 前端安全问题。设计安全 web 服务，包括加解密、防伪造、防重放攻击等。</li>
-<li>掌握 Http (推荐阅读：《图解Http》、《http权威指南》)、Thrift 等协议。</li>
-<li>掌握服务容量规划，性能调优，可靠性保证，以及故障处理。学习容量规划和性能调优知识，梳理业务监控点，熟练使用我们的监控报警系统。推荐阅读：《深入理解 Java 虚拟机》。</li>
-<li>其他。设计模式：从项目中学习，有时间可以看看《深入浅出设计模式》、《JDK 里的设计模式》。学习Java Socket 编程与多线程知识，可以看看《Java 并发编程实战》，并翻翻并发编程网的文章。</li>
-</ul>
-</li>
-</ol>
-<h4 id="深入（6_个月-）">深入（6 个月-）</h4><ol>
-<li>目标：分布式系统和中间件开发。</li>
-<li>技能：<ul>
-<li>构建知识体系：《大型网站系统与 Java 中间件实践》、《大型网站技术架构：核心原理与案例分析》。</li>
-<li>原理与设计：《大规模存储式系统》、《UNIX 网络编程 卷1:套接字联网 API》、《How Tomcat Works》。</li>
-<li>学习开源项目：Apache Thrift、Zipkin、Netty、Rose、Jade、淘宝 RPC 系统 Dubbo 等。分析项目中的设计思路。比如，同样是RPC框架，Finagle 和 Dubbo 有什么异同。</li>
-<li>其他。根据参与的项目加深学习吧。比如，如果需要写 DSL，可以读一下《领域特定语言》，对 Redis 感兴趣推荐读一下：《Redis 设计与实现》。有两本书，无论做什么项目，都推荐读：《Unix 编程艺术》、《UNIX 环境高级编程(第3版)》。</li>
-</ul>
-</li>
-</ol>
-
       
     </div>
     
@@ -245,6 +220,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/posts/2015/10/06/Java学习路线/#more">查看更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -372,24 +351,6 @@
 <h3 id="2-_Node-js安装">2. Node.js安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node  <span class="comment">#最新版的node.js的包中已经集成了npm包管理工具</span></span><br></pre></td></tr></table></figure>
 <p>使用以下命令验证是否安装成功</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-<p>如果运行hexo命令时，发现错误:  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-bash: hexo: <span class="built_in">command</span> not found</span><br></pre></td></tr></table></figure>
-<p>是没有指定nodejs所致。可以使用下面方法解决：</p>
-<p>如果机器没有安装过node，那么首先<code>brew install nvm</code>安装nvm。</p>
-<p>其次需要在shell的配置文件(~/.bashrc, ~/.profile, or ~/.zshrc)中添加如下内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=~/.nvm</span><br><span class="line"><span class="built_in">source</span> $(brew --prefix nvm)/nvm.sh</span><br></pre></td></tr></table></figure>
-<p>然后设置别名</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">nvm ls</span><br><span class="line"><span class="comment">#v0.12.7</span></span><br><span class="line"></span><br><span class="line">nvm use <span class="number">0.12</span>.<span class="number">7</span></span><br><span class="line"><span class="comment">#Now using node v0.12.7</span></span><br><span class="line"></span><br><span class="line">nvm <span class="built_in">alias</span> default <span class="number">0.12</span>.<span class="number">7</span></span><br><span class="line"><span class="comment">#default -&gt; 0.12.7 (-&gt; v0.12.7)</span></span><br></pre></td></tr></table></figure>
-<p>如果之前通过<code>brew install node</code>方式安装过node，那么需要先删除系统中存在的node：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">brew remove --force node</span><br><span class="line">sudo rm -r /usr/<span class="built_in">local</span>/lib/node_modules</span><br><span class="line"></span><br><span class="line">brew prune</span><br><span class="line">sudo rm -r /usr/<span class="built_in">local</span>/include/node</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查brew是否正常</span></span><br><span class="line">brew doctor</span><br></pre></td></tr></table></figure>
-<h3 id="3-_Hexo安装与设置">3. Hexo安装与设置</h3><p>Node, npm和Git都安装成功, 开始安装hexo</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g  <span class="comment">#-g表示全局安装, npm默认为当前项目安装</span></span><br><span class="line">hexo version</span><br></pre></td></tr></table></figure>
-<p>如果遇到报错</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; [Error: Cannot find module <span class="string">'./build/Release/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br><span class="line">&#123; [Error: Cannot find module <span class="string">'./build/default/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br><span class="line">&#123; [Error: Cannot find module <span class="string">'./build/Debug/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br></pre></td></tr></table></figure>
-<p>则用下列语句安装<br><code>npm install hexo --no-optional</code></p>
-<p>Hexo使用命令:  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/git</span><br><span class="line">hexo init hexo  <span class="comment">#执行init命令初始化到你指定的hexo目录</span></span><br><span class="line"><span class="built_in">cd</span> hexo</span><br><span class="line">npm install    <span class="comment">#install before start blogging</span></span><br><span class="line">hexo generate       <span class="comment">#自动根据当前目录下文件,生成静态网页</span></span><br><span class="line">hexo server         <span class="comment">#运行本地服务</span></span><br></pre></td></tr></table></figure>
-<p>浏览器输入<a href="http://localhost:4000就可以看到效果。">http://localhost:4000就可以看到效果。</a></p>
       
     </div>
     
