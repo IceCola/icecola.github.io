@@ -13,7 +13,7 @@ github
 gitcafe因为github速度稍微慢一点，所以用作备">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo安装和配置">
-<meta property="og:url" content="http://yoursite.com/2015/10/06/Hexo安装和配置/index.html">
+<meta property="og:url" content="http://yoursite.com/posts/2015/10/06/Hexo安装和配置/index.html">
 <meta property="og:site_name" content="Ola">
 <meta property="og:description" content="1. Git安装和设置
 github
@@ -21,7 +21,7 @@ github
 然后设置好git账户使用Github Page搭建博客, 需要在github建立仓库,仓库名为username.github.io  
 
 gitcafe因为github速度稍微慢一点，所以用作备">
-<meta property="og:updated_time" content="2015-10-05T17:26:45.000Z">
+<meta property="og:updated_time" content="2015-10-06T06:15:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo安装和配置">
 <meta name="twitter:description" content="1. Git安装和设置
@@ -69,6 +69,11 @@ gitcafe因为github速度稍微慢一点，所以用作备">
 						</div>
 						
 						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
 					</div>
 					
 				</div>
@@ -78,6 +83,8 @@ gitcafe因为github速度稍微慢一点，所以用作备">
 						<li>菜单</li>
 						<li>标签</li>
 						
+						
+						<li>关于我</li>
 						
 					</ul>
 				</div>
@@ -106,13 +113,19 @@ gitcafe因为github速度稍微慢一点，所以用作备">
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						
+						<a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/开发/" style="font-size: 10px;">开发</a> <a href="/tags/环境配置/" style="font-size: 10px;">环境配置</a>
 					</div>
 				</section>
 				
 				
 				
 
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">我们‘记得’过去,但和这个‘过去’相逢时却对面不识。思想总在回溯,但是时光一直前行,一旦分离,即是永诀。</div>
+				</section>
 				
 			</div>
 		</div>
@@ -157,8 +170,8 @@ gitcafe因为github速度稍微慢一点，所以用作备">
       <div class="body-wrap"><article id="post-Hexo安装和配置" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/06/Hexo安装和配置/" class="article-date">
-  	<time datetime="2015-10-05T17:26:45.000Z" itemprop="datePublished">2015-10-06</time>
+      <a href="/posts/2015/10/06/Hexo安装和配置/" class="article-date">
+  	<time datetime="2015-10-06T06:15:29.000Z" itemprop="datePublished">2015-10-06</time>
 </a>
     </div>
   
@@ -179,7 +192,15 @@ gitcafe因为github速度稍微慢一点，所以用作备">
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li></ul>
+	</div>
+
         
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Mac/">Mac</a>
+	</div>
+
 
         <div class="clearfix"></div>
       </div>
@@ -236,7 +257,7 @@ gitcafe因为github速度稍微慢一点，所以用作备">
 <h3 id="4-_添加博文">4. 添加博文</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"postName"</span>  <span class="comment">#新建博文,其中postName是博文题目</span></span><br></pre></td></tr></table></figure>
 <p>博文会自动生成在博客目录下<code>source/_posts\postName.md</code>  </p>
 <p>文件自动生成格式:  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: <span class="string">"It Starts with iGaze: Visual Attention Driven Networkingwith Smart Glasses"</span>  <span class="comment">#博文题目</span></span><br><span class="line">date: <span class="number">2014</span>-<span class="number">11</span>-<span class="number">21</span> <span class="number">11</span>:<span class="number">25</span>:<span class="number">38</span>      <span class="comment">#生成时间</span></span><br><span class="line">tags: Paper                    <span class="comment">#标签, 多个标签使用格式[Paper1, Paper2, Paper3,...]</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">title: <span class="string">"It Starts with iGaze: Visual Attention Driven Networkingwith Smart Glasses"</span>  <span class="comment">#博文题目</span></span><br><span class="line">date: <span class="number">2014</span>-<span class="number">11</span>-<span class="number">21</span> <span class="number">11</span>:<span class="number">25</span>:<span class="number">38</span>      <span class="comment">#生成时间</span></span><br><span class="line">tags:                    <span class="comment">#标签, 多个标签也可以使用格式[tag1, tag2, tag3,...]</span></span><br><span class="line">- tag1</span><br><span class="line">- tag2</span><br><span class="line">- tag3</span><br><span class="line">categories: [cat1,cat2,cat3]</span><br><span class="line">---</span><br><span class="line">正文, 使用 Markdown 语法书写</span><br></pre></td></tr></table></figure>
 <p>如果不想博文在首页全部显示, 并能出现阅读全文按钮效果, 需要在你想在首页显示的部分下添加  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--more--&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="5-_主题更改">5. 主题更改</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/git/hexo</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
@@ -308,7 +329,9 @@ gitcafe因为github速度稍微慢一点，所以用作备">
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: About</span><br><span class="line">date: <span class="number">2014</span>-<span class="number">11</span>-<span class="number">1</span> <span class="number">11</span>:<span class="number">11</span>:<span class="number">11</span></span><br><span class="line">---</span><br><span class="line">About Me</span><br></pre></td></tr></table></figure>
 <p>菜单显示 about 链接, 主题配置文件中将 menu 中 about 前面的注释去掉</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  about: /about</span><br></pre></td></tr></table></figure>
-<h4 id="参考">参考</h4><p><a href="http://blog.lmintlcx.com/post/blog-with-hexo.html" target="_blank" rel="external">使用Hexo搭建博客</a><br><a href="http://www.jianshu.com/p/858ecf233db9" target="_blank" rel="external">通过Hexo在Github上搭建博客教程</a><br><a href="http://www.zhihu.com/question/24422335/answer/46357100" target="_blank" rel="external">有那些好看的hexo主题?</a>  </p>
+<h3 id="9-网站代码上传">9.网站代码上传</h3><p>设置完毕，为避免本地代码丢失，可以将hexo下的所有文件提交一份到服务器。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#create project on gitcafe.com</span></span><br><span class="line">mkdir hexo-source</span><br><span class="line"><span class="built_in">cd</span> hexo-source</span><br><span class="line">git init</span><br><span class="line"><span class="comment"># copy all files in 'hexo' folder here</span></span><br><span class="line">git add ..</span><br><span class="line">git commit -m <span class="string">'first commit'</span></span><br><span class="line">git remote add origin <span class="string">'git@gitcafe.com:username/hexo-source.git'</span></span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<h4 id="参考文章">参考文章</h4><p><a href="http://blog.lmintlcx.com/post/blog-with-hexo.html" target="_blank" rel="external">使用Hexo搭建博客</a><br><a href="http://www.jianshu.com/p/858ecf233db9" target="_blank" rel="external">通过Hexo在Github上搭建博客教程</a><br><a href="http://www.zhihu.com/question/24422335/answer/46357100" target="_blank" rel="external">有那些好看的hexo主题?</a>  </p>
 
       
     </div>
@@ -319,7 +342,7 @@ gitcafe因为github速度稍微慢一点，所以用作备">
 <nav id="article-nav">
   
   
-    <a href="/2015/10/05/Octopress安装和部署/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/posts/2015/10/05/Octopress安装和部署/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Octopress安装和部署</div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -330,11 +353,26 @@ gitcafe因为github速度稍微慢一点，所以用作备">
 </article>
 
 
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
 
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Hexo安装和配置" data-title="Hexo安装和配置" data-url="http://yoursite.com/2015/10/06/Hexo安装和配置/"></div>
+	<div class="ds-thread" data-thread-key="Hexo安装和配置" data-title="Hexo安装和配置" data-url="http://yoursite.com/posts/2015/10/06/Hexo安装和配置/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -359,11 +397,12 @@ gitcafe因为github速度稍微慢一点，所以用作备">
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2015 Ola
     	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
+      <div class="footer-center">
+      &copy; 2015 Ola·火力全開
+      </div>
+    	<div class="footer-center">
+    	</div>
     </div>
   </div>
 </footer>
