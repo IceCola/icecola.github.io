@@ -19,7 +19,7 @@
 1defaults write com.apple.finder AppleShowAllFiles -bool true;killall Finder
 关闭：
 1defaults write com.apple.finder AppleShowAllFiles -bool false;killall Finde">
-<meta property="og:updated_time" content="2015-10-06T11:32:50.000Z">
+<meta property="og:updated_time" content="2015-10-06T12:04:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac的一些使用技巧">
 <meta name="twitter:description" content="Finder隐藏文件bash中输入下列命令，可以使Finder显示隐藏文件。
@@ -213,7 +213,7 @@
 <h4 id="完整路径">完整路径</h4><p>在Finder上显示当前文件夹的完整路径。</p>
 <p>开启：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.finder _FXShowPosixPathInTitle -bool TRUE;killall Finder</span><br></pre></td></tr></table></figure>
-<p>不显示：</p>
+<p>关闭：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.finder _FXShowPosixPathInTitle;killall Finder</span><br></pre></td></tr></table></figure>
 <h2 id="开发配置">开发配置</h2><h4 id="使用ll、la、l等ls的别名命令">使用ll、la、l等ls的别名命令</h4><p>在用户目录下的配置脚本文件（~/.zshrc 、~/.bashrc 或者 ~/.bash_profile ）中添加以下内容即可：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="built_in">alias</span> ll=<span class="string">'ls -alF'</span></span><br><span class="line"><span class="built_in">alias</span> la=<span class="string">'ls -A'</span></span><br><span class="line"><span class="built_in">alias</span> l=<span class="string">'ls -CF'</span></span><br><span class="line"><span class="built_in">source</span> .zshrc</span><br><span class="line"><span class="comment">#source .bashrc</span></span><br><span class="line"><span class="comment">#source .bash_profile</span></span><br></pre></td></tr></table></figure>
