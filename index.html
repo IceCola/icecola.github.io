@@ -85,6 +85,10 @@
 				        
 							<li><a href="/archives">归档</a></li>
 				        
+							<li><a href="/categories/Coding">编程</a></li>
+				        
+							<li><a href="/tags/java">Java</a></li>
+				        
 						</ul>
 					</nav>
 					<nav class="header-nav">
@@ -97,7 +101,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/OS-X/" style="font-size: 10px;">OS X</a> <a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/环境配置/" style="font-size: 10px;">环境配置</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+						<a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/OS-X/" style="font-size: 10px;">OS X</a> <a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/环境配置/" style="font-size: 10px;">环境配置</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
 					</div>
 				</section>
 				
@@ -140,6 +144,10 @@
 		        
 					<li><a href="/archives">归档</a></li>
 		        
+					<li><a href="/categories/Coding">编程</a></li>
+		        
+					<li><a href="/tags/java">Java</a></li>
+		        
 		        <div class="clearfix"></div>
 				</ul>
 			</nav>
@@ -152,6 +160,81 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Java开发者易犯错误Top10" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/2015/10/23/Java开发者易犯错误Top10/" class="article-date">
+  	<time datetime="2015-10-23T15:39:12.000Z" itemprop="datePublished">2015-10-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/2015/10/23/Java开发者易犯错误Top10/">Java开发者易犯错误Top10</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要：在Java中，有些事物如果不了解的话，很容易就会用错，如数组转换为数组列表、元素删除、Hashtable和HashMap、ArrayList和LinkedList、Super和Sub构造函数等，如果这些对你来说是陌生的，你可以在本文中了解它们。</p>
+<p>本文总结了Java开发者经常会犯的前十种错误列表。</p>
+<h2 id="Top1-_数组转换为数组列表">Top1. 数组转换为数组列表</h2><p>将数组转换为数组列表，开发者经常会这样做：</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; <span class="built_in">list</span> = Arrays<span class="built_in">.</span>asList(arr);</span><br></pre></td></tr></table></figure>
+<p>Arrays.asList()将返回一个数组内部是私有静态类的ArrayList，这不是java.util.ArrayList类，java.util.Arrays.ArrayList类有set()、 get()、 contains()方法，但是没有任何加元素的方法，因此它的大小是固定的。你应该这么做来创建一个真正的数组：</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; arrayList = new ArrayList&lt;String&gt;<span class="list">(<span class="keyword">Arrays</span>.asList<span class="list">(<span class="keyword">arr</span>)</span>)</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>ArrayList的构造函数能够接受一个集合类型，这也是java.util.Arrays.ArrayList的超级类型。</p>
+<h2 id="Top2-_检查一个数组包含一个值">Top2. 检查一个数组包含一个值</h2><p>开发者经常这么做：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="keyword">set</span> = <span class="keyword">new</span> HashSet&lt;<span class="keyword">String</span>&gt;(Arrays.asList(arr));</span>  </span><br><span class="line">return <span class="operator"><span class="keyword">set</span>.contains(targetValue);</span></span><br></pre></td></tr></table></figure>
+<p>代码可以工作，但是没有必要首先转换列表到Set，转换一个列表到一个Set需要额外的时间。因此你可以把它简化为：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Arrays</span><span class="class">.asList</span>(<span class="tag">arr</span>)<span class="class">.contains</span>(<span class="tag">targetValue</span>);</span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(String s: arr)&#123;  </span><br><span class="line">    <span class="keyword">if</span>(s.<span class="keyword">equals</span>(targetValue))  </span><br><span class="line"><span class="command">        return</span> <span class="constant">true</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="command">return</span> <span class="constant">false</span>;</span><br></pre></td></tr></table></figure>
+<p>第一个比第二个更具可读性</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Coding/">Coding</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/posts/2015/10/23/Java开发者易犯错误Top10/#more">查看更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-Stackoverflow上人气最旺的十个Java问题" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -179,59 +262,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1、_为什么两个（1927年）时间相减得到一个奇怪的结果？">1、 <a href="http://stackoverflow.com/questions/6841333/why-is-subtracting-these-two-times-in-1927-giving-a-strange-result">为什么两个（1927年）时间相减得到一个奇怪的结果？</a></h3><p>（3623个赞）</p>
+        <h2 id="1、_为什么两个（1927年）时间相减得到一个奇怪的结果？">1、 <a href="http://stackoverflow.com/questions/6841333/why-is-subtracting-these-two-times-in-1927-giving-a-strange-result">为什么两个（1927年）时间相减得到一个奇怪的结果？</a></h2><p>（3623个赞）</p>
 <p>如果执行下面的程序，程序解析两个间隔1秒的日期字符串并比较：</p>
-<blockquote>
-<p>public static void main(String[] args) throws ParseException {<br>    SimpleDateFormat sf = new SimpleDateFormat(“yyyy-MM-dd HH:mm:ss”);<br>    String str3 = “1927-12-31 23:54:07”;<br>    String str4 = “1927-12-31 23:54:08”;<br>    Date sDt3 = sf.parse(str3);<br>    Date sDt4 = sf.parse(str4);<br>    long ld3 = sDt3.getTime() /1000;<br>    long ld4 = sDt4.getTime() /1000;<br>    System.out.println(ld4-ld3);<br>}</p>
-</blockquote>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) <span class="keyword">throws</span> ParseException &#123;</span><br><span class="line">    SimpleDateFormat sf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);  </span><br><span class="line">    <span class="keyword">String</span> str3 = <span class="string">"1927-12-31 23:54:07"</span>;  </span><br><span class="line">    <span class="keyword">String</span> str4 = <span class="string">"1927-12-31 23:54:08"</span>;  </span><br><span class="line">    Date sDt3 = sf.parse(str3);  </span><br><span class="line">    Date sDt4 = sf.parse(str4);  </span><br><span class="line">    <span class="keyword">long</span> ld3 = sDt3.getTime() /<span class="number">1000</span>;  </span><br><span class="line">    <span class="keyword">long</span> ld4 = sDt4.getTime() /<span class="number">1000</span>;</span><br><span class="line">    System.out.<span class="built_in">println</span>(ld4-ld3);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>输出是：</p>
 <blockquote>
 <p>353</p>
 </blockquote>
 <p>为什么 ld4-ld3 不是1（因为我希望这两个时间差是一秒），而是353？</p>
 <p>如果将日期字符串各加一秒：</p>
-<blockquote>
-<p>String str3 = “1927-12-31 23:54:08”;<br>String str4 = “1927-12-31 23:54:09”;</p>
-</blockquote>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String </span><span class="keyword">str3 </span>= <span class="string">"1927-12-31 23:54:08"</span><span class="comment">;  </span></span><br><span class="line"><span class="keyword">String </span><span class="keyword">str4 </span>= <span class="string">"1927-12-31 23:54:09"</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
 <p>ld4-ld3 的结果是1.</p>
-<blockquote>
-<p>sun.util.calendar.ZoneInfo[id=”Asia/Shanghai”,<br>offset=28800000,dstSavings=0,<br>useDaylight=false,<br>transitions=19,<br>lastRule=null]<br>Locale(Locale.getDefault()): zh_CN</p>
-</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sun<span class="class">.util</span><span class="class">.calendar</span><span class="class">.ZoneInfo</span>[id=<span class="string">"Asia/Shanghai"</span>,</span><br><span class="line">offset=<span class="number">28800000</span>,dstSavings=<span class="number">0</span>,  </span><br><span class="line">useDaylight=false,  </span><br><span class="line">transitions=<span class="number">19</span>,  </span><br><span class="line">lastRule=null]  </span><br><span class="line"><span class="function"><span class="title">Locale</span><span class="params">(Locale.getDefault()</span></span>): zh_CN</span><br></pre></td></tr></table></figure>
 <p><strong>解决方案</strong></p>
 <p>这是上海时区，在12月31日有一个变化。</p>
 <p>查阅<a href="http://www.timeanddate.com/worldclock/clockchange.html?n=237&amp;year=1927">这个网址</a>来了解上海在1927年时区变化的细节。基本上在1927年年底的午夜，始终会回拨5分52秒。所以“1927-12-31 23:54:08”实际上发生了两次，看起来Java解析了后一次的时间作为当地的日期和时间导致了差异。</p>
-<h3 id="2、Java是“引用传递”还是“值传递”？">2、<a href="http://stackoverflow.com/questions/40480/is-java-pass-by-reference-or-pass-by-value">Java是“引用传递”还是“值传递”？</a></h3><p>（2480个赞）</p>
+<h2 id="2、Java是“引用传递”还是“值传递”？">2、<a href="http://stackoverflow.com/questions/40480/is-java-pass-by-reference-or-pass-by-value">Java是“引用传递”还是“值传递”？</a></h2><p>（2480个赞）</p>
 <p>我一直认为Java是引用传递；然而，我看了一堆博客（例如<a href="http://javadude.com/articles/passbyvalue.htm">这篇</a>）声称不是这样的。我认为我没有理解它们之间的区别。</p>
 <p>给个解释？</p>
 <p><strong>解决方案</strong></p>
 <p>Java一直是<strong>值传递</strong>。不幸的是，他们决定把指针叫做引用，因此新人总是被搞晕。因为这些<strong>引用</strong>也是通过值传递的。</p>
-<h3 id="3、一个关于Java_+=_操作符的问题">3、一个关于<a href="http://stackoverflow.com/questions/8710619/java-operator">Java +=</a> 操作符的问题</h3><p>（2223赞）  </p>
+<h2 id="3、一个关于Java_+=_操作符的问题">3、一个关于<a href="http://stackoverflow.com/questions/8710619/java-operator">Java +=</a> 操作符的问题</h2><p>（2223赞）  </p>
 <p>直到今天我认为这个例子：</p>
-<blockquote>
-<p>i += j;</p>
-</blockquote>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">i</span> += <span class="built_in">j</span>;</span><br></pre></td></tr></table></figure>
 <p>只是一个简写的：</p>
-<blockquote>
-<p>i = i + j;</p>
-</blockquote>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">i</span> = <span class="built_in">i</span> + <span class="built_in">j</span>;</span><br></pre></td></tr></table></figure>
 <p>但如果这样做：</p>
-<blockquote>
-<p>int i = 5;<br>long j = 8;</p>
-</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">5</span>;  </span><br><span class="line"><span class="keyword">long</span> j = <span class="number">8</span>;</span><br></pre></td></tr></table></figure>
 <p>然而 i = i + j; 没法编译，而 i += j; 就可以编译。</p>
-<p>这意味着i += j; 实际上是i = (type of i) (i + j)的简写么？</p>
+<p>这意味着i += j; 实际上是</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="list">(<span class="keyword">type</span> of i)</span> <span class="list">(<span class="keyword">i</span> + j)</span></span><br></pre></td></tr></table></figure>
+<p>的简写么？</p>
 <p><strong>解决方案</strong></p>
 <p>总有人问这类问题，JLS里有答案。参见 <a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.26.2">§15.26.2复合赋值运算符</a>。摘录：</p>
 <p>E1 op= E2 型的复合赋值表达式等价于 E1 = (T)((E1) op (E2))，这里 T 是 E1 的类型，不同的是 E1 只计算一次。</p>
 <p>一个例子，引自 <a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.26.2">§15.26.2</a></p>
 <p>[…] 下面的代码是正确的：</p>
-<blockquote>
-<p>short x = 3;<br>x += 4.6;</p>
-</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">short</span> x = <span class="number">3</span>;  </span><br><span class="line">x += <span class="number">4.6</span>;</span><br></pre></td></tr></table></figure>
 <p>x的结果等于7，因为它等价于：</p>
-<blockquote>
-<p>short x = 3;<br>x = (short)(x + 4.6);</p>
-</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">short</span> x = <span class="number">3</span>;  </span><br><span class="line">x = (<span class="keyword">short</span>)(x + <span class="number">4.6</span>);</span><br></pre></td></tr></table></figure>
 <p>换句话说，你的假设是正确的。</p>
       
     </div>
@@ -245,7 +314,7 @@
 
       
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/编程/">编程</a>
+	<a class="article-category-link" href="/categories/Coding/">Coding</a>
 	</div>
 
 
@@ -331,7 +400,7 @@
 
       
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/编程/">编程</a>
+	<a class="article-category-link" href="/categories/Coding/">Coding</a>
 	</div>
 
 
@@ -413,7 +482,7 @@
 
       
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/编程/">编程</a>
+	<a class="article-category-link" href="/categories/Coding/">Coding</a>
 	</div>
 
 
@@ -478,7 +547,7 @@
 
       
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/编程/">编程</a>
+	<a class="article-category-link" href="/categories/Coding/">Coding</a>
 	</div>
 
 
