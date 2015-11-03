@@ -101,7 +101,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/OS-X/" style="font-size: 10px;">OS X</a> <a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/后台开发/" style="font-size: 10px;">后台开发</a> <a href="/tags/环境配置/" style="font-size: 10px;">环境配置</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+						<a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JDBC/" style="font-size: 10px;">JDBC</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/OS-X/" style="font-size: 10px;">OS X</a> <a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/后台开发/" style="font-size: 10px;">后台开发</a> <a href="/tags/环境配置/" style="font-size: 10px;">环境配置</a> <a href="/tags/线程同步/" style="font-size: 10px;">线程同步</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
 					</div>
 				</section>
 				
@@ -160,6 +160,138 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Java多线程同步的五种方法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/2015/11/03/Java多线程同步的五种方法/" class="article-date">
+  	<time datetime="2015-11-03T13:56:07.000Z" itemprop="datePublished">2015-11-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/2015/11/03/Java多线程同步的五种方法/">Java多线程同步的五种方法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、引言">一、引言</h3><p>前几天面试，被大师虐残了，好多基础知识必须得重新拿起来啊。闲话不多说，进入正题。</p>
+<h3 id="二、为什么要线程同步">二、为什么要线程同步</h3><p>因为当我们有多个线程要同时访问一个变量或对象时，如果这些线程中既有读又有写操作时，就会导致变量值或对象的状态出现混乱，从而导致程序异常。举个例子，如果一个银行账户同时被两个线程操作，一个取100块，一个存钱100块。假设账户原本有0块，如果取钱线程和存钱线程同时发生，会出现什么结果呢？取钱不成功，账户余额是100.取钱成功了，账户余额是0.那到底是哪个呢？很难说清楚。因此多线程同步就是要解决这个问题。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线程同步/">线程同步</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Coding/">Coding</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/posts/2015/11/03/Java多线程同步的五种方法/#more">查看更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-Java连接数据库" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/2015/11/03/Java连接数据库/" class="article-date">
+  	<time datetime="2015-11-03T13:20:34.000Z" itemprop="datePublished">2015-11-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/2015/11/03/Java连接数据库/">Java连接数据库</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JDBC连接数据库<br>创建一个以JDBC连接数据库的程序，包含7个步骤：   </p>
+<h3 id="1、加载JDBC驱动程序：">1、加载JDBC驱动程序：</h3><p>在连接数据库之前，首先要加载想要连接的数据库的驱动到JVM（Java虚拟机），这通过java.lang.Class类的静态方法forName(String  className)实现。<br>例如：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;   </span><br><span class="line">	<span class="comment">//加载MySql的驱动类   </span></span><br><span class="line">	<span class="keyword">Class</span>.forName(<span class="string">"com.mysql.jdbc.Driver"</span>) ;   </span><br><span class="line">&#125;<span class="keyword">catch</span>(ClassNotFoundException e)&#123;   </span><br><span class="line">	System.out.<span class="keyword">println</span>(<span class="string">"找不到驱动程序类 ，加载驱动失败！"</span>);   </span><br><span class="line">	e.printStackTrace();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>成功加载后，会将Driver类的实例注册到DriverManager类中。   </p>
+<h3 id="2、提供JDBC连接的URL">2、提供JDBC连接的URL</h3><p>•连接URL定义了连接数据库时的协议、子协议、数据源标识。<br>•书写形式：协议：子协议：数据源标识<br>协议：在JDBC中总是以jdbc开始<br>子协议：是桥连接的驱动程序或是数据库管理系统名称。<br>数据源标识：标记找到数据库来源的地址与连接端口。<br>例如：（MySql的连接URL） </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="rule"><span class="attribute">jdbc</span>:<span class="value">mysql://localhost:<span class="number">3306</span>/test?useUnicode=true&amp;characterEncoding=gbk</span></span>;</span><br></pre></td></tr></table></figure>
+<p>useUnicode=true：表示使用Unicode字符集。如果characterEncoding设置为gb2312或GBK，本参数必须设置为true 。characterEncoding=gbk：字符编码方式。   </p>
+<h3 id="3、创建数据库的连接">3、创建数据库的连接</h3><p>•要连接数据库，需要向java.sql.DriverManager请求并获得Connection对象，该对象就代表一个数据库的连接。<br>•使用DriverManager的getConnectin(String url , String username , String password )方法传入指定的欲连接的数据库的路径、数据库的用户名和密码来获得。  </p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JDBC/">JDBC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Coding/">Coding</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/posts/2015/11/03/Java连接数据库/#more">查看更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-我的后端开发书架2015" class="article article-type-post" itemscope itemprop="blogPost">
   

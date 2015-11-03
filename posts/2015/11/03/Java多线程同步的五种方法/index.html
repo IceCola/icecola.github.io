@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java多线程同步的五种方法 | Ola</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、引言前几天面试，被大师虐残了，好多基础知识必须得重新拿起来啊。闲话不多说，进入正题。
+二、为什么要线程同步因为当我们有多个线程要同时访问一个变量或对象时，如果这些线程中既有读又有写操作时，就会导致变量值或对象的状态出现混乱，从而导致程序异常。举个例子，如果一个银行账户同时被两个线程操作，一个取100块，一个存钱100块。假设账户原本有0块，如果取钱线程和存钱线程同时发生，会出现什么结果呢？取钱">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java多线程同步的五种方法">
+<meta property="og:url" content="http://yoursite.com/posts/2015/11/03/Java多线程同步的五种方法/index.html">
+<meta property="og:site_name" content="Ola">
+<meta property="og:description" content="一、引言前几天面试，被大师虐残了，好多基础知识必须得重新拿起来啊。闲话不多说，进入正题。
+二、为什么要线程同步因为当我们有多个线程要同时访问一个变量或对象时，如果这些线程中既有读又有写操作时，就会导致变量值或对象的状态出现混乱，从而导致程序异常。举个例子，如果一个银行账户同时被两个线程操作，一个取100块，一个存钱100块。假设账户原本有0块，如果取钱线程和存钱线程同时发生，会出现什么结果呢？取钱">
+<meta property="og:updated_time" content="2015-11-03T14:24:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java多线程同步的五种方法">
+<meta name="twitter:description" content="一、引言前几天面试，被大师虐残了，好多基础知识必须得重新拿起来啊。闲话不多说，进入正题。
+二、为什么要线程同步因为当我们有多个线程要同时访问一个变量或对象时，如果这些线程中既有读又有写操作时，就会导致变量值或对象的状态出现混乱，从而导致程序异常。举个例子，如果一个银行账户同时被两个线程操作，一个取100块，一个存钱100块。假设账户原本有0块，如果取钱线程和存钱线程同时发生，会出现什么结果呢？取钱">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Ola</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">火力全開</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">首页</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/categories/Coding">编程</a></li>
+				        
+							<li><a href="/tags/Java">Java</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JDBC/" style="font-size: 10px;">JDBC</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/OS-X/" style="font-size: 10px;">OS X</a> <a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/后台开发/" style="font-size: 10px;">后台开发</a> <a href="/tags/环境配置/" style="font-size: 10px;">环境配置</a> <a href="/tags/线程同步/" style="font-size: 10px;">线程同步</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">我们‘记得’过去,但和这个‘过去’相逢时却对面不识。思想总在回溯,但是时光一直前行,一旦分离,即是永诀。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Ola</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Ola</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">火力全開</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">首页</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/categories/Coding">编程</a></li>
+		        
+					<li><a href="/tags/Java">Java</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Java多线程同步的五种方法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/2015/11/03/Java多线程同步的五种方法/" class="article-date">
+  	<time datetime="2015-11-03T13:56:07.000Z" itemprop="datePublished">2015-11-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java多线程同步的五种方法
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线程同步/">线程同步</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Coding/">Coding</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、引言">一、引言</h3><p>前几天面试，被大师虐残了，好多基础知识必须得重新拿起来啊。闲话不多说，进入正题。</p>
+<h3 id="二、为什么要线程同步">二、为什么要线程同步</h3><p>因为当我们有多个线程要同时访问一个变量或对象时，如果这些线程中既有读又有写操作时，就会导致变量值或对象的状态出现混乱，从而导致程序异常。举个例子，如果一个银行账户同时被两个线程操作，一个取100块，一个存钱100块。假设账户原本有0块，如果取钱线程和存钱线程同时发生，会出现什么结果呢？取钱不成功，账户余额是100.取钱成功了，账户余额是0.那到底是哪个呢？很难说清楚。因此多线程同步就是要解决这个问题。</p>
+<a id="more"></a>
+<h3 id="三、不同步时的代码">三、不同步时的代码</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">Bank.java</span><br><span class="line"></span><br><span class="line">packagethreadTest;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line">*@authorww</span><br><span class="line">*</span><br><span class="line">*/</span></span><br><span class="line">publicclassBank&#123;</span><br><span class="line"> </span><br><span class="line">	privateintcount=<span class="number">0</span>;<span class="comment">//账户余额</span></span><br><span class="line">	 </span><br><span class="line">	<span class="comment">//存钱</span></span><br><span class="line">	publicvoidaddMoney(intmoney)&#123;</span><br><span class="line">		<span class="keyword">count</span>+=money;</span><br><span class="line">		System.out.<span class="keyword">println</span>(System.currentTimeMillis()+<span class="string">"存进："</span>+money);</span><br><span class="line">	&#125;</span><br><span class="line">	 </span><br><span class="line">	<span class="comment">//取钱</span></span><br><span class="line">	publicvoidsubMoney(intmoney)&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">count</span>-money&lt;<span class="number">0</span>)&#123;</span><br><span class="line">			System.out.<span class="keyword">println</span>(<span class="string">"余额不足"</span>);</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">count</span>-=money;</span><br><span class="line">		System.out.<span class="keyword">println</span>(+System.currentTimeMillis()+<span class="string">"取出："</span>+money);</span><br><span class="line">	&#125;</span><br><span class="line">	 </span><br><span class="line">	<span class="comment">//查询</span></span><br><span class="line">	publicvoidlookMoney()&#123;</span><br><span class="line">		System.out.<span class="keyword">println</span>(<span class="string">"账户余额："</span>+<span class="keyword">count</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">SyncThreadTest.java</span><br><span class="line"></span><br><span class="line">packagethreadTest;</span><br><span class="line"> </span><br><span class="line">publicclassSyncThreadTest&#123;</span><br><span class="line"> </span><br><span class="line">	publicstaticvoidmain(Stringargs[])&#123;</span><br><span class="line">		finalBankbank=newBank();</span><br><span class="line">	 </span><br><span class="line">		Threadtadd=newThread(newRunnable()&#123;</span><br><span class="line">	 </span><br><span class="line">			@<span class="function">Override</span><br><span class="line">			<span class="title">publicvoidrun</span><span class="params">()</span></span>&#123;</span><br><span class="line">				<span class="comment">//TODOAuto-generatedmethodstub</span></span><br><span class="line">				<span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">					<span class="keyword">try</span>&#123;</span><br><span class="line">						Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">					&#125;<span class="keyword">catch</span>(InterruptedExceptione)&#123;</span><br><span class="line">						<span class="comment">//TODOAuto-generatedcatchblock</span></span><br><span class="line">						e.printStackTrace();</span><br><span class="line">					&#125;</span><br><span class="line">					bank.addMoney(<span class="number">100</span>);</span><br><span class="line">					bank.lookMoney();</span><br><span class="line">					System.out.println(<span class="string">"n"</span>);	</span><br><span class="line">	 </span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	 </span><br><span class="line">		Threadtsub=newThread(newRunnable()&#123;</span><br><span class="line">	 </span><br><span class="line">			@<span class="function">Override</span><br><span class="line">			<span class="title">publicvoidrun</span><span class="params">()</span></span>&#123;</span><br><span class="line">				<span class="comment">//TODOAuto-generatedmethodstub</span></span><br><span class="line">				<span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">					bank.subMoney(<span class="number">100</span>);</span><br><span class="line">					bank.lookMoney();</span><br><span class="line">					System.out.println(<span class="string">"n"</span>);</span><br><span class="line">					<span class="keyword">try</span>&#123;</span><br><span class="line">						Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">					&#125;<span class="keyword">catch</span>(InterruptedExceptione)&#123;</span><br><span class="line">						<span class="comment">//TODOAuto-generatedcatchblock</span></span><br><span class="line">						e.printStackTrace();</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line"></span><br><span class="line">		tsub.start();</span><br><span class="line">	 </span><br><span class="line">		tadd.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码很简单，我就不解释了，看看运行结果怎样呢？截取了其中的一部分，是不是很乱，有写看不懂。</p>
+<p>余额不足<br>账户余额：0</p>
+<p>余额不足<br>账户余额：100</p>
+<p>1441790503354存进：100<br>账户余额：100</p>
+<p>1441790504354存进：100<br>账户余额：100</p>
+<p>1441790504354取出：100<br>账户余额：100</p>
+<p>1441790505355存进：100<br>账户余额：100</p>
+<p>1441790505355取出：100<br>账户余额：100</p>
+<h3 id="四、使用同步时的代码">四、使用同步时的代码</h3><p>（1）同步方法：<br>即有synchronized关键字修饰的方法。由于java的每个对象都有一个内置锁，当用此关键字修饰方法时，内置锁会保护整个方法。在调用该方法前，需要获得内置锁，否则就处于阻塞状态。</p>
+<p>修改后的Bank.java</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">packagethreadTest;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line">*@authorww</span><br><span class="line">*</span><br><span class="line">*/</span></span><br><span class="line">publicclassBank&#123;</span><br><span class="line"> </span><br><span class="line">	privateintcount=<span class="number">0</span>;<span class="comment">//账户余额</span></span><br><span class="line">	 </span><br><span class="line">	<span class="comment">//存钱</span></span><br><span class="line">	publicsynchronizedvoidaddMoney(intmoney)&#123;</span><br><span class="line">		<span class="keyword">count</span>+=money;</span><br><span class="line">		System.out.<span class="keyword">println</span>(System.currentTimeMillis()+<span class="string">"存进："</span>+money);</span><br><span class="line">	&#125;</span><br><span class="line">	 </span><br><span class="line">	<span class="comment">//取钱</span></span><br><span class="line">	publicsynchronizedvoidsubMoney(intmoney)&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">count</span>-money&lt;<span class="number">0</span>)&#123;</span><br><span class="line">			System.out.<span class="keyword">println</span>(<span class="string">"余额不足"</span>);</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">count</span>-=money;</span><br><span class="line">		System.out.<span class="keyword">println</span>(+System.currentTimeMillis()+<span class="string">"取出："</span>+money);</span><br><span class="line">	&#125;</span><br><span class="line">	 </span><br><span class="line">	<span class="comment">//查询</span></span><br><span class="line">	publicvoidlookMoney()&#123;</span><br><span class="line">		System.out.<span class="keyword">println</span>(<span class="string">"账户余额："</span>+<span class="keyword">count</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再看看运行结果：</p>
+<p>余额不足<br>账户余额：0</p>
+<p>余额不足<br>账户余额：0</p>
+<p>1441790837380存进：100<br>账户余额：100</p>
+<p>1441790838380取出：100<br>账户余额：0<br>1441790838380存进：100<br>账户余额：100</p>
+<p>1441790839381取出：100<br>账户余额：0<br>瞬间感觉可以理解了吧。</p>
+<p>注： synchronized关键字也可以修饰静态方法，此时如果调用该静态方法，将会锁住整个类</p>
+<p>（2）同步代码块<br>即有synchronized关键字修饰的语句块。被该关键字修饰的语句块会自动被加上内置锁，从而实现同步</p>
+<p>Bank.java代码如下：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">packagethreadTest;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line">*@authorww</span><br><span class="line">*</span><br><span class="line">*/</span></span><br><span class="line">publicclassBank&#123;</span><br><span class="line"> </span><br><span class="line">	privateintcount=<span class="number">0</span>;<span class="comment">//账户余额</span></span><br><span class="line">	 </span><br><span class="line">	<span class="comment">//存钱</span></span><br><span class="line">	publicvoidaddMoney(intmoney)&#123;</span><br><span class="line">	 </span><br><span class="line">		<span class="keyword">synchronized</span>(<span class="keyword">this</span>)&#123;</span><br><span class="line">			<span class="keyword">count</span>+=money;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.<span class="keyword">println</span>(System.currentTimeMillis()+<span class="string">"存进："</span>+money);</span><br><span class="line">	&#125;</span><br><span class="line">	 </span><br><span class="line">	<span class="comment">//取钱</span></span><br><span class="line">	publicvoidsubMoney(intmoney)&#123;</span><br><span class="line">	 </span><br><span class="line">		<span class="keyword">synchronized</span>(<span class="keyword">this</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(<span class="keyword">count</span>-money&lt;<span class="number">0</span>)&#123;</span><br><span class="line">				System.out.<span class="keyword">println</span>(<span class="string">"余额不足"</span>);</span><br><span class="line">				<span class="keyword">return</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">count</span>-=money;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.<span class="keyword">println</span>(+System.currentTimeMillis()+<span class="string">"取出："</span>+money);</span><br><span class="line">	&#125;</span><br><span class="line">	 </span><br><span class="line">	<span class="comment">//查询</span></span><br><span class="line">	publicvoidlookMoney()&#123;</span><br><span class="line">		System.out.<span class="keyword">println</span>(<span class="string">"账户余额："</span>+<span class="keyword">count</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果如下：</p>
+<p>余额不足<br>账户余额：0</p>
+<p>1441791806699存进：100<br>账户余额：100</p>
+<p>1441791806700取出：100<br>账户余额：0</p>
+<p>1441791807699存进：100<br>账户余额：100<br>效果和方法一差不多。</p>
+<p>注：同步是一种高开销的操作，因此应该尽量减少同步的内容。通常没有必要同步整个方法，使用synchronized代码块同步关键代码即可。</p>
+<p>（3）使用特殊域变量(volatile)实现线程同步<br>a.volatile关键字为域变量的访问提供了一种免锁机制<br>b.使用volatile修饰域相当于告诉虚拟机该域可能会被其他线程更新<br>c.因此每次使用该域就要重新计算，而不是使用寄存器中的值<br>d.volatile不会提供任何原子操作，它也不能用来修饰final类型的变量</p>
+<p>Bank.java代码如下：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">packagethreadTest;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line">*@authorww</span><br><span class="line">*</span><br><span class="line">*/</span></span><br><span class="line">publicclassBank&#123;</span><br><span class="line"> </span><br><span class="line">	privatevolatileintcount=<span class="number">0</span>;<span class="comment">//账户余额</span></span><br><span class="line">	 </span><br><span class="line">	<span class="comment">//存钱</span></span><br><span class="line">	publicvoidaddMoney(intmoney)&#123;</span><br><span class="line">	 </span><br><span class="line">		<span class="keyword">count</span>+=money;</span><br><span class="line">		System.out.<span class="keyword">println</span>(System.currentTimeMillis()+<span class="string">"存进："</span>+money);</span><br><span class="line">	&#125;</span><br><span class="line">	 </span><br><span class="line">	<span class="comment">//取钱</span></span><br><span class="line">	publicvoidsubMoney(intmoney)&#123;</span><br><span class="line">	 </span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">count</span>-money&lt;<span class="number">0</span>)&#123;</span><br><span class="line">			System.out.<span class="keyword">println</span>(<span class="string">"余额不足"</span>);</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">count</span>-=money;</span><br><span class="line">		System.out.<span class="keyword">println</span>(+System.currentTimeMillis()+<span class="string">"取出："</span>+money);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">//查询</span></span><br><span class="line">	publicvoidlookMoney()&#123;</span><br><span class="line">		System.out.<span class="keyword">println</span>(<span class="string">"账户余额："</span>+<span class="keyword">count</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行效果怎样呢？</p>
+<p>余额不足<br>账户余额：0</p>
+<p>余额不足<br>账户余额：100</p>
+<p>1441792010959存进：100<br>账户余额：100</p>
+<p>1441792011960取出：100<br>账户余额：0</p>
+<p>1441792011961存进：100<br>账户余额：100<br>是不是又看不懂了，又乱了。这是为什么呢？就是因为volatile不能保证原子操作导致的，因此volatile不能代替synchronized。此外volatile会组织编译器对代码优化，因此能不使用它就不适用它吧。它的原理是每次要线程要访问volatile修饰的变量时都是从内存中读取，而不是存缓存当中读取，因此每个线程访问到的变量值都是一样的。这样就保证了同步。</p>
+<p>（4）使用重入锁实现线程同步<br>在JavaSE5.0中新增了一个java.util.concurrent包来支持同步。ReentrantLock类是可重入、互斥、实现了Lock接口的锁，它与使用synchronized方法和快具有相同的基本行为和语义，并且扩展了其能力。<br>ReenreantLock类的常用方法有：<br>ReentrantLock() : 创建一个ReentrantLock实例<br>lock() : 获得锁<br>unlock() : 释放锁<br>注：ReentrantLock()还有一个可以创建公平锁的构造方法，但由于能大幅度降低程序运行效率，不推荐使用<br>Bank.java代码修改如下：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">packagethreadTest;</span><br><span class="line"> </span><br><span class="line">importjava.util.concurrent.locks.Lock;</span><br><span class="line">importjava.util.concurrent.locks.ReentrantLock;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line">*@authorww</span><br><span class="line">*</span><br><span class="line">*/</span></span><br><span class="line">publicclassBank&#123;</span><br><span class="line"> </span><br><span class="line">	privateintcount=<span class="number">0</span>;<span class="comment">//账户余额</span></span><br><span class="line">	 </span><br><span class="line">	<span class="comment">//需要声明这个锁</span></span><br><span class="line">	privateLocklock=newReentrantLock();</span><br><span class="line">	 </span><br><span class="line">	<span class="comment">//存钱</span></span><br><span class="line">	publicvoidaddMoney(intmoney)&#123;</span><br><span class="line">		<span class="keyword">lock</span>.<span class="keyword">lock</span>();<span class="comment">//上锁</span></span><br><span class="line">		<span class="keyword">try</span>&#123;</span><br><span class="line">			count+=money;</span><br><span class="line">			System.<span class="keyword">out</span>.println(System.currentTimeMillis()+<span class="string">"存进："</span>+money);</span><br><span class="line">		 </span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			<span class="keyword">lock</span>.unlock();<span class="comment">//解锁</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	 </span><br><span class="line">	<span class="comment">//取钱</span></span><br><span class="line">	publicvoidsubMoney(intmoney)&#123;</span><br><span class="line">		<span class="keyword">lock</span>.<span class="keyword">lock</span>();</span><br><span class="line">		<span class="keyword">try</span>&#123;</span><br><span class="line">		 </span><br><span class="line">			<span class="keyword">if</span>(count-money&lt;<span class="number">0</span>)&#123;</span><br><span class="line">				System.<span class="keyword">out</span>.println(<span class="string">"余额不足"</span>);</span><br><span class="line">				<span class="keyword">return</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			count-=money;</span><br><span class="line">			System.<span class="keyword">out</span>.println(+System.currentTimeMillis()+<span class="string">"取出："</span>+money);</span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			<span class="keyword">lock</span>.unlock();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	 </span><br><span class="line">	<span class="comment">//查询</span></span><br><span class="line">	publicvoidlookMoney()&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"账户余额："</span>+count);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行效果怎么样呢？</p>
+<p>余额不足<br>账户余额：0</p>
+<p>余额不足<br>账户余额：0</p>
+<p>1441792891934存进：100<br>账户余额：100</p>
+<p>1441792892935存进：100<br>账户余额：200</p>
+<p>1441792892954取出：100<br>账户余额：100<br>效果和前两种方法差不多。</p>
+<p>如果synchronized关键字能满足用户的需求，就用synchronized，因为它能简化代码 。如果需要更高级的功能，就用ReentrantLock类，此时要注意及时释放锁，否则会出现死锁，通常在finally代码释放锁</p>
+<p>（5）使用局部变量实现线程同步<br>Bank.java代码如下：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">packagethreadTest;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line">*@authorww</span><br><span class="line">*</span><br><span class="line">*/</span></span><br><span class="line">publicclassBank&#123;</span><br><span class="line"> </span><br><span class="line">	privatestaticThreadLocal&lt;Integer&gt;<span class="keyword">count</span>=newThreadLocal&lt;Integer&gt;()&#123;</span><br><span class="line">	 </span><br><span class="line">		@Override</span><br><span class="line">		protectedIntegerinitialValue()&#123;</span><br><span class="line">			<span class="comment">//TODOAuto-generatedmethodstub</span></span><br><span class="line">			return0;</span><br><span class="line">		&#125;</span><br><span class="line">		 </span><br><span class="line">	&#125;;</span><br><span class="line">		 </span><br><span class="line">		 </span><br><span class="line">	<span class="comment">//存钱</span></span><br><span class="line">	publicvoidaddMoney(intmoney)&#123;</span><br><span class="line">		<span class="keyword">count</span>.<span class="keyword">set</span>(<span class="keyword">count</span>.<span class="literal">get</span>()+money);</span><br><span class="line">		System.<span class="keyword">out</span>.println(System.currentTimeMillis()+<span class="string">"存进："</span>+money);</span><br><span class="line">		 </span><br><span class="line">	&#125;</span><br><span class="line">		 </span><br><span class="line">	<span class="comment">//取钱</span></span><br><span class="line">	publicvoidsubMoney(intmoney)&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">count</span>.<span class="literal">get</span>()-money&lt;0)&#123;</span><br><span class="line">			System.<span class="keyword">out</span>.println(<span class="string">"余额不足"</span>);</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">count</span>.<span class="keyword">set</span>(<span class="keyword">count</span>.<span class="literal">get</span>()-money);</span><br><span class="line">		System.<span class="keyword">out</span>.println(+System.currentTimeMillis()+<span class="string">"取出："</span>+money);</span><br><span class="line">	&#125;</span><br><span class="line">		 </span><br><span class="line">	<span class="comment">//查询</span></span><br><span class="line">	publicvoidlookMoney()&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"账户余额："</span>+<span class="keyword">count</span>.<span class="literal">get</span>());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行效果：</p>
+<p>余额不足<br>账户余额：0</p>
+<p>余额不足<br>账户余额：0</p>
+<p>1441794247939存进：100<br>账户余额：100</p>
+<p>余额不足<br>1441794248940存进：100<br>账户余额：0</p>
+<p>账户余额：200</p>
+<p>余额不足<br>账户余额：0</p>
+<p>1441794249941存进：100<br>账户余额：300<br>看了运行效果，一开始一头雾水，怎么只让存，不让取啊？看看ThreadLocal的原理：</p>
+<p>如果使用ThreadLocal管理变量，则每一个使用该变量的线程都获得该变量的副本，副本之间相互独立，这样每一个线程都可以随意修改自己的变量副本，而不会对其他线程产生影响。现在明白了吧，原来每个线程运行的都是一个副本，也就是说存钱和取钱是两个账户，知识名字相同而已。所以就会发生上面的效果。</p>
+<p>ThreadLocal与同步机制<br>a.ThreadLocal与同步机制都是为了解决多线程中相同变量的访问冲突问题</p>
+<p>b.前者采用以”空间换时间”的方法，后者采用以”时间换空间”的方式</p>
+<p>现在都明白了吧。各有优劣，各有适用场景。手工，吃饭去了。</p>
+<hr>
+<p>原文：<br><a href="http://www.kuqin.com/shuoit/20150910/347986.html" target="_blank" rel="external">Java学习笔记—多线程同步的五种方法</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/posts/2015/11/03/Java连接数据库/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java连接数据库</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Java多线程同步的五种方法" data-title="Java多线程同步的五种方法" data-url="http://yoursite.com/posts/2015/11/03/Java多线程同步的五种方法/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    	</div>
+      <div class="footer-center" >
+      &copy; 2015 Ola·火力全開
+      </div>
+    	<div class="footer-center">
+    	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
