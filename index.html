@@ -101,7 +101,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JDBC/" style="font-size: 10px;">JDBC</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/OS-X/" style="font-size: 10px;">OS X</a> <a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/后台开发/" style="font-size: 10px;">后台开发</a> <a href="/tags/环境配置/" style="font-size: 10px;">环境配置</a> <a href="/tags/线程同步/" style="font-size: 10px;">线程同步</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+						<a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JDBC/" style="font-size: 10px;">JDBC</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/OS-X/" style="font-size: 10px;">OS X</a> <a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/卷积神经网络/" style="font-size: 10px;">卷积神经网络</a> <a href="/tags/后台开发/" style="font-size: 10px;">后台开发</a> <a href="/tags/环境配置/" style="font-size: 10px;">环境配置</a> <a href="/tags/线程同步/" style="font-size: 10px;">线程同步</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
 					</div>
 				</section>
 				
@@ -160,6 +160,75 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Understanding Convolutional Neural Networks for NLP" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/2015/11/08/Understanding Convolutional Neural Networks for NLP/" class="article-date">
+  	<time datetime="2015-11-08T02:16:34.000Z" itemprop="datePublished">2015-11-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/2015/11/08/Understanding Convolutional Neural Networks for NLP/">Understanding Convolutional Neural Networks for NLP</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>When we hear about Convolutional Neural Network (CNNs), we typically think of Computer Vision. CNNs were responsible for major breakthroughs in Image Classification and are the core of most Computer Vision systems today, from Facebook’s automated photo tagging to self-driving cars.</p>
+<p>More recently we’ve also started to apply CNNs to problems in Natural Language Processing and gotten some interesting results. In this post I’ll try to summarize what CNNs are, and how they’re used in NLP. The intuitions behind CNNs are somewhat easier to understand for the Computer Vision use case, so I’ll start there, and then slowly move towards NLP.</p>
+<h3 id="What_is_Convolution?">What is Convolution?</h3><p>The for me easiest way to understand a convolution is by thinking of it as a sliding window function applied to a matrix. That’s a mouthful, but it becomes quite clear looking at a visualization:</p>
+<p><img src="http://deeplearning.stanford.edu/wiki/images/6/6c/Convolution_schematic.gif" alt="Convolution with 3×3 Filter"></p>
+<font size=2>Convolution with 3×3 Filter. Source: <a href="http://deeplearning.stanford.edu/wiki/index.php/Feature_extraction_using_convolution">http://deeplearning.stanford.edu/wiki/index.php/Feature_extraction_using_convolution</a></font>
+
+<p>Imagine that the matrix on the left represents an black and white image. Each entry corresponds to one pixel, 0 for black and 1 for white (typically it’s between 0 and 255 for grayscale images). The sliding window is called a kernel, filter, or feature detector. Here we use a 3×3 filter, multiply its values element-wise with the original matrix, then sum them up. To get the full convolution we do this for each element by sliding the filter over the whole matrix.</p>
+<p>You may be wondering wonder what you can actually do with this. Here are some intuitive examples.</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/">NLP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/卷积神经网络/">卷积神经网络</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/机器学习/">机器学习</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/posts/2015/11/08/Understanding Convolutional Neural Networks for NLP/#more">查看更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-Java多线程同步的五种方法" class="article article-type-post" itemscope itemprop="blogPost">
   
