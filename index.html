@@ -1193,6 +1193,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.finder AppleShowAllFiles -bool <span class="literal">true</span>;killall Finder</span><br></pre></td></tr></table></figure>
 <p>关闭：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.finder AppleShowAllFiles -bool <span class="literal">false</span>;killall Finder</span><br></pre></td></tr></table></figure>
+<h4 id="关闭dashboard">关闭dashboard</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dashboard mcx-disabled -boolean YES</span><br><span class="line">killall Dock</span><br></pre></td></tr></table></figure>
 <h4 id="完整路径">完整路径</h4><p>在Finder上显示当前文件夹的完整路径。</p>
 <p>开启：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.finder _FXShowPosixPathInTitle -bool TRUE;killall Finder</span><br></pre></td></tr></table></figure>
