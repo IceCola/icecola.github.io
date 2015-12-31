@@ -45,7 +45,7 @@ Xcode装好之后要启动一次，接受软件声明，否则后面步骤会失
 GitMac自带，查看下版本。 
 1git --version
 TextMate装完之后，如下配置，在命令行下输入">
-<meta property="og:updated_time" content="2015-10-07T10:08:45.000Z">
+<meta property="og:updated_time" content="2015-12-31T14:51:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac开发环境配置">
 <meta name="twitter:description" content="软件安装
@@ -358,41 +358,14 @@ TextMate装完之后，如下配置，在命令行下输入">
 <p>如果是 Linux，去下载 autojump 的最新版本,比如：</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/downloads/joelthelion/autojump/autojump_v21.<span class="number">1.2</span>.tar.gz</span><br></pre></td></tr></table></figure>
 <p>解压缩后进入目录，执行</p>
-<pre><code class="bash">./install.sh
-</code></pre>
-<p>最后把以下代码加入.zshrc：</p>
-<pre><code class="bash">[[ <span class="operator">-s</span> ~/.autojump/etc/profile.d/autojump.sh ]] &amp;&amp; . ~/.autojump/etc/profile.d/autojump.sh
-</code></pre>
-<p>至此，安装、配置、插件三位一体，终极 Shell 全面登场。退出终端会话重新登录，开始感受 zsh 的训疾如风！</p>
-<ul>
-<li><p>使用 zsh  </p>
-<ol>
-<li><p>兼容 bash。</p>
-</li>
-<li><p>强大的历史纪录功能，输入 grep 然后用上下箭头可以翻阅你执行的所有 grep 命令。</p>
-</li>
-<li><p>智能拼写纠正，输入gtep mactalk * -R，系统会提示：</p>
-<pre><code class="bash">zsh: correct ‘gtep’ to ‘grep’ [nyae]?
-</code></pre>
-</li>
-<li><p>各种补全：路径补全、命令补全，命令参数补全，插件内容补全等等。触发补全只需要按一下或两下 tab 键，补全项可以使用 <code>ctrl+n/p/f/b</code>上下左右切换。比如你想杀掉 java 的进程，只需要输入 <code>kill java + tab键</code>，如果只有一个 java 进程，zsh 会自动替换为进程的 pid，如果有多个则会出现选择项供你选择。<code>ssh + 空格 + 两个tab键</code>，zsh会列出所有访问过的主机和用户名进行补全</p>
-</li>
-<li><p>智能跳转，安装了autojump之后，zsh 会自动记录你访问过的目录，通过 <code>j + 目录名</code> 可以直接进行目录跳转，而且目录名支持模糊匹配和自动补全，例如你访问过hadoop-1.0.0目录，输入<code>j hado</code>即可正确跳转。<code>j –stat</code> 可以看你的历史路径库。</p>
-</li>
-<li><p>目录浏览和跳转：输入 d，即可列出你在这个会话里访问的目录列表，输入列表前的序号，即可直接跳转。</p>
-</li>
-<li><p>在当前目录下输入 .. 或 … ，或直接输入当前目录名都可以跳转，你甚至不再需要输入 cd 命令了。</p>
-</li>
-<li><p>通配符搜索：<code>ls -l **/*.sh</code>，可以递归显示当前目录下的 shell 文件，文件少时可以代替 find，文件太多就歇菜了。</p>
-</li>
-<li><p>更强的别名：请参考配置一节。</p>
-</li>
-<li><p>插件支持：请参考插件一节。</p>
-</li>
-</ol>
-</li>
-</ul>
-<h2 id="参考">参考</h2><ul>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">./install.sh  </span><br><span class="line">```	  </span><br><span class="line">最后把以下代码加入.zshrc：</span><br><span class="line"></span><br><span class="line"> ``` bash</span><br><span class="line">[[ <span class="operator">-s</span> ~/.autojump/etc/profile.d/autojump.sh ]] &amp;&amp; . ~/.autojump/etc/profile.d/autojump.sh  </span><br><span class="line">```	  </span><br><span class="line">至此，安装、配置、插件三位一体，终极 Shell 全面登场。退出终端会话重新登录，开始感受 zsh 的训疾如风！</span><br><span class="line"></span><br><span class="line">- 使用 zsh  </span><br><span class="line"></span><br><span class="line">	<span class="number">1</span>. 兼容 bash。</span><br><span class="line">	</span><br><span class="line">	<span class="number">2</span>. 强大的历史纪录功能，输入 grep 然后用上下箭头可以翻阅你执行的所有 grep 命令。</span><br><span class="line">	</span><br><span class="line">	<span class="number">3</span>. 智能拼写纠正，输入gtep mactalk * -R，系统会提示：</span><br><span class="line"></span><br><span class="line">     ``` bash</span><br><span class="line">zsh: correct ‘gtep’ to ‘grep’ [nyae]? </span><br><span class="line">```		</span><br><span class="line">	<span class="number">4</span>. 各种补全：路径补全、命令补全，命令参数补全，插件内容补全等等。触发补全只需要按一下或两下 tab 键，补全项可以使用 `ctrl+n/p/f/b`上下左右切换。比如你想杀掉 java 的进程，只需要输入 `<span class="built_in">kill</span> java + tab键`，如果只有一个 java 进程，zsh 会自动替换为进程的 pid，如果有多个则会出现选择项供你选择。`ssh + 空格 + 两个tab键`，zsh会列出所有访问过的主机和用户名进行补全</span><br><span class="line">	</span><br><span class="line">	<span class="number">5</span>. 智能跳转，安装了autojump之后，zsh 会自动记录你访问过的目录，通过 `j + 目录名` 可以直接进行目录跳转，而且目录名支持模糊匹配和自动补全，例如你访问过hadoop-<span class="number">1.0</span>.<span class="number">0</span>目录，输入`j hado `即可正确跳转。`j –<span class="built_in">stat</span>` 可以看你的历史路径库。</span><br><span class="line">	</span><br><span class="line">	<span class="number">6</span>. 目录浏览和跳转：输入 d，即可列出你在这个会话里访问的目录列表，输入列表前的序号，即可直接跳转。</span><br><span class="line">	</span><br><span class="line">	<span class="number">7</span>. 在当前目录下输入 .. 或 … ，或直接输入当前目录名都可以跳转，你甚至不再需要输入 <span class="built_in">cd</span> 命令了。</span><br><span class="line">	</span><br><span class="line">	<span class="number">8</span>. 通配符搜索：`ls <span class="operator">-l</span> **/*.sh`，可以递归显示当前目录下的 shell 文件，文件少时可以代替 find，文件太多就歇菜了。</span><br><span class="line">	</span><br><span class="line">	<span class="number">9</span>. 更强的别名：请参考配置一节。</span><br><span class="line">	</span><br><span class="line">	<span class="number">10</span>. 插件支持：请参考插件一节。</span><br><span class="line"></span><br><span class="line">- 更新可能遇到的问题：</span><br><span class="line"></span><br><span class="line"> ``` bash</span><br><span class="line">➜ ryan@lh ~  upgrade_oh_my_zsh -h</span><br><span class="line">Upgrading Oh My Zsh</span><br><span class="line">Cannot pull with rebase: You have unstaged changes.</span><br><span class="line">Please commit or stash them.</span><br><span class="line">There was an error updating. Try again later?</span><br><span class="line">➜ ryan@lh ~  <span class="variable">$ZSH</span></span><br><span class="line">➜ ryan@lh .oh-my-zsh git:(master) ✗ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with <span class="string">'origin/master'</span>.</span><br><span class="line">Changes not staged <span class="keyword">for</span> commit:</span><br><span class="line">  (use <span class="string">"git add &lt;file&gt;..."</span> to update what will be committed)</span><br><span class="line">  (use <span class="string">"git checkout -- &lt;file&gt;..."</span> to discard changes <span class="keyword">in</span> working directory)</span><br><span class="line"></span><br><span class="line">    modified:   plugins/bgnotify/bgnotify.plugin.zsh</span><br><span class="line">    modified:   plugins/catimg/catimg.sh</span><br><span class="line">    modified:   plugins/cloudapp/cloudapp.rb</span><br><span class="line">    modified:   plugins/emacs/emacsclient.sh</span><br><span class="line">    typechange: plugins/go/go.plugin.zsh</span><br><span class="line">    typechange: plugins/per-directory-history/per-directory-history.plugin.zsh</span><br><span class="line">    modified:   plugins/scd/scd</span><br><span class="line">    modified:   plugins/wd/wd.sh</span><br><span class="line">    modified:   tools/install.sh</span><br><span class="line">    modified:   tools/require_tool.sh</span><br><span class="line">    modified:   tools/theme_chooser.sh</span><br><span class="line">    </span><br><span class="line"> Untracked files:</span><br><span class="line">  (use <span class="string">"git add &lt;file&gt;..."</span> to include <span class="keyword">in</span> what will be committed)</span><br><span class="line"></span><br><span class="line">    themes/ryanbalfanz.zsh-theme</span><br><span class="line"></span><br><span class="line"> no changes added to commit (use <span class="string">"git add"</span> and/or <span class="string">"git commit -a"</span>)</span><br></pre></td></tr></table></figure>
+<p> 是由于修改了主题文件，导致无法更新。解决方法：</p>
+<pre><code>~ <span class="variable">$ZSH</span>
+~ git add .
+~ git commit -m <span class="string">"theme"</span>
+~ git push 
+~ git pull origin master
+</code></pre><h2 id="参考">参考</h2><ul>
 <li><a href="http://www.jianshu.com/p/77a4349bf67b" target="_blank" rel="external">我的Mac开发环境配置</a></li>
 <li><a href="http://zhuanlan.zhihu.com/mactalk/19556676" target="_blank" rel="external">终极Shell —— ZSH</a></li>
 </ul>
